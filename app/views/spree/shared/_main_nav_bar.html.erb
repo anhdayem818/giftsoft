@@ -1,0 +1,9 @@
+<nav class="columns alpha omega sixteen">
+  <ul id="main-nav-bar" class="inline" data-hook>
+    <li id="home-link" data-hook><%= link_to t(:home), root_path %></li>
+    
+    <li id="search-bar" data-hook>
+      <%= render :partial => 'spree/shared/search' %>
+    </li>
+  </ul>
+</nav>
