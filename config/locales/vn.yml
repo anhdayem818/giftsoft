@@ -321,7 +321,7 @@ vn:
   charge_total: Tổng số tiền
   charged: Đã lấy tiền
   charges: Thanh toán
-  checkout: Thủ tục mua hàng
+  checkout: Thanh toán
   cheque: Séc
   city: Thành phố
   clone: Nhân bản
@@ -545,7 +545,7 @@ vn:
   logged_in_as: "Đã đăng nhập với"
   logged_in_succesfully: "Đăng nhập thành công"
   logged_out: "Bạn đã đăng xuất"
-  login: Login
+  login: Đăng nhập
   login_as_existing: "Đăng nhập như khách hàng cũ"
   login_failed: "Đăng nhập không uy quyền."
   login_name: Đăng nhập
@@ -657,15 +657,15 @@ vn:
   order_processed_but_following_items_are_out_of_stock: "Đơn đặt hàng của bạn đã được xử lý, nhưng một số sản phẩm sau đã hết hàng:"
   order_processed_successfully: "Đơn đặt hàng của bạn đã được xử lý thành công"
   order_state: # keys correspond to Checkout state names:
-    address: address
+    address: Địa Chỉ
     adjustments: adjustments
     awaiting_return: awaiting return
     canceled: canceled
     cart: cart
-    complete: complete
+    complete: Hoàn thành
     confirm: confirm
-    delivery: delivery
-    payment: payment
+    delivery: Giao hàng
+    payment: Thanh toán
     resumed: resumed
     returned: returned
     skrill: skrill
