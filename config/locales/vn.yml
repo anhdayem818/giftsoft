@@ -1,5 +1,16 @@
 ---
 vn:
+  number:
+    # Used in number_to_currency()
+    currency:
+      format:
+        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
+        format: "%n %u"
+        unit: "VND"
+        # These three are to override number.format and are optional
+        separator: "."
+        delimiter: " "
+        precision: 2
   no: "No"
   yes: "Yes"
   a_copy_of_all_mail_will_be_sent_to_the_following_addresses: Một bản sao của tất cả thư sẽ được gửi đến những địa chỉ sau
@@ -301,7 +312,7 @@ vn:
   card_details: "Thông tin thẻ"
   card_number: "Số thẻ"
   card_type_is: Loại thẻ là
-  cart: Sọt hàng
+  cart: Giỏ hàng
   categories: Loại mặt hàng
   category: Loại mặt hàng
   change: Thay đổi
@@ -477,8 +488,8 @@ vn:
   hello_user: "Chào người dùng"
   history: Lịch sử
   home: "Trang chủ"
-  how_to: "How to"
-  contact_us: "Contact us"
+  how_to: "Hướng dẫn"
+  contact_us: "Liên hệ"
   icon: "Icon"
   icons_by: "Biểu tượng được thiết kế bởi"
   image: Hình ảnh
@@ -850,6 +861,8 @@ vn:
         name: "Với Giá trị Đặc tính"
         sentence: với đặc tính <em>%s</em> và giá trị <em>%s</em>
   products: Sản phẩm
+  latest_products: Hàng mới về
+  popular_products: Mua nhiều nhất
   products_with_zero_inventory_display: "Sản phẩm không có hàng tồn sẽ %{not} được hiển thị"
   promotion: Promotion
   promotion_action: Promotion Action

@@ -9,7 +9,7 @@
 <% end %>
 
 <% if products.any? %>
-<h1>Latest products</h1>
+<h1><%= t(:latest_products) %></h1>
 <ul id="products" class="inline product-listing" data-hook>
   <% reset_cycle('default') %>
   <% products[0..5].each do |product| %>
@@ -27,7 +27,7 @@
 </ul>
 <p class="clear"></p>
 
-<h1>Popular products</h1>
+<h1><%= t(:popular_products) %></h1>
 <ul id="products" class="inline product-listing" data-hook>
   <% reset_cycle('default') %>
   <% products[0..5].each do |product| %>

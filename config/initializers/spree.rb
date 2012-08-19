@@ -8,7 +8,7 @@
 Spree.config do |config|
   # Example:
   # Uncomment to override the default site name.
-  # config.site_name = "Spree Demo Site"
+  config.site_name = "Mua mê ly"
   config.address_requires_state = false
   config.set(:default_locale => 'vn')
   config.set(:allow_ssl_in_production => false)
