@@ -7,7 +7,7 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: giftshop_development
+  database: giftshop
   pool: 5
   username: root
   password: abc123
@@ -30,10 +30,10 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database:  giftshop_development
+  database:  giftshop
   pool: 5
   username: root
-  password: abc123
+  password: Deekau1
   host: localhost
 
 cucumber:
