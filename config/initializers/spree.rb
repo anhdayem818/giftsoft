@@ -11,10 +11,10 @@ Spree.config do |config|
   # config.site_name = "Spree Demo Site"
   config.address_requires_state = false
   config.set(:default_locale => 'vn')
+  config.set(:allow_ssl_in_production => false)
 end
 
 Spree.user_class = "Spree::User"
-
 #if Spree::Config.instance
 #  Spree::Config.set(:default_locale => 'de')
 #end
