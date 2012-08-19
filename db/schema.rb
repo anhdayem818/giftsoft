@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120725093058) do
+ActiveRecord::Schema.define(:version => 20120819032419) do
 
   create_table "spree_activators", :force => true do |t|
     t.string   "description"
@@ -519,31 +519,34 @@ ActiveRecord::Schema.define(:version => 20120725093058) do
   end
 
   create_table "spree_users", :force => true do |t|
-    t.string   "crypted_password"
-    t.string   "salt"
+    t.string   "encrypted_password"
+    t.string   "password_salt"
     t.string   "email"
     t.string   "remember_token"
-    t.string   "remember_token_expires_at"
     t.string   "persistence_token"
-    t.string   "single_access_token"
+    t.string   "reset_password_token"
     t.string   "perishable_token"
-    t.integer  "login_count",                             :default => 0, :null => false
-    t.integer  "failed_login_count",                      :default => 0, :null => false
+    t.integer  "sign_in_count",                        :default => 0, :null => false
+    t.integer  "failed_attempts",                      :default => 0, :null => false
     t.datetime "last_request_at"
-    t.datetime "current_login_at"
-    t.datetime "last_login_at"
-    t.string   "current_login_ip"
-    t.string   "last_login_ip"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.string   "login"
     t.integer  "ship_address_id"
     t.integer  "bill_address_id"
-    t.datetime "created_at",                                             :null => false
-    t.datetime "updated_at",                                             :null => false
-    t.string   "openid_identifier"
-    t.string   "spree_api_key",             :limit => 48
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
+    t.string   "spree_api_key",          :limit => 48
+    t.string   "authentication_token"
+    t.string   "unlock_token"
+    t.datetime "locked_at"
+    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at"
   end
 
-  add_index "spree_users", ["openid_identifier"], :name => "index_users_on_openid_identifier"
+  add_index "spree_users", ["email"], :name => "email_idx_unique", :unique => true
   add_index "spree_users", ["persistence_token"], :name => "index_users_on_persistence_token"
 
   create_table "spree_variants", :force => true do |t|

@@ -9,6 +9,12 @@ Spree.config do |config|
   # Example:
   # Uncomment to override the default site name.
   # config.site_name = "Spree Demo Site"
+  config.address_requires_state = false
+  config.set(:default_locale => 'vn')
 end
 
 Spree.user_class = "Spree::User"
+
+#if Spree::Config.instance
+#  Spree::Config.set(:default_locale => 'de')
+#end

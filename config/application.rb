@@ -71,5 +71,9 @@ module Giftshop
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    initializer 'spree.register.payment_methods' do |app|
+      config.spree.payment_methods << Spree::PaymentMethod::Banking
+    end
   end
 end
