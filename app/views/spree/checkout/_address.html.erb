@@ -33,7 +33,22 @@
       <div class="control-group">
         <%= bill_form.label :city, t(:city), :class=>"control-label" %>
         <div class="controls">
-          <%= bill_form.text_field :city, :class => 'required' %>
+          <% have_states = !@order.bill_address.country.states.empty? %>
+          <% default_country = Spree::Country.find_by_iso("VN") %>
+          <% state_elements = [
+             bill_form.collection_select(:state_id, default_country.states,
+                                :id, :name,
+                                {:include_blank => false},
+                                {:class => have_states ? 'required' : 'hidden',
+                                :disabled => !have_states}) +
+             bill_form.text_field(:state_name,
+                                :class => !have_states ? 'required' : 'hidden',
+                                :disabled => have_states)
+             ].join.gsub('"', "'").gsub("\n", "")
+          %>
+          <%= javascript_tag do -%>
+            document.write("<%== state_elements %>");
+          <% end -%>
         </div>
       </div>
 

@@ -34,7 +34,7 @@ vn:
       spree/address:
         address1: Address
         address2: "Address (contd.)"
-        city: City
+        city: Tỉnh/Thành phố
         country: "Country"
         firstname: "First Name"
         lastname: "Last Name"
@@ -323,7 +323,7 @@ vn:
   charges: Thanh toán
   checkout: Thanh toán
   cheque: Séc
-  city: Thành phố
+  city: Tỉnh/Thành phố
   clone: Nhân bản
   code: Mã
   combine: Nhập vào

@@ -4,5 +4,6 @@ Spree::Address.class_eval do
     self.country = Spree::Country.find_by_iso("VN")
     self.lastname = "NA"
     self.zipcode = 70000
+    self.city = "NA"
   end
 end
