@@ -8,9 +8,9 @@ vn:
         format: "%n %u"
         unit: "VND"
         # These three are to override number.format and are optional
-        separator: "."
-        delimiter: " "
-        precision: 2
+        separator: ","
+        delimiter: "."
+        precision: 0
   no: "No"
   yes: "Yes"
   a_copy_of_all_mail_will_be_sent_to_the_following_addresses: Một bản sao của tất cả thư sẽ được gửi đến những địa chỉ sau
