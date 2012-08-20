@@ -5,10 +5,11 @@
     <%= form.text_field :email %>
   </p>
 <% end %>
+<%= hidden_field_tag 'order[use_billing]', '1' %> 
 <fieldset id="billing" data-hook>
   <%= form.fields_for :bill_address do |bill_form| %>
     <legend><%= t(:billing_address) %></legend>
-    
+      
       <div class="control-group">
         <%= bill_form.label :firstname, "Họ & Tên", :class=>"control-label" %>
         <div class="controls">
