@@ -5,8 +5,8 @@ vn:
     currency:
       format:
         # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
-        format: "%n %u"
-        unit: "VND"
+        format: "%n%u"
+        unit: "đ"
         # These three are to override number.format and are optional
         separator: ","
         delimiter: "."
@@ -643,7 +643,7 @@ vn:
   option_values: "Giá trị tùy chọn"
   options: Tùy chọn
   or: hoặc
-  or_over_price: "%{price} or over"
+  or_over_price: ">> %{price}"
   order: Đơn hàng
   order_confirmation_note: ""
   order_date: "Ngày đặt hàng"
@@ -731,7 +731,7 @@ vn:
   preview: Xem trước
   previous: Trước
   price: Giá
-  price_range: Price Range
+  price_range: Tìm theo giá
   price_sack: Price Sack
   problem_authorizing_card: "Có sự cố ủy quyền thẻ tín dụng"
   problem_capturing_card: "Có sự cố thu thập thẻ tín dụng"
@@ -1122,7 +1122,7 @@ vn:
   unable_to_connect_to_gateway: "Không thề kết nối với gateway."
   unable_to_save_order: "Không thề lưu đơn đặt hàng"
   under_paid: "Trả thiếu"
-  under_price: "Under %{price}"
+  under_price: "<< %{price}"
   unrecognized_card_type: Không nhận ra được loại thẻ
   update: Cập nhật
   update_password: "Cập nhật mật khầu của tôi rồi tự động đăng nhập tôi"

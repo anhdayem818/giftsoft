@@ -5,6 +5,7 @@
 #
 # In order to initialize a setting do: 
 # config.setting_name = 'new value'
+require 'spree/product_filters'
 Spree.config do |config|
   # Example:
   # Uncomment to override the default site name.
@@ -15,6 +16,7 @@ Spree.config do |config|
 end
 
 Spree.user_class = "Spree::User"
+
 #if Spree::Config.instance
 #  Spree::Config.set(:default_locale => 'de')
 #end
