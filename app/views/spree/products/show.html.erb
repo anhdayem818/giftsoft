@@ -26,7 +26,7 @@
       <div class="hero-unit span6" id="product-description" data-hook="product_description">
 
         <h1 class="product-title" itemprop="name"><%= accurate_title %></h1>
-
+        <div class="fb-like" data-href="http://muamely.com" data-send="false" data-width="450" data-show-faces="true"></div>
         <div itemprop="description" data-hook="description">
           <%= product_description(@product) rescue t(:product_has_no_description) %>
         </div>
