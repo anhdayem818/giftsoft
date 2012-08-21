@@ -35,20 +35,13 @@
         <div class="controls">
           <% default_country = Spree::Country.find_by_iso("VN") %>
           <% have_states = !default_country.states.empty? %>
-          <% state_elements = [
-             bill_form.collection_select(:state_id, default_country.states,
-                                :id, :name,
-                                {:include_blank => false},
-                                {:class => have_states ? 'required' : 'hidden',
-                                :disabled => !have_states}) +
-             bill_form.text_field(:state_name,
-                                :class => !have_states ? 'required' : 'hidden',
-                                :disabled => have_states)
-             ].join.gsub('"', "'").gsub("\n", "")
+          <%= bill_form.collection_select(:state_id, default_country.states,
+                                  :id, :name,
+                                  {:include_blank => false},
+                                  {:class => 'required'}
+                                )
           %>
-          <%= javascript_tag do -%>
-            document.write("<%== state_elements %>");
-          <% end -%>
+          
         </div>
       </div>
 
