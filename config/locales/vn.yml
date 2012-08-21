@@ -631,7 +631,7 @@ vn:
     product_not_deleted: "Không thể xóa sản phẩm"
     variant_deleted: "Biến thể đã được xóa"
     variant_not_deleted: "Không thể xóa biến thể"
-  on_hand: "Có hàng"
+  on_hand: "on hand"
   one_default_category_with_default_tax_rate: "You should configure exactly one default category with your countries default tax rate"
   operation: Hoạt động
   option_type: "Option Type"

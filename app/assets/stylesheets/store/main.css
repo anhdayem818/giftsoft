@@ -1,7 +1,9 @@
 body {
     
 }
-
+select {
+    width: 210px;
+}
 #footer {
 	clear: both;
 	overflow: hidden;
