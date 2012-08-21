@@ -7,4 +7,5 @@
  *= require store/home
  *= require store/spree_core
  *= require screen
+ *= require store/products
 */

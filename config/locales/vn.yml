@@ -490,6 +490,9 @@ vn:
   home: "Trang chủ"
   how_to: "Hướng dẫn"
   contact_us: "Liên hệ"
+  retails: "Đại lý"
+  save_points: "Tích lũy điểm"
+  
   icon: "Icon"
   icons_by: "Biểu tượng được thiết kế bởi"
   image: Hình ảnh
@@ -864,7 +867,7 @@ vn:
   latest_products: Hàng mới về
   popular_products: Mua nhiều nhất
   products_with_zero_inventory_display: "Sản phẩm không có hàng tồn sẽ %{not} được hiển thị"
-  promotion: Promotion
+  promotion: Khuyến mãi
   promotion_action: Promotion Action
   promotion_action_types: 
     create_adjustment: 
@@ -920,7 +923,7 @@ vn:
   receive: nhận
   received: Đã nhận
   refund: Thối
-  register: Đăng ký như một thành viên mới
+  register: Đăng ký
   register_or_guest: Thanh toán như là Khách vãng lai hoặc Đăng ký
   registration: Đăng ký
   remember_me: "Nhớ tôi"

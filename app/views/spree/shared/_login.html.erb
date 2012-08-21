@@ -1,0 +1,24 @@
+<%= form_for :user, :url => spree.user_session_path do |f| %>
+  <div id="password-credentials">
+    <div class="control-group">
+      <%= f.label :email, t(:email), :class=>"control-label" %>
+      <div class="controls">
+        <%= f.email_field :email, :class => 'title' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :password, t(:password), :class=>"control-label" %>
+      <div class="controls">
+        <%= f.password_field :password, :class => 'title' %>
+      </div>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="checkbox">
+      <%= f.check_box :remember_me %>
+      <%= t(:remember_me) %>
+    </label>
+  </div>
+
+  <%= f.submit t(:login), :class => 'button primary' %>
+<% end %>
