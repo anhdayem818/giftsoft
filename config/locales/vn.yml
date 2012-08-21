@@ -522,7 +522,7 @@ vn:
   issue_number: Vấn đề số
   item: Món
   item_description: "Miêu tả món hàng"
-  item_total: "Tổng số món"
+  item_total: "Tổng số tiền"
   item_total_rule: 
     operators: 
       gt: greater than
