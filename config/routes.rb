@@ -1,5 +1,6 @@
 Giftshop::Application.routes.draw do
 
+  resources :statics
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
@@ -8,7 +9,7 @@ Giftshop::Application.routes.draw do
   mount Spree::Core::Engine, :at => '/'
           # The priority is based upon order of creation:
   # first created -> highest priority.
-
+  
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
