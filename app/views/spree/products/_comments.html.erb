@@ -12,7 +12,6 @@
   <% end %>
   <% @comment = @product.comments.new %>
   <%= form_for @comment, :url => "/products/#{@product.id}/comments", :remote=>true do |f| %>
-    
     <%= f.text_area :comment, :class=>"span8", :rows => 4%>
     <div>
       <%= f.submit :value=>t(:create_comment), :class=>"btn" %>
