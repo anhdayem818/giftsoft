@@ -5,7 +5,7 @@
     <%= image_tag "avatar_icon.jpg", :class=>"avatar" %>
     <div class="details">
       <h4><%= comment.user.present?? comment.user.username : t(:stranger) %></h4>
-      <em><%= comment.created_at %></em>
+      <em><%= comment.created_at.utc.getlocal("+07:00").asctime %></em>
       <div><%= comment.comment %></div>
     </div>
   </div>
