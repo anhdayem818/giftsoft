@@ -4,7 +4,8 @@
   <div class="form-actions">
     <%= image_tag "avatar_icon.jpg", :class=>"avatar" %>
     <div class="details">
-      <em><%= comment.user.present?? comment.user.username : t(:stranger) %></em>
+      <h4><%= comment.user.present?? comment.user.username : t(:stranger) %></h4>
+      <em><%= comment.created_at %></em>
       <div><%= comment.comment %></div>
     </div>
   </div>
