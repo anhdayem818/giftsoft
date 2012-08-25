@@ -4,7 +4,7 @@
   <div class="form-actions">
     <%= image_tag "avatar_icon.jpg", :class=>"avatar" %>
     <div class="details">
-      <h4><%= comment.user.present?? comment.user.username : t(:stranger) %></h4>
+      <h4><%= comment.user.present?? comment.user.username : comment.author_name %></h4>
       <em><%= comment.created_at.utc.getlocal("+07:00").asctime %></em>
       <div><%= comment.comment %></div>
     </div>
@@ -14,7 +14,14 @@
   <%= form_for @comment, :url => main_app.product_comments_path(@product), :remote=>true do |f| %>
     <%= f.text_area :comment, :class=>"span8", :rows => 4%>
     <div>
-      <%= f.submit :value=>t(:create_comment), :class=>"btn" %>
+      <div class="input-prepend input-append">
+        <% if current_user.nil? %>
+        <span class="add-on">Nhập tên</span>
+        <%= f.text_field :author_name, :class=>"span6", :placeholder=>t(:full_name) %>
+        <% end %>
+        <span><%= f.submit :value=>t(:create_comment), :class=>"btn" %></span>
+      </div>
+      
     </div>
   <% end %>
 </div>

@@ -2,7 +2,13 @@ class Comment < ActiveRecord::Base
    
   include ActsAsCommentable::Comment
 
-  attr_accessible :comment, :user_id
+  attr_accessible :comment, :user_id, :author_name
+  #author_name is used to allow users who not logged in be able to give comments
+  validates :author_name, :presence => true, :unless => :user_login?
+  
+  def user_login?
+    self.user.present?
+  end
   
   belongs_to :commentable, :polymorphic => true
 
