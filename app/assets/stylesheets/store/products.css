@@ -4,3 +4,13 @@
 .pagination {
     text-align: center;
 }
+.comments .form-actions {
+    padding: 0px;
+}
+.comments .avatar {
+    float: left;
+}
+.comments .details {
+    padding-left: 10px;
+    float: left;
+}

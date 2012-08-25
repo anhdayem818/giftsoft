@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120821103708) do
+ActiveRecord::Schema.define(:version => 20120825084256) do
+
+  create_table "comments", :force => true do |t|
+    t.string   "title",            :limit => 50, :default => ""
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+  end
+
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "spree_activators", :force => true do |t|
     t.string   "description"
@@ -544,6 +558,7 @@ ActiveRecord::Schema.define(:version => 20120821103708) do
     t.datetime "locked_at"
     t.datetime "remember_created_at"
     t.datetime "reset_password_sent_at"
+    t.string   "username"
   end
 
   add_index "spree_users", ["email"], :name => "email_idx_unique", :unique => true

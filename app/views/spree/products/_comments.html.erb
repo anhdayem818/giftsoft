@@ -1,0 +1,20 @@
+<p class="clear"></p>
+<div class="comments">
+  <%@product.comments.each do |comment|%>
+  <div class="form-actions">
+    <%= image_tag "avatar_icon.jpg", :class=>"avatar" %>
+    <div class="details">
+      <em><%= comment.user.present?? comment.user.username : t(:stranger) %></em>
+      <div><%= comment.comment %></div>
+    </div>
+  </div>
+  <% end %>
+  <% @comment = @product.comments.new %>
+  <%= form_for @comment, :url => "/products/#{@product.id}/comments", :remote=>true do |f| %>
+    
+    <%= f.text_area :comment, :class=>"span8", :rows => 4%>
+    <div>
+      <%= f.submit :value=>t(:create_comment), :class=>"btn" %>
+    </div>
+  <% end %>
+</div>
