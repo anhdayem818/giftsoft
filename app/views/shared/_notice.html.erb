@@ -1,0 +1,29 @@
+<div class="modal" id="notice-modal" tabindex="-1" role="dialog" aria-labelledby="notice-modal-label" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="notice-modal-label"><%= t(:notice) %></h3>
+  </div>
+  <div class="modal-body">
+    <p>Giá bán trên web là giá sỉ, chỉ dành cho những đơn hàng mua từ 10 sản phẩm trở lên, hoặc trên 200.000đ</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    if($.cookie("notice") != "true") {
+      $.cookie("notice", "true", { expires: 7 });
+      $('#notice-modal').modal({
+        keyboard: true,
+        show: true
+      });
+    } else {
+      $('#notice-modal').modal({
+        keyboard: true,
+        show: true
+      });
+      $('#notice-modal').modal("hide");
+    }
+  });
+</script>

@@ -3,7 +3,7 @@
     <%= render :partial => 'spree/shared/taxonomies' %>
   </div>
 <% end %>
-
+<%= render :partial=>"shared/notice" %>
 <div data-hook="homepage_products">
   <%= render :partial => 'spree/shared/products', :locals => { :products => @products } %>
 </div>
