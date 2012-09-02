@@ -1,8 +1,21 @@
-<nav id="taxonomies" class="sidebar-item" data-hook>
+<nav class="sidebar-item" id="cart-details">
   <div class="well">
-  <% get_taxonomies.each do |taxonomy| %>
-    <h6 class='taxonomy-root'><%= taxonomy.name.singularize %></h6>
-    <%= taxons_tree(taxonomy.root, @taxon, Spree::Config[:max_level_in_taxons_menu] || 1) %>
-  <% end %>
+    <h2><%= t(:cart) %></h2>
+    <table class="table">
+      <th><%= t(:product) %></th>
+      <th>SL</th>
+      <th></th>
+      <% if current_order.present? %>
+      <% current_order.line_items.each do |item| %>
+        <tr name="<%= item.variant.product.name %>">
+          <td class="name"><%= item.variant.product.name %></td>
+          <td class="count"><%= item.quantity %></td>
+          <td><%= link_to image_tag('icons/delete.png'), '#', :class => 'delete', :id => "delete_#{dom_id(item)}", :item_id =>item.id %></td>
+        </tr>
+      <% end %>
+      <% end %>
+    </table>
+    <div><%= link_to t(:checkout), checkout_path, :class => 'btn checkout primary', :id => 'checkout-link' %></div>
   </div>
 </nav>
+

@@ -55,3 +55,6 @@ select {
 	font-weight:normal;
 	margin-bottom:7px;
 }
+#sidebar {
+    margin-left: 0;
+}
