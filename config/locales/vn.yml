@@ -67,17 +67,17 @@ vn:
         presentation: Presentation
       spree/order: 
         checkout_complete: "Checkout Complete"
-        completed_at: "Completed At"
-        created_at: Order Date
-        email: Customer E-Mail
+        completed_at: "Ngày mua"
+        created_at: "Ngày mua"
+        email: "email"
         ip_address: "IP Address"
         item_total: "Item Total"
-        number: Number
-        payment_state: Payment State
-        shipment_state: Shipment State
+        number: "Mã số"
+        payment_state: "Trạng thái thanh toán"
+        shipment_state: "Trạng thái vận chuyển"
         special_instructions: "Special Instructions"
-        state: State
-        total: Total
+        state: "Trạng thái"
+        total: "Tổng tiền"
       spree/order/bill_address:
           address1: "Billing address street"
           city: "Billing address city"

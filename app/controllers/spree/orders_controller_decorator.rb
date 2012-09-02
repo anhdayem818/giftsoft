@@ -1,5 +1,6 @@
 Spree::OrdersController.class_eval do
   before_filter :check_authorization
+  before_filter :authenticate_user!
   def populate
     puts "=================================="
     puts session[:order_id]
@@ -27,6 +28,12 @@ Spree::OrdersController.class_eval do
     }
     
     
+  end
+  
+  def index
+    @show_only_completed = true
+    @orders = spree_current_user.orders.includes([:user, :shipments, :payments]).page(params[:page]).per(Spree::Config[:orders_per_page])
+    respond_with(@orders)
   end
   private
     def check_authorization
