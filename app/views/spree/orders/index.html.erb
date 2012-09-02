@@ -1,3 +1,4 @@
+<% if @orders.present? %>
 <h1><%= t(:listing_orders) %></h1>
 
 <table class="index" id="listing_orders" data-hook>
@@ -32,4 +33,5 @@
   </tbody>
 </table>
 <%= paginate @orders %>
+<% end %>
 
