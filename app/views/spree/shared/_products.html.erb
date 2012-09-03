@@ -20,7 +20,7 @@
         <%= link_to truncate(product.name, :length => 50), product, :class => 'info', :itemprop => "name", :title => product.name %>
         <span class="price selling" itemprop="price"><%= number_to_currency product.price %></span>
         <% unless product.has_stock? %>
-        <a href="#" class="btn out-of-stock" price ="<%= product.price %>">Tạm hết</a>
+        <a href="#" class="btn out-of-stock" price ="<%= product.price %>"><%= t(:out_of_stock) %></a>
         <% else %>
         <a class="btn add-to-cart" price ="<%= product.price %>"><%= t(:add_to_cart) %></a>
         <% end %>
