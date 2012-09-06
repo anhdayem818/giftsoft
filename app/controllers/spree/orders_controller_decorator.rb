@@ -1,6 +1,5 @@
 Spree::OrdersController.class_eval do
   before_filter :check_authorization
-  before_filter :authenticate_user!
   def populate
     puts "=================================="
     puts session[:order_id]
