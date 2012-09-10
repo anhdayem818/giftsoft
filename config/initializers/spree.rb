@@ -9,7 +9,7 @@ require 'spree/product_filters'
 Spree.config do |config|
   # Example:
   # Uncomment to override the default site name.
-  config.site_name = "Muamely"
+  config.site_name = "Đại lý"
   config.address_requires_state = false
   config.set(:default_locale => 'vn')
   config.set(:allow_ssl_in_production => false)
