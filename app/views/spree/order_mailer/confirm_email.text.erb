@@ -1,0 +1,23 @@
+Kính chào <%= @order.user.username %>,
+
+Cảm ơn quý khách đã mua hàng hàng qua hệ thống trực tuyến muamely.com
+
+============================================================
+Thông tin đơn hàng
+============================================================
+  Mã đơn hàng: <%= @order.number %>
+============================================================
+Chi tiết đơn hàng
+============================================================
+<% @order.line_items.each do |item| %>
+  <%= item.variant.sku %> <%= raw(item.variant.product.name) %> <%= raw(item.variant.options_text) -%>: (<%=item.quantity%>) x <%= number_to_currency item.price %> = <%= number_to_currency(item.price * item.quantity) %>
+<% end %>
+============================================================
+Tiền hàng: <%= number_to_currency @order.item_total %>
+<% @order.adjustments.eligible.each do |adjustment| %>
+  <%= raw(adjustment.label) %> <%= number_to_currency(adjustment.amount) %>
+<% end %>
+Tổng tiền cần thanh toán : <%= number_to_currency(@order.total) %>
+
+
+Trân trọng cảm ơn và kính chào,
