@@ -11,6 +11,7 @@ Spree.config do |config|
   # Uncomment to override the default site name.
   config.site_name = "Muamely"
   config.address_requires_state = false
+  config.allow_guest_checkout = false
   config.set(:default_locale => 'vn')
   config.set(:allow_ssl_in_production => false)
 end
