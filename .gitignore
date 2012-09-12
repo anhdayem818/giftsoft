@@ -17,3 +17,4 @@
 /public/assets/
 /public/spree/
 /config/database.yml
+/.sass-cache/
