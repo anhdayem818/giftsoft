@@ -7,7 +7,7 @@
       <th class="qty"><%= t(:qty) %></th>
       <th class="total"><span><%= t(:total) %></span></th>
     </tr>
-
+    <% item_count = 0 %>
     <% @order.line_items.each do |item| %>
       <% image = item.product.images.first %>
       <tr data-hook="order_details_line_item_row">
@@ -17,11 +17,13 @@
         <td class="qty"><%= item.quantity %></td>
         <td class="total"><span><%= number_to_currency (item.price * item.quantity) %></span></td>
       </tr>
+      <% item_count += item.quantity %>
     <% end %>
   </tbody>
   <tbody id="subtotal" data-hook="order_details_subtotal">
     <tr class="total" id="subtotal-row">
-      <td colspan="4"><b><%= t(:subtotal) %>:</b></td>
+      <td colspan="3"><b><%= t(:subtotal) %>:</b></td>
+      <td class="qty"><span><%= item_count %></span></td>
       <td class="total"><span><%= number_to_currency @order.item_total %></span></td>
     </tr>
   </tbody>
@@ -30,6 +32,7 @@
     <% next if (adjustment.originator_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
       <tr class="total">
         <td colspan="4"><strong><%= adjustment.label %></strong></td>
+        
         <td class="total"><span><%= number_to_currency adjustment.amount %></span></td>
       </tr>
     <% end %>
@@ -50,4 +53,5 @@
       <% end %>
     </tbody>
   <% end %>
+  
 </table>
