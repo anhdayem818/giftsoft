@@ -20,8 +20,9 @@
   </thead>
   <tbody>
   <% @orders.each do |order| %>
+    <% if @order.completed? %>
     <tr>
-      <td><%= l (@show_only_completed ? order.completed_at : order.created_at).to_date %></td>
+      <td><%= order.completed_at.to_date %></td>
       <td><%= order.number%></td>
       <td><%= t("order_state.#{order.state.downcase}") %></td>
       <td><%= t("payment_states.#{order.payment_state}") if order.payment_state %></td>
@@ -29,6 +30,7 @@
       <td><%= order.email %></td>
       <td><%= number_to_currency order.total %></td>
     </tr>
+    <% end %>
   <% end %>
   </tbody>
 </table>
