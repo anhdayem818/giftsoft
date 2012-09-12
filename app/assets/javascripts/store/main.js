@@ -8,7 +8,7 @@ $(document).ready(function() {
         return this.length !== 0;
     }
     $('.carousel').carousel();
-    $('.add-to-cart').click(function() {
+    $('#products .add-to-cart').click(function() {
         var product = $(this).closest('[data-hook="products_list_item"]');
         var name = product.children('[itemprop="name"]').attr('title');
         var variant_id = product.attr('variant_id');
