@@ -13,3 +13,12 @@
 .comments .details {
     padding-left: 70px;
 }
+#products {
+    margin: 0 0 9px 0px;
+}
+.price.selling {
+    position: relative;
+}
+.product-image a {
+    min-height: 100px;
+}

@@ -16,9 +16,11 @@
       <li id="product_<%= product.id %>" variant_id="<%= product.master.id%>" class="span2" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
         <div class="product-image">
           <%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url' %>
+          <span class="price selling" itemprop="price"><%= number_to_currency product.price %></span>
         </div>
-        <%= link_to truncate(product.name, :length => 50), product, :class => 'info', :itemprop => "name", :title => product.name %>
-        <span class="price selling" itemprop="price"><%= number_to_currency product.price %></span>
+        
+        <%= link_to truncate(product.name, :length => 50), product, :itemprop => "name", :title => product.name %>
+        
         <% unless product.has_stock? %>
         <a href="#" class="btn out-of-stock" price ="<%= product.price %>"><%= t(:out_of_stock) %></a>
         <% else %>

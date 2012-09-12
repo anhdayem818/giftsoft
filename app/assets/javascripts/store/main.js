@@ -12,7 +12,7 @@ $(document).ready(function() {
         var product = $(this).closest('[data-hook="products_list_item"]');
         var name = product.children('[itemprop="name"]').attr('title');
         var variant_id = product.attr('variant_id');
-        addToCart(name, variant_id);
+        addToCart($(this), variant_id);
     //alert($(this).attr('price'));
     });
     $('#cart-details a.delete').live('click', function(e) {
@@ -34,7 +34,9 @@ $(document).ready(function() {
         $("#cart-checkout").removeClass("disabled");
         return false;
     })
-    function addToCart(name, variant_id) {
+    function addToCart(object, variant_id) {
+        object.html("Đang xử lý");
+        object.addClass("disabled");
         var items = '{"variants": {"' + variant_id + '": "1"}}';
         //$.post("/orders/populate", $.parseJSON(items));
         var obj = jQuery.parseJSON(items);
@@ -47,6 +49,8 @@ $(document).ready(function() {
             data: obj,
             success: function (data) {
                 $("#cart-details").replaceWith(data);
+                object.html("Mua hàng");
+                object.removeClass("disabled");
             }
         });
         $("#cart-checkout").removeClass("disabled");

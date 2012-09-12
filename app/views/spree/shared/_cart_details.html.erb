@@ -1,6 +1,9 @@
 <nav class="sidebar-item" id="cart-details">
   <div class="well">
     <h2><%= t(:cart) %></h2>
+    <% if @out_stock %>
+    <div>Vượt số lượng sản phẩm trong kho</div>
+    <% end %>
     <table class="table">
       <th><%= t(:product) %></th>
       <th>SL</th>
