@@ -23,6 +23,7 @@ end
 gem 'jquery-rails'
 gem 'spree_auth_devise', :git => 'git://github.com/spree/spree_auth_devise'
 gem 'acts_as_commentable'
+gem 'newrelic_rpm'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

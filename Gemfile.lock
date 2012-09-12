@@ -165,6 +165,7 @@ GEM
     nested_set (1.7.0)
       activerecord (>= 3.0.0)
       railties (>= 3.0.0)
+    newrelic_rpm (3.4.2)
     nokogiri (1.5.5)
     orm_adapter (0.0.7)
     paperclip (2.7.0)
@@ -239,6 +240,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
   mysql2
+  newrelic_rpm
   rails (= 3.2.6)
   sass-rails (~> 3.2.3)
   spree!

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120825172658) do
+ActiveRecord::Schema.define(:version => 20120909022412) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -66,17 +66,17 @@ ActiveRecord::Schema.define(:version => 20120825172658) do
 
   create_table "spree_adjustments", :force => true do |t|
     t.integer  "source_id"
-    t.decimal  "amount",          :precision => 8, :scale => 2
+    t.decimal  "amount",          :precision => 12, :scale => 2
     t.string   "label"
     t.string   "source_type"
     t.integer  "adjustable_id"
-    t.datetime "created_at",                                                      :null => false
-    t.datetime "updated_at",                                                      :null => false
+    t.datetime "created_at",                                                       :null => false
+    t.datetime "updated_at",                                                       :null => false
     t.boolean  "mandatory"
     t.boolean  "locked"
     t.integer  "originator_id"
     t.string   "originator_type"
-    t.boolean  "eligible",                                      :default => true
+    t.boolean  "eligible",                                       :default => true
     t.string   "adjustable_type"
   end
 
@@ -171,10 +171,10 @@ ActiveRecord::Schema.define(:version => 20120825172658) do
   create_table "spree_line_items", :force => true do |t|
     t.integer  "order_id"
     t.integer  "variant_id"
-    t.integer  "quantity",                                 :null => false
-    t.decimal  "price",      :precision => 8, :scale => 2, :null => false
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.integer  "quantity",                                  :null => false
+    t.decimal  "price",      :precision => 12, :scale => 2, :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   add_index "spree_line_items", ["order_id"], :name => "index_spree_line_items_on_order_id"
@@ -227,17 +227,17 @@ ActiveRecord::Schema.define(:version => 20120825172658) do
 
   create_table "spree_orders", :force => true do |t|
     t.string   "number",               :limit => 15
-    t.decimal  "item_total",                         :precision => 8, :scale => 2, :default => 0.0, :null => false
-    t.decimal  "total",                              :precision => 8, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "item_total",                         :precision => 12, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "total",                              :precision => 12, :scale => 2, :default => 0.0, :null => false
     t.string   "state"
-    t.decimal  "adjustment_total",                   :precision => 8, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "adjustment_total",                   :precision => 12, :scale => 2, :default => 0.0, :null => false
     t.integer  "user_id"
-    t.datetime "created_at",                                                                        :null => false
-    t.datetime "updated_at",                                                                        :null => false
+    t.datetime "created_at",                                                                         :null => false
+    t.datetime "updated_at",                                                                         :null => false
     t.datetime "completed_at"
     t.integer  "bill_address_id"
     t.integer  "ship_address_id"
-    t.decimal  "payment_total",                      :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "payment_total",                      :precision => 12, :scale => 2, :default => 0.0
     t.integer  "shipping_method_id"
     t.string   "shipment_state"
     t.string   "payment_state"
@@ -260,10 +260,10 @@ ActiveRecord::Schema.define(:version => 20120825172658) do
   end
 
   create_table "spree_payments", :force => true do |t|
-    t.decimal  "amount",            :precision => 8, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "amount",            :precision => 12, :scale => 2, :default => 0.0, :null => false
     t.integer  "order_id"
-    t.datetime "created_at",                                                       :null => false
-    t.datetime "updated_at",                                                       :null => false
+    t.datetime "created_at",                                                        :null => false
+    t.datetime "updated_at",                                                        :null => false
     t.integer  "source_id"
     t.string   "source_type"
     t.integer  "payment_method_id"
@@ -560,6 +560,7 @@ ActiveRecord::Schema.define(:version => 20120825172658) do
     t.datetime "remember_created_at"
     t.datetime "reset_password_sent_at"
     t.string   "username"
+    t.integer  "point",                                :default => 0
   end
 
   add_index "spree_users", ["email"], :name => "email_idx_unique", :unique => true
