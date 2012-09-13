@@ -244,7 +244,7 @@ vn:
   add_rule_of_type: Add rule of type
   add_scope: "Thêm phạm vi"
   add_state: "Thêm bang"
-  add_to_cart: "Mua hàng"
+  add_to_cart: "Thêm vào giỏ"
   add_zone: "Thêm vùng"
   additional_item: Giá phải trả thêm
   address: Địa chỉ
@@ -325,7 +325,7 @@ vn:
   charge_total: Tổng số tiền
   charged: Đã lấy tiền
   charges: Thanh toán
-  checkout: Thanh toán
+  checkout: Gửi đơn hàng
   cheque: Séc
   city: Tỉnh/Thành phố
   clone: Nhân bản
