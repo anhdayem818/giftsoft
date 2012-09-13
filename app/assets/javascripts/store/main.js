@@ -15,8 +15,9 @@ $(document).ready(function() {
         addToCart($(this), variant_id);
     //alert($(this).attr('price'));
     });
-    $('.checkout.disabled').live('click', function(){
-       alert('Quý khách vui lòng mua đủ 200.000đ, Xin cảm ơn!') ;
+    $('.checkout.disabled').live('click', function(e){
+       alert('Quý khách vui lòng mua đủ 200.000đ, Xin cảm ơn!');
+       e.preventDefault();
     });
     $('#cart-details a.delete').live('click', function(e) {
         
