@@ -18,3 +18,4 @@
 /public/spree/
 /config/database.yml
 /.sass-cache/
+vendor/cache
