@@ -681,6 +681,7 @@ vn:
   order_sure_want_to: "Bạn có chắc bạn muốn %{event} đơn hàng này?"
   order_total: "Tổng giá sau thuế"
   order_total_message: "Tổng số tiền sẽ được rút từ thẻ của bạn là"
+  order_total_not_enough_message: "Đơn hàng tối thiểu 200k"
   order_updated: "Đơn hàng được cập nhật"
   orders: Đơn hàng
   other_payment_options: Tùy chọn Thanh toán khác

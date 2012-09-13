@@ -16,7 +16,11 @@ Giftshop::Application.routes.draw do
     resources :comments
   end
   
-  resources :line_items
+  namespace :spree do
+    resources :line_items
+  end
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
   

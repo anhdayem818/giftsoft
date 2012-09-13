@@ -1,4 +1,5 @@
 Spree::Order.class_eval do
+  #has_many :line_items, :dependent => :destroy, :class_name => "Spree::LineItem"
   def add_variant(variant, quantity = 1)
     current_item = find_line_item_by_variant(variant)
     if current_item
@@ -16,5 +17,14 @@ Spree::Order.class_eval do
 
     self.reload
     current_item
+  end
+  
+  def validate_total
+    self.item_total >= 200000
+  end
+  
+  def remove_item(id)
+    self.line_items.destroy(id)
+    self.reload
   end
 end

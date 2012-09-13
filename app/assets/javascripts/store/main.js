@@ -15,6 +15,9 @@ $(document).ready(function() {
         addToCart($(this), variant_id);
     //alert($(this).attr('price'));
     });
+    $('.checkout.disabled').live('click', function(){
+       alert('Quý khách vui lòng mua đủ 200.000đ, Xin cảm ơn!') ;
+    });
     $('#cart-details a.delete').live('click', function(e) {
         
         //var items = '{id: }';
@@ -24,7 +27,7 @@ $(document).ready(function() {
         $.ajax({
             type: "DELETE",
             //the url where you want to sent the userName and password to
-            url: '/line_items/' + id,
+            url: '/spree/line_items/' + id,
             dataType: 'text',
             //json object to sent to the authentication url
             success: function (data) {
