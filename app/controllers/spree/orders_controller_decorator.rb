@@ -32,6 +32,10 @@ Spree::OrdersController.class_eval do
     @orders = spree_current_user.orders.includes([:user, :shipments, :payments]).page(params[:page]).per(Spree::Config[:orders_per_page])
     respond_with(@orders)
   end
+  
+  def destroy
+    
+  end
   private
     def check_authorization
       return if spree_current_user

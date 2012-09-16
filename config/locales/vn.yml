@@ -295,6 +295,8 @@ vn:
   back: Quay lại
   back_end: Back End
   back_to_store: "Quay lại cửa hàng"
+  back_to_order_list: "Danh sách đơn hàng"
+  details: "Xem chi tiết"
   backordered: Đã đặt hàng trước
   backordering_is_allowed: "Đã đặt hàng trước %{not} được cho phép"
   balance_due: "Tiền cần thanh toán"

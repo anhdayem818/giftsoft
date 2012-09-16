@@ -13,9 +13,8 @@
       <th><%= t(:state, :scope => 'activerecord.attributes.spree/order') %></th>
       <th><%= t(:payment_state, :scope => 'activerecord.attributes.spree/order') %></th>
       <th><%= t(:shipment_state, :scope => 'activerecord.attributes.spree/order') %></th>
-      <th><%= t(:email, :scope => 'activerecord.attributes.spree/order') %></th>
       <th><%= t(:total, :scope => 'activerecord.attributes.spree/order') %></th>
-      
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -27,8 +26,8 @@
       <td><%= t("order_state.#{order.state.downcase}") %></td>
       <td><%= t("payment_states.#{order.payment_state}") if order.payment_state %></td>
       <td><%= t("shipment_states.#{order.shipment_state}") if order.shipment_state %></td>
-      <td><%= order.email %></td>
       <td><%= number_to_currency order.total %></td>
+      <td><%= link_to t(:details), order_path(order) %></td>
     </tr>
     <% end %>
   <% end %>
