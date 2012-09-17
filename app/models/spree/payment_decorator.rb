@@ -3,7 +3,9 @@ Spree::Payment.class_eval do
     after_transition :to => 'completed',  :do => :add_point_to_user
   end
   def add_point_to_user
-    point = self.order.user.point + self.amount/10000
-    self.order.user.update_attribute("point", point)
+    if self.amount >= 500000
+      point = self.order.user.point + self.amount/10000 
+      self.order.user.update_attribute("point", point)
+    end
   end
 end
