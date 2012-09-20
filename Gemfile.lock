@@ -247,4 +247,5 @@ DEPENDENCIES
   spree_auth_devise!
   spree_gateway!
   spree_i18n!
+  sprockets
   uglifier (>= 1.0.3)

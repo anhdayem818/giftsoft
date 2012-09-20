@@ -336,12 +336,12 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
     }
   }
   .btn.add-to-cart {
-    background-image: url("store/icons.png");
+    background-image: image-url("store/icons.png");
     background-repeat: no-repeat;
     background-position: -479px -5px;
   }
   .btn.add-to-cart:hover {
-    background-image: url("store/icons.png");
+    background-image: image-url("store/icons.png");
     background-repeat: no-repeat;
     background-position: -479px -5px;
   }
