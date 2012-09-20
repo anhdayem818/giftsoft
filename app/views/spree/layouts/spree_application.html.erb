@@ -9,15 +9,32 @@
   </head>
   <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
     <div class="container">
+
+
       <%= render :partial => 'spree/shared/header' %>
-      <div id="wrapper" class="row" data-hook>
-          <%= breadcrumbs(@taxon) %>
-        <%= render :partial => 'spree/shared/sidebar' if content_for? :sidebar %>
-        <div id="content" class="<%= !content_for?(:sidebar) ? "span12" : "span9" %>" data-hook>
-          <%= flash_messages %>
-          <%= yield %>
+
+
+
+      <div id="content" data-hook>
+        <div class="row">
+          <div class="span12">
+            <%= breadcrumbs(@taxon) %>
+            <%= flash_messages %>
+          </div>
+          <% if content_for? :sidebar %>
+            <%= render :partial => 'spree/shared/sidebar' if content_for? :sidebar %>
+            <div class="span9">
+              <%= yield %>
+            </div>
+          <% else %>
+            <div class="span12">
+              <%= render :partial => 'spree/shared/sidebar' if content_for? :sidebar %>
+              <%= yield %>
+            </div>
+          <% end %>
         </div>
       </div>
+
       <%= render :partial => 'spree/shared/footer' %>
     </div>
     <%= render :partial => 'spree/shared/google_analytics' %>

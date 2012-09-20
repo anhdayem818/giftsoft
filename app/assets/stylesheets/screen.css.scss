@@ -250,10 +250,12 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
   }
 
   #breadcrumbs {
-    border-bottom: 1px solid lighten($body_text_color, 60);
+    
     padding: 3px 0;
     margin-bottom: 15px;
-
+    ul {
+        margin: 0px;
+    }
     li {
       a {
         color: $link_text_color;
@@ -325,8 +327,6 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
   }
 
   .add-to-cart {
-    margin-top: 15px;
-
     input[type="number"] {
       margin-right: 3px;
       width: 60px;
@@ -335,7 +335,16 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
       margin-bottom: 0px;
     }
   }
-
+  .btn.add-to-cart {
+    background-image: url("store/icons.png");
+    background-repeat: no-repeat;
+    background-position: -479px -5px;
+  }
+  .btn.add-to-cart:hover {
+    background-image: url("store/icons.png");
+    background-repeat: no-repeat;
+    background-position: -479px -5px;
+  }
   .out-of-stock {
     margin-top: 15px;
   }
@@ -592,7 +601,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
   #billing, #shipping, #shipping_method, 
   #payment, #order_details, #order_summary {
     margin-top: 10px;
-    border: 1px solid lighten($body_text_color, 60);
+    
     padding: 10px;
 
     legend {
@@ -600,8 +609,8 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
       font-weight: bold;
       font-size: $base_font_size + 2;
       color: $link_text_color;
-      padding: 5px;
-      margin-left: 15px;
+      /*padding: 5px;
+      margin-left: 15px;*/
     }
   }
 

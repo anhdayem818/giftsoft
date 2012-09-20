@@ -7,15 +7,20 @@
 
   <div data-hook="signup">
 
-    <%= form_for :user, :url => spree.user_registration_path(@user) do |f| %>
+    <%= form_for :user, :url => spree.user_registration_path(@user), :html=>{:class=>"form-horizontal"} do |f| %>
       <div data-hook="signup_inside_form">
         <fieldset>
         <%= render :partial => 'spree/shared/user_form', :locals => { :f => f } %>
-        <p><%= f.submit t(:register), :class => 'btn btn-primary' %></p>
+          <div class="control-group">
+            <div class="controls">
+              <%= f.submit t(:register), :class => 'btn' %>
+              <%= t(:or) %> <%= link_to t(:login), spree.login_path %>
+            </div>
+          </div>
         </fieldset>
       </div>
     <% end %>
-    <%= t(:or) %> <%= link_to t(:login), spree.login_path %>
+
 
   </div>
 

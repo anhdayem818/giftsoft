@@ -1,3 +1,22 @@
+<script type="text/javascript"src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDTK3sKsBdlddAL6EVjQoePX1QNgYUTCGs&sensor=false"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    var address = new google.maps.LatLng(10.757868,106.667488);
+    var mapOptions = {
+      center: address,
+      zoom: 16,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),mapOptions);
+    
+    var marker = new google.maps.Marker({
+      position: address,
+      title:"Muamely"
+    });
+    
+    marker.setMap(map);
+  });
+</script>
 <a name="checkout">
   <h3 style="color:#009933">Hướng dẫn mua hàng</h3>
 </a>
@@ -41,7 +60,9 @@
 <br/>
 <a name="how-to-pay"><h3 style="color:#009933">Hướng dẫn thanh toán:</h3></a>
 <h4> Thanh toán trực tiếp</h4>
-540 Ngô Gia Tự, phường 9, quận 5, TP.HCM. Khi thanh toán bạn vui lòng kèm theo mã đơn hàng. <br/><br/>
+540 Ngô Gia Tự, phường 9, quận 5, TP.HCM. Khi thanh toán bạn vui lòng kèm theo mã đơn hàng. <br/>
+<p class="clear"></p>
+<div id="map_canvas" style="height: 400px; width: 600px"></div>
 <h4> Thanh toán chuyển khoản qua ngân hàng</h4>
 Bạn đến bất kỳ ngân hàng nào ở Việt Nam để chuyển tiền theo thông tin bên dưới (bạn không nhất thiết phải có tài khoản ngân hàng) <br/>
 - Tên ngân hàng : Ngân hàng Ngoại Thương Việt Nam (Vietcombank) <br/>

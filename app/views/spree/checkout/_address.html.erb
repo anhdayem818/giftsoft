@@ -1,4 +1,4 @@
-<div class="columns alpha six" data-hook="billing_fieldset_wrapper">
+<div class="span6" data-hook="billing_fieldset_wrapper">
 <% unless @order.email? %>
   <p class="field" style='clear: both'>
     <%= form.label :email %><br />
@@ -13,7 +13,7 @@
       <div class="control-group">
         <%= bill_form.label :firstname, "Họ & Tên", :class=>"control-label" %>
         <div class="controls">
-          <%= bill_form.text_field :firstname, :class => 'required' %>
+          <%= bill_form.text_field :firstname, :class => 'required span4' %>
         </div>
       </div>
       
@@ -26,7 +26,7 @@
       <div class="control-group">
         <%= bill_form.label :address1, t(:street_address), :class=>"control-label" %>
         <div class="controls">
-          <%= bill_form.text_field :address1, :class => 'required' %>
+          <%= bill_form.text_field :address1, :class => 'required span4' %>
         </div>
       </div>
 
@@ -38,7 +38,7 @@
           <%= bill_form.collection_select(:state_id, default_country.states,
                                   :id, :name,
                                   {:include_blank => false},
-                                  {:class => 'required'}
+                                  {:class => 'required span4'}
                                 )
           %>
           
@@ -48,7 +48,7 @@
       <div class="control-group">
         <%= bill_form.label :phone, t(:phone), :class=>"control-label" %>
         <div class="controls">
-          <%= bill_form.phone_field :phone, :class => 'required' %>
+          <%= bill_form.phone_field :phone, :class => 'required span4' %>
         </div>
       </div>
       <% if Spree::Config[:alternative_billing_phone] %>

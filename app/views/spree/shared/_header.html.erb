@@ -1,11 +1,10 @@
-<header id="header" class="row" data-hook>
-  
+<%= render :partial => 'spree/shared/main_nav_bar' if store_menu? %>
+<header id="header" class="jumbotron subhead" data-hook>
   <!--
   <figure id="logo" class="columns alpha six" data-hook>
   <%= link_to image_tag("store/logo.gif"), root_path %>
   </figure>
   -->
-  <%= render :partial => 'spree/shared/main_nav_bar' if store_menu? %>
   <%= render :partial => 'shared/carousel' %>
   <%= render :partial => 'shared/contact' %>
 </header>

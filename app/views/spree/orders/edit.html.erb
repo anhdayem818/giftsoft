@@ -4,9 +4,9 @@
 
 <% if @order.line_items.empty? %>
 
-  <div data-hook="empty_cart">
+<div data-hook="empty_cart">
     <p><%= t(:your_cart_is_empty) %></p>
-    <p><%= link_to t(:continue_shopping), products_path, :class => 'button continue' %></p>
+    <p><%= link_to t(:continue_shopping), products_path, :class => 'btn continue' %></p>
   </div>
 
 <% else %>
@@ -17,12 +17,12 @@
         <div data-hook="cart_items">
           <%= render :partial => 'form', :locals => { :order_form => order_form } %>
         </div>
-
+        <div class="row">
         <div id="subtotal" data-hook class="columns sixteen alpha omega">
           <h5><%= t(:subtotal) %>: <span class="order-total"><%= order_subtotal(@order) %></span></h5>
         </div>
 
-        <div class="links columns sixteen alpha omega" data-hook="cart_buttons">
+        <div class="links columns sixteen alpha omega">
           <%= button_tag :class => 'btn', :id => 'update-button' do %>
             <%= t(:update) %>
           <% end %>
@@ -32,7 +32,7 @@
             <%= link_to t(:checkout), "#", :class => 'btn checkout primary disabled', :id => 'checkout-link' %>
           <% end %>
         </div>
-
+          </div>
       </div>
     <% end %>
   </div>

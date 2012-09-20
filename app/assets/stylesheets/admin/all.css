@@ -10,3 +10,6 @@
  *= require_self
  *= require_tree .
 */
+.adr {
+    min-width: 45%;
+}

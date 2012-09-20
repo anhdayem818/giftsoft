@@ -12,6 +12,7 @@ Spree.config do |config|
   config.site_name = "Muamely"
   config.address_requires_state = false
   config.allow_guest_checkout = false
+  config.shipping_instructions = true
   config.set(:default_locale => 'vn')
   config.set(:allow_ssl_in_production => false)
 end

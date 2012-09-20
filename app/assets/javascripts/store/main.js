@@ -39,6 +39,7 @@ $(document).ready(function() {
         return false;
     })
     function addToCart(object, variant_id) {
+        var original_html = object.html();
         object.html("Đang xử lý");
         object.addClass("disabled");
         var items = '{"variants": {"' + variant_id + '": "1"}}';
@@ -53,7 +54,7 @@ $(document).ready(function() {
             data: obj,
             success: function (data) {
                 $("#cart-details").replaceWith(data);
-                object.html("Mua hàng");
+                object.html(original_html);
                 object.removeClass("disabled");
             }
         });

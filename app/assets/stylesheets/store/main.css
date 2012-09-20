@@ -55,15 +55,13 @@ select {
 	font-weight:normal;
 	margin-bottom:7px;
 }
-#sidebar {
-    margin-left: 0;
-}
+
 header .navbar {
     margin-bottom: 5px;
 }
 #header {
     margin-bottom: 0px;
 }
-#content {
-    margin-left: 0px;
+.nav-collapse {
+    margin-top: 14px;
 }
