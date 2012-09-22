@@ -1,7 +1,7 @@
 <div class="row-fluid">
   <div class="span8">
     <div class="utility">
-      <%= @article.created_at.strftime("%b %d %Y") %>
+      <%= t(:update) + ": " + @article.created_at.strftime("%d-%m-%Y") %>
     </div>
 
     <div class="blog-heading">

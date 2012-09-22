@@ -1,12 +1,12 @@
-<div class="row-fluid">
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
   <div class="span8">
     <p id="notice"><%= notice %></p>
     <% @articles.each do |post| %>
 
         <div class="blog-heading">
-          <h2 class="title-post" id="<%= post.id %>"><%= post.title %></h2>
-
-          <div class="blog-subtitle"><%= post.created_at.strftime("%b %d %Y") %> </div>
+          <a href="<%= main_app.article_path(post)%>">
+            <h2 class="title-post"><%= post.title %></h2>
+          </a>
         </div>
         <div class="content-post" id="content-post-<%= post.id %>">
 
