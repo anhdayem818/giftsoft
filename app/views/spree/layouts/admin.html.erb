@@ -3,6 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head data-hook="admin_inside_head">
   <%= render :partial => 'spree/admin/shared/head' %>
+  <script type="text/javascript" src="/tiny_mce/tiny_mce.js"></script>
+  <script type="text/javascript">
+      tinyMCE.init({
+          theme : "advanced",
+          mode : "textareas",
+          plugins : "fullpage",
+          theme_advanced_buttons3_add : "fullpage"
+      });
+  </script>
 </head>
 <body class='admin' data-ajax-root-path="<%= spree.root_path %>">
 <!--[if IE 7]>

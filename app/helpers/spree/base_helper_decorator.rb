@@ -11,4 +11,10 @@ Spree::BaseHelper.module_eval do
       end.join("\n").html_safe
     end
   end
+  def related_ariticle(taxon)
+    @related_article = Article.where("title like '%#{taxon.name}%'").try(:first) if taxon.present?
+    if @related_article.present?
+      link_to(@related_article.title, main_app.article_path(@related_article), :class=>"pull-right").html_safe
+    end
+  end
 end

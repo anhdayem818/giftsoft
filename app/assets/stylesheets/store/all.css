@@ -9,4 +9,5 @@
  *= require screen
  *= require store/products
  *= require store/main
+ *= require articles
 */

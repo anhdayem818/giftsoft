@@ -18,9 +18,19 @@
       <div id="content" data-hook>
         <div class="row">
           <div class="span12">
-            <%= breadcrumbs(@taxon) %>
             <%= flash_messages %>
           </div>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <%= breadcrumbs(@taxon) %>
+          </div>
+          <div class="span6">
+            <%= related_ariticle(@taxon) %>
+          </div>
+        </div>
+        <div class="row">
+
           <% if content_for? :sidebar %>
             <%= render :partial => 'spree/shared/sidebar' if content_for? :sidebar %>
             <div class="span9">

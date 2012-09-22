@@ -1,0 +1,36 @@
+<div class="row-fluid">
+  <div class="span8">
+    <p id="notice"><%= notice %></p>
+    <% @articles.each do |post| %>
+
+        <div class="blog-heading">
+          <h2 class="title-post" id="<%= post.id %>"><%= post.title %></h2>
+
+          <div class="blog-subtitle"><%= post.created_at.strftime("%b %d %Y") %> </div>
+        </div>
+        <div class="content-post" id="content-post-<%= post.id %>">
+
+          <%= post.short_desc %>...
+          <%= link_to t(:view_more), main_app.article_path(post)%>
+
+        </div>
+        <div class="content-post" id="content-post-expand-<%= post.id %>" style="display: none;">
+          <%= post.content.html_safe %>
+          <a class="collapse-post" id="<%= post.id %>">Collapse</a>
+        </div>
+        <br class="clear"/>
+    <% end %>
+  </div>
+  <div class="span4">
+
+    <ul style="margin-left: 0px;">
+      <%# @infographics.each do |info| %>
+      <li>
+        <%#= info.content.html_safe %>
+      </li>
+      <%# end %>
+    </ul>
+  </div>
+</div>
+
+

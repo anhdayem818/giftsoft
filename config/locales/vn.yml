@@ -280,6 +280,7 @@ vn:
   are_you_sure_delete_image: "Bạn có chắc bạn muốn xóa hình này không?"
   are_you_sure_option_type: "Bạn có chắc bạn muốn xóa kiểu tùy chọn này không?"
   are_you_sure_you_want_to_capture: "Bạn có chắc bạn muốn bắt?"
+  article: "Bài viết"
   assign_taxon: "Ấn định đơn vị phân loại"
   assign_taxons: "Ấn định đơn vị phân loại"
   attachment_default_style: "Attachments Style"
@@ -1162,6 +1163,7 @@ vn:
   vat: "VAT"
   version: Phiên bản
   view_shipping_options: "Xem các lựa chọn dịch vụ chuyển phát"
+  view_more: "Xem thêm"
   void: Vô hiệu hóa
   website: Trang web
   weight: Khối lượng

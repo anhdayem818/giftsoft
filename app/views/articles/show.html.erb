@@ -1,0 +1,20 @@
+<div class="row-fluid">
+  <div class="span8">
+    <div class="utility">
+      <%= @article.created_at.strftime("%b %d %Y") %>
+    </div>
+
+    <div class="blog-heading">
+      <h2 class="title-post" id="<%=@article.id%>"><%= @article.title %></h2>
+    </div>
+    <div class="content-post" id="content-post-<%=@article.id%>" >
+
+      <%= @article.content.html_safe %>
+
+    </div>
+    <br class="clear"/>
+
+  </div>
+  </div>
+
+<%= link_to t(:back), main_app.articles_path %>

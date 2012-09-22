@@ -1,8 +1,10 @@
 Giftshop::Application.routes.draw do
 
+  resources :articles
+
   resources :statics
 
-  
+
   
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
@@ -11,7 +13,10 @@ Giftshop::Application.routes.draw do
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
   mount Spree::Core::Engine, :at => '/'
 
-  
+  namespace :admin do
+    resources :articles
+  end
+
   resources :products do
     resources :comments
   end

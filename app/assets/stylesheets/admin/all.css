@@ -6,7 +6,7 @@
 
  *= require admin/spree_core
  *= require admin/spree_promo
-
+ *= require /articles
  *= require_self
  *= require_tree .
 */

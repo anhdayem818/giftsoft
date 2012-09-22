@@ -1,0 +1,69 @@
+<style>
+    .read-more-post{
+        cursor: pointer;
+        float: right;
+        font-size: 13px;
+    }
+    .collapse-post{
+        cursor: pointer;
+        float: right;
+        font-size: 13px;
+    }
+</style>
+<div class="row-fluid">
+  <div class="span8">
+    <p id="notice"><%= notice %></p>
+    <% @articles.each do |post| %>
+
+        <div class="blog-heading">
+          <h2 class="title-post" id="<%=post.id%>"><%= post.title %></h2>
+          <div class="blog-subtitle"><%= post.created_at.strftime("%b %d %Y") %> </div>
+        </div>
+        <div class="content-post" id="content-post-<%=post.id%>" >
+          <% if post.content.html_safe.length > 600 %>
+              <%= post.content.html_safe[0..599].html_safe + "... " %>
+              <a class="read-more-post" id="<%=post.id%>">Read More</a>
+          <%  else %>
+              <%= post.content.html_safe %>
+          <% end %>
+        </div>
+        <div class="content-post" id="content-post-expand-<%=post.id%>" style="display: none;" >
+          <%= post.content.html_safe %>
+          <a class="collapse-post" id="<%=post.id%>">Collapse</a>
+        </div>
+        <br class="clear"/>
+    <% end %>
+  </div>
+  <div class="span4">
+    <h1>Find us on</h1>
+    <div style="height: 37px;">
+      <span class='st_facebook_large' displayText='Facebook'></span>
+      <span class='st_twitter_large' displayText='Tweet'></span>
+      <span class='st_googleplus_large' displayText='Google +'></span>
+      <span class='st_linkedin_large' displayText='LinkedIn'></span>
+    </div>
+    <ul style="margin-left: 0px;">
+      <%# @infographics.each do |info| %>
+          <li>
+            <%#= info.content.html_safe %>
+          </li>
+      <%# end %>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".read-more-post").live('click', function(){
+            var id = $(this).attr("id");
+            $("#content-post-" + id).hide();
+            $("#content-post-expand-" + id).show();
+        });
+
+        $(".collapse-post").live('click', function(){
+            var id = $(this).attr("id");
+            $("#content-post-expand-" + id).hide();
+            $("#content-post-" + id).show();
+        });
+    });
+</script>
+
