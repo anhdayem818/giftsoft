@@ -2,7 +2,8 @@ class Comment < ActiveRecord::Base
    
   include ActsAsCommentable::Comment
 
-  attr_accessible :comment, :user_id, :author_name
+  attr_accessible :comment, :user_id, :author_name, :product
+  after_create :finalize
   #author_name is used to allow users who not logged in be able to give comments
   validates :author_name, :presence => true, :unless => :user_login?
   
@@ -20,4 +21,17 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user, :class_name=>"Spree::User"
+  
+  def finalize
+    self.delay.send_notifies
+  end
+  def send_notifies
+    self.commentable.comments.includes(:user).each do |com|
+      if(com.user.id != self.user.id && com.user.username != "admin")
+        CommentMailer.notify(self, com.user).deliver
+      end
+    end
+    admin = Spree::User.find_by_username("admin")
+    CommentMailer.notify(self, admin).deliver
+  end
 end

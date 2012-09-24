@@ -4,6 +4,7 @@
 <div id="order" data-hook>
   <% if params.has_key? :checkout_complete %>
     <h1><%= t(:thank_you_for_your_order) %></h1>
+    
   <% end %>
   <%= render :partial => 'spree/shared/order_details', :locals => { :order => @order } %>
 
@@ -20,3 +21,43 @@
   </p>
 </div>
 </fieldset>
+<%if flash[:commerce_tracking].present? %>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34211638-1']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_addTrans',
+    '<%= @order.number %>',           // order ID - required
+    'muamely',  // affiliation or store name
+    '<%= @order.total %>',          // total - required
+    '<%= @order.tax_total %>',           // tax
+    '<%= @order.ship_total %>',              // shipping
+    '<%= @order.ship_address.state.name %>',       // city
+    'NA',     // state or province
+    'VN'             // country
+  ]);
+
+   // add item might be called for every item in the shopping cart
+   // where your ecommerce engine loops through each item in the cart and
+   // prints out _addItem for each
+   <% @order.line_items.each do |item| %>
+    _gaq.push(['_addItem',
+      '<%= @order.number %>',           // order ID - required
+      '<%= item.variant.sku %>',           // SKU/code - required
+      '<%= item.product.name %>',        // product name
+      '<%= item.product.taxons.first.name %>',   // category or variation
+      '<%= item.price %>',          // unit price - required
+      '<%= item.quantity %>'               // quantity - required
+    ]);
+  <% end %>
+  _gaq.push(['_trackTrans']); //submits transaction to the Analytics servers
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<% end %>
