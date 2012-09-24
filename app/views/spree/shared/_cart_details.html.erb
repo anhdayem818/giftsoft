@@ -30,9 +30,15 @@
       <%#*<div style="position: absolute;left: 210px;">200k</div>%>     
     </div>
     <% if can_check_out %>
-      <div><%= link_to t(:checkout), checkout_path, :class => "btn checkout primary", :id => 'checkout-link' %></div>
+      <div>
+        <%= link_to t(:checkout), checkout_path, :class => "btn checkout primary", :id => 'checkout-link' %>
+        <%= link_to t(:detail), cart_path %>
+      </div>
     <% else %>
-      <div><%= link_to t(:checkout), "#", :class => "btn checkout primary disabled", :id => 'checkout-link' %></div>
+      <div>
+        <%= link_to t(:checkout), "#", :class => "btn checkout primary disabled", :id => 'checkout-link' %>
+        <%= link_to t(:details), cart_path %>
+      </div>
     <% end %>
     
     <br/>
