@@ -1,18 +1,20 @@
 <nav class="sidebar-item" id="cart-details">
-  <div class="well">
-    <h2><%= t(:cart) %></h2>
     <% if @out_stock %>
       <div class="help-inline">Vượt số lượng sản phẩm trong kho</div>
     <% end %>
 
     <table class="table">
+      <th></th>
       <th><%= t(:product) %></th>
+      <th><%= t(:price) %></th>
       <th>SL</th>
       <th></th>
       <% if current_order.present? %>
         <% current_order.line_items.each do |item| %>
           <tr name="<%= item.variant.product.name %>">
+            <td class="image"><%= image_tag item.product.images[0].attachment.url(:mini) %></td>
             <td class="name"><%= item.variant.product.name %></td>
+            <td class="count"><%= item.price %></td>
             <td class="count"><%= item.quantity %></td>
             <td><%= link_to image_tag('icons/delete.png'), '#', :class => 'delete', :id => "delete_#{dom_id(item)}", :item_id =>item.id %></td>
           </tr>
@@ -43,6 +45,6 @@
     
     <br/>
     <em>Lưu ý: Đơn hàng tối thiểu 200k</em>
-  </div>
+  
 </nav>
 

@@ -15,11 +15,12 @@ $(document).ready(function() {
         addToCart($(this), variant_id);
     //alert($(this).attr('price'));
     });
-    $('.checkout.disabled').live('click', function(e){
+    $('.checkout.disabled').livequery('click', function(e){
        alert('Quý khách vui lòng mua đủ 200.000đ, Xin cảm ơn!');
        e.preventDefault();
     });
-    $('#cart-details a.delete').live('click', function(e) {
+
+    $('#cart-details a.delete').livequery('click', function(e) {
         
         //var items = '{id: }';
         //$.post("/orders/populate", $.parseJSON(items));
@@ -38,6 +39,7 @@ $(document).ready(function() {
         $("#cart-checkout").removeClass("disabled");
         return false;
     })
+    
     function addToCart(object, variant_id) {
         var original_html = object.html();
         object.html("Đang xử lý");
