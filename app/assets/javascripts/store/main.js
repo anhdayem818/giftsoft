@@ -58,9 +58,11 @@ $(document).ready(function() {
                 $("#cart-details").replaceWith(data);
                 object.html(original_html);
                 object.removeClass("disabled");
+                $("#cart-dropdown").effect("highlight", {color:"#22DD66"}, 3000);
+                
             }
         });
-        $("#cart-checkout").removeClass("disabled");
+        //$("#cart-checkout").removeClass("disabled");
         
     }
 })
