@@ -70,6 +70,8 @@ header .navbar {
 }
 #cart-details {
     padding-right: 30px;
+    height: 400px;
+    overflow-y: auto;
 }
 #cart-dropdown {
     background-image: image-url("store/icons.png");

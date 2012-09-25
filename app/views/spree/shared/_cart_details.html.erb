@@ -2,6 +2,29 @@
     <% if @out_stock %>
       <div class="help-inline">Vượt số lượng sản phẩm trong kho</div>
     <% end %>
+  <em>Lưu ý: Đơn hàng tối thiểu 200k</em>
+  <% item_total = current_order.present? ? current_order.item_total : 0 %>
+  <% can_check_out = item_total > 200000 %>
+  <div class="progress <%= "progress-striped active" if can_check_out %>">
+    <% if can_check_out %>
+        <div class="bar" style="width: 100%;"><%= sprintf("%.0f", item_total/1000) %>k</div>
+    <% else %>
+        <div class="bar bar-warning" style="width: <%= item_total/2000%>%;"><%= sprintf("%.0f", item_total/1000) %>k</div>
+    <% end %>
+    <%#*<div style="position: absolute;left: 210px;">200k</div>%>
+  </div>
+  <% if can_check_out %>
+      <div>
+        <%= link_to t(:checkout), checkout_path, :class => "btn checkout primary", :id => 'checkout-link' %>
+        <%= link_to t(:details), cart_path %>
+      </div>
+  <% else %>
+      <div>
+        <%= link_to t(:checkout), "#", :class => "btn checkout primary disabled", :id => 'checkout-link' %>
+        <%= link_to t(:details), cart_path %>
+      </div>
+  <% end %>
+
 
     <table class="table">
       <th></th>
@@ -21,30 +44,7 @@
         <% end %>
       <% end %>
     </table>
-    <% item_total = current_order.present? ? current_order.item_total : 0 %>
-    <% can_check_out = item_total > 200000 %>
-    <div class="progress <%= "progress-striped active" if can_check_out %>">
-      <% if can_check_out %>
-      <div class="bar" style="width: 100%;"><%= sprintf("%.0f", item_total/1000) %>k</div>
-      <% else %>
-      <div class="bar bar-warning" style="width: <%= item_total/2000%>%;"><%= sprintf("%.0f", item_total/1000) %>k</div>
-      <% end %>
-      <%#*<div style="position: absolute;left: 210px;">200k</div>%>     
-    </div>
-    <% if can_check_out %>
-      <div>
-        <%= link_to t(:checkout), checkout_path, :class => "btn checkout primary", :id => 'checkout-link' %>
-        <%= link_to t(:details), cart_path %>
-      </div>
-    <% else %>
-      <div>
-        <%= link_to t(:checkout), "#", :class => "btn checkout primary disabled", :id => 'checkout-link' %>
-        <%= link_to t(:details), cart_path %>
-      </div>
-    <% end %>
-    
-    <br/>
-    <em>Lưu ý: Đơn hàng tối thiểu 200k</em>
+
   
 </nav>
 
