@@ -59,7 +59,10 @@ $(document).ready(function() {
                 object.html(original_html);
                 object.removeClass("disabled");
                 $("#cart-dropdown").effect("highlight", {color:"#22DD66"}, 3000);
-                
+                var title = "Xem chi tiết đơn hàng tại đây";
+                $("#cart-dropdown").tooltip({title: title, placement: 'bottom', trigger: 'manual'});
+                $("#cart-dropdown").tooltip('show');
+                $(".tooltip.fade.bottom.in").css("position", "fixed").css("top", "50px");
             }
         });
         //$("#cart-checkout").removeClass("disabled");

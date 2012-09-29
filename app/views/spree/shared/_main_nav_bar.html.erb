@@ -20,7 +20,8 @@
         <ul class="nav pull-right">
 
           <li class="dropdown">
-            <a href="#" id="cart-dropdown" class="dropdown-toggle cart" data-toggle="dropdown"><%= t(:cart)  %>  <b class="caret"></b></a>
+            <a href="#" id="cart-dropdown" rel="tooltip" class="dropdown-toggle cart" data-toggle="dropdown">
+              <%= t(:cart)  %>  <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li>
                 <div class="span4">
@@ -31,10 +32,9 @@
           </li>
           <% if current_user %>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t(:account)  %>  <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username  %>  <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><%= link_to current_user.username, "/" %></li>
-                <li><%= link_to "Đơn hàng đã đặt", orders_path %></li>
+                <li><%= link_to t(:account), spree.account_path %></li>
                 <li><a href="<%=main_app.static_path("how_to")%>#point">Điểm tích lũy: <span class="badge badge-info"><%= current_user.point %></span></a></li>
                 <li class="divider"></li>
                 <li><%= link_to t(:logout), destroy_user_session_path %></li>

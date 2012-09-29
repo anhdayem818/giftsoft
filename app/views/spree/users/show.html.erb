@@ -1,10 +1,12 @@
 <h1><%= accurate_title %></h1>
 
 <div data-hook="account_summary" class="account-summary">
-  <dl id="user-info">
-    <dt><%= t(:email) %></dt>
-    <dd><%= @user.email %> (<%= link_to t(:edit), spree.edit_account_path %>)</dd>
-  </dl>
+  <address>
+    <strong>Nickname: </strong><%= @user.username %><br>
+    <strong>Email: </strong><a href="#"><%= @user.email %></a><br>
+    <strong>Điểm tích lũy: </strong><span class="badge badge-info"><%= current_user.point %></span><br>
+    <%= link_to t(:edit), spree.edit_account_path, :class=>"btn" %>
+  </address>
 </div>
 
 <div data-hook="account_my_orders" class="account-my-orders">
@@ -17,8 +19,8 @@
         <th class="order-number"><%= t(:order_number) %></th>
         <th class="order-date"><%= t(:order_date) %></th>
         <th class="order-status"><%= t(:status) %></th>
-        <th class="order-payment-state"><%= t(:payment_state) %></th>
-        <th class="order-shipment-state"><%= t(:shipment_state) %></th>
+        <th class="order-payment-state"><%= t(:payment) %></th>
+        <th class="order-shipment-state"><%= t(:shipment) %></th>
         <th class="order-total"><%= t(:total) %></th>
       </tr>
       </thead>

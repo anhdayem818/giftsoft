@@ -2,10 +2,13 @@
 
 <h1><%= t(:editing_user) %></h1>
 
-<%= form_for @user, :url => spree.user_path(@user), :method => :put do |f| %>
+<%= form_for @user, :url => spree.user_path(@user), :method => :put, :html=>{:class=>"form-horizontal"} do |f| %>
   <%= render :partial => 'spree/shared/user_form', :locals => { :f => f } %>
-  <p>
-    <%= f.submit t(:update), :class => 'button primary' %>
-  </p>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit t(:update), :class => 'btn' %>
+      </div>
+    </div>
+
 <% end %>
 

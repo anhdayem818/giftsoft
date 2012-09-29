@@ -1,5 +1,5 @@
 module Spree
-  class PaymentMethod::Banking < PaymentMethod
+  class PaymentMethod::Cash < PaymentMethod
     def actions
       %w{capture void}
     end

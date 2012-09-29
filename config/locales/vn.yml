@@ -154,6 +154,9 @@ vn:
       spree/zone:
         description: Description
         name: Name
+    errors:
+      messages:
+        taken: "đã tồn tại"
     models:
       spree/address:
         one: Address
@@ -717,11 +720,11 @@ vn:
   payment_processing_failed: "Payment could not be processed, please check the details you entered"
   payment_processor_choose_banner_text: "If you need help choosing a payment processor, please visit"
   payment_processor_choose_link: "our payments page"
-  payment_state: Payment State
+  payment_state: Trạng thái thanh toán
   payment_states: 
-    balance_due: balance due
+    balance_due: Chưa thanh toán
     checkout: checkout
-    completed: completed
+    completed: Hoàn tất
     credit_owed: credit owed
     failed: failed
     paid: paid
@@ -1007,7 +1010,7 @@ vn:
   shipment_states: 
     backorder: backorder
     partial: partial
-    pending: pending
+    pending: Chờ xử lý
     ready: ready
     shipped: shipped
   shipment_updated: Vận chuyển được cập nhật
@@ -1113,7 +1116,7 @@ vn:
       subject: 'Testmail'
   test_mode: Chế độ kiểm tra
   thank_you_for_your_order: "Cảm ơn đã mua hàng. Xin hãy in ra một bản của trang này để tiện cho việc chứng thực nếu cần."
-  there_were_problems_with_the_following_fields: "There were problems with the following fields"
+  there_were_problems_with_the_following_fields: "Thông báo lỗi"
   this_file_language: "tiếng Việt (VN)"
   thumbnail: "Hình nhỏ"
   to_add_variants_you_must_first_define: "Để thêm biến thể, bạn phải định nghĩa trước"

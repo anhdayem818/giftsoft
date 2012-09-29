@@ -74,6 +74,7 @@ module Giftshop
     
     initializer 'spree.register.payment_methods' do |app|
       config.spree.payment_methods << Spree::PaymentMethod::Banking
+      config.spree.payment_methods << Spree::PaymentMethod::Cash
     end
   end
 end
