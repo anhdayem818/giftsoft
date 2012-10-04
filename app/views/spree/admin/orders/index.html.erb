@@ -18,6 +18,7 @@
       <th><%= sort_link @search, :state,          t(:state, :scope => 'activerecord.attributes.spree/order') %></th>
       <th><%= sort_link @search, :payment_state,  t(:payment_state, :scope => 'activerecord.attributes.spree/order') %></th>
       <th><%= sort_link @search, :shipment_state, t(:shipment_state, :scope => 'activerecord.attributes.spree/order') %></th>
+      <th><%= t(:nickname, :scope => 'activerecord.attributes.spree/order') %></th>
       <th><%= sort_link @search, :email,          t(:email, :scope => 'activerecord.attributes.spree/order') %></th>
       <th><%= sort_link @search, :total,          t(:total, :scope => 'activerecord.attributes.spree/order') %></th>
       <th data-hook="admin_orders_index_header_actions"></th>
@@ -31,6 +32,7 @@
       <td><%= t("order_state.#{order.state.downcase}") %></td>
       <td><%= link_to t("payment_states.#{order.payment_state}"), admin_order_payments_path(order) if order.payment_state %></td>
       <td><%= link_to t("shipment_states.#{order.shipment_state}"), admin_order_shipments_path(order) if order.shipment_state %></td>
+      <td><%= link_to order.user.username, spree.admin_user_path(order.user), :rel=>"tooltip", "original-title"=>"<strong>#{order.ship_address.firstname}</strong><br/>#{order.ship_address.address1}" unless order.user.nil? %></td>
       <td><%= order.email %></td>
       <td><%= number_to_currency order.total %></td>
       <td class='actions' data-hook="admin_orders_index_row_actions">
