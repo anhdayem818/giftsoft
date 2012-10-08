@@ -27,4 +27,12 @@ Spree::Order.class_eval do
     self.line_items.destroy(id)
     self.reload
   end
+
+  def load_address
+    if self.user.present?
+      saved_order = self.user.orders.where("bill_address_id is not null").first
+      self.ship_address = self.bill_address = saved_order.bill_address if saved_order.present?
+      self.save
+    end
+  end
 end
