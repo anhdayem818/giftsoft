@@ -1053,6 +1053,7 @@ vn:
   smtp_send_copy_to_this_addresses: "Gửi một bản sao của tất cả thư gửi vào địa chỉ sau. Nếu có muốn dùng nhiều địa chỉ, dùng dấu phẩy để ngăn từng địa chỉ ra."
   smtp_username: Tên đăng nhập SMTP
   sold: Đã bán
+  some_items_out_of_stock: "Một số sản phẩm đã hết, vui lòng kiểm tra lại đơn hàng"
   sort_ordering: "Thứ tự sắp xếp"
   special_instructions: "Special Instructions"
   spree: 

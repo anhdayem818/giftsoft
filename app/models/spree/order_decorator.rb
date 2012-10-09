@@ -22,6 +22,18 @@ Spree::Order.class_eval do
   def validate_total
     self.item_total >= 200000
   end
+  def validate_items
+    self.line_items.includes(:variant).each do |item|
+      if(item.quantity > item.variant.on_hand)
+        if item.variant.on_hand > 0
+          item.quantity = item.variant.on_hand
+        else
+          self.line_items.delete(item)
+        end
+        self.reload
+      end
+    end
+  end
   
   def remove_item(id)
     self.line_items.destroy(id)

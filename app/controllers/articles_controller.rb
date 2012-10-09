@@ -1,4 +1,5 @@
 class ArticlesController < Spree::BaseController
+  before_filter :set_current_page, :only => [:index, :show]
   # GET /articles
   # GET /articles.json
   def index
@@ -14,7 +15,7 @@ class ArticlesController < Spree::BaseController
   # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
-
+    @title = @article.title
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @article }
@@ -79,5 +80,9 @@ class ArticlesController < Spree::BaseController
       format.html { redirect_to articles_url }
       format.json { head :no_content }
     end
+  end
+
+  def set_current_page
+    @current_page = "article"
   end
 end

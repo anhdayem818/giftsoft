@@ -13,6 +13,7 @@ Spree.config do |config|
   config.address_requires_state = false
   config.allow_guest_checkout = false
   config.shipping_instructions = true
+  config.always_put_site_name_in_title = false
   config.set(:default_locale => 'vn')
   config.set(:allow_ssl_in_production => false)
 end
