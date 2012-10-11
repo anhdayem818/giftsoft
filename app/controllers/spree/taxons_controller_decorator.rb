@@ -4,7 +4,7 @@ Spree::TaxonsController.class_eval do
     return unless @taxon
 
     @searcher = Spree::Config.searcher_class.new(params.merge(:taxon => @taxon.id))
-    @products = @searcher.retrieve_products.order("created_at DESC")
+    @products = @searcher.retrieve_products.order("updated_at DESC")
 
     respond_with(@taxon)
   end
