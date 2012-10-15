@@ -1066,7 +1066,7 @@ vn:
   spree_alert_checking: "Check for Spree security and release alerts"
   spree_alert_not_checking: "Not checking for Spree security and release alerts"
   spree_gateway_error_flash_for_checkout: "There was a problem with your payment information. Please check your information and try again."
-  spree_inventory_error_flash_for_insufficient_quantity: "An item in your cart has become unavailable."
+  spree_inventory_error_flash_for_insufficient_quantity: "Số lượng sản phẩm trong kho không đủ"
   ssl_will_be_used_in_development_and_test_modes: "SSL sẽ không được dùng trong môi trường kiểm tra nếu cần thiết."
   ssl_will_be_used_in_production_mode: "SSL sẽ được dùng trong môi trường sản xuất"
   ssl_will_be_used_in_staging_mode: "SSL will be used in staging mode"
