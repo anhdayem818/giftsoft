@@ -47,4 +47,10 @@ Spree::Order.class_eval do
       self.save
     end
   end
+
+  def self.get_report(start_date, end_date)
+    self.where(:updated_at => start_date..end_date, :payment_state => 'paid').where("total > 0")
+      .select("sum(total) as total, updated_at")
+      .group(:updated_at)
+  end
 end
