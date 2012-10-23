@@ -3,7 +3,7 @@
 
   var report_data = [
       <% @reports.each do |entry| %>
-        <%= "[#{entry.updated_at.to_time.to_i*1000}, #{entry.total}]," %>
+        <%= "[#{entry.updated_at.to_time.utc.to_i*1000}, #{entry.total}]," %>
       <% end %>
   ];
 </script>

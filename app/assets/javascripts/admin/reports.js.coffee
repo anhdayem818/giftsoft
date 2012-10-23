@@ -1,5 +1,6 @@
 $(document).ready ()->
   $.plot($("#flot-placeholder"),
-    [ report_data ], { lines: { show: true },
-    points: { show: true },
-    xaxis:{ mode: "time", timeformat: "%m/%d", tickSize: [1, "day"] }})
+    [ report_data ], {
+    points: { show: false },
+    xaxis:{ mode: "time", timeformat: "%d-%m", autoscaleMargin: 0.05},
+    bars: { show: true, barWidth: 1, lineWidth: 20, align: "center" }})
