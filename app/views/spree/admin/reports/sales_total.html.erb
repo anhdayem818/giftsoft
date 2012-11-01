@@ -24,6 +24,10 @@
       <th scope="row"><%= t(:sales_total) %>:</th>
       <td align="right"><%= number_to_currency @sales_total %></td>
     </tr>
+    <tr>
+      <th scope="row"><%= t(:order_count) %>:</th>
+      <td align="right"><%= @orders.count %></td>
+    </tr>
   </tbody>
 </table>
 

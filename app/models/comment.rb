@@ -34,4 +34,12 @@ class Comment < ActiveRecord::Base
     admin = Spree::User.find_by_username("admin")
     CommentMailer.notify(self, admin).deliver
   end
+
+  def author
+    if self.user.present?
+      self.user.username
+    else
+      self.author_name
+    end
+  end
 end

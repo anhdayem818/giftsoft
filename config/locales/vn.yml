@@ -668,6 +668,7 @@ vn:
       subject: "Order Confirmation"
   order_not_in_system: Số đơn hàng không có trùng với hệ thống
   order_number: Đơn hàng
+  order_count: Số lượng đơn hàng
   order_operation_authorize: Ủy quyền
   order_processed_but_following_items_are_out_of_stock: "Đơn đặt hàng của bạn đã được xử lý, nhưng một số sản phẩm sau đã hết hàng:"
   order_processed_successfully: "Đơn đặt hàng của bạn đã được xử lý thành công"
