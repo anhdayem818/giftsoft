@@ -27,7 +27,7 @@ class Comment < ActiveRecord::Base
   end
   def send_notifies
     self.commentable.comments.includes(:user).each do |com|
-      if(com.user.id != self.user.id && com.user.username != "admin")
+      if(com.user.present? && !com.user.eql?(self.user) && com.user.username != "admin")
         CommentMailer.notify(self, com.user).deliver
       end
     end
