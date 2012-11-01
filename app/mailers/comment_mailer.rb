@@ -3,7 +3,7 @@ class CommentMailer < ActionMailer::Base
     @user = user
     @comment = comment
     subject = "#{Spree::Config[:site_name]} #{t(:new_comment)}"
-    mail(:to => comment.user.email,
+    mail(:to => user.email,
         :subject => subject)
   end
 end
