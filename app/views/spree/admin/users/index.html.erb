@@ -13,8 +13,8 @@
   <thead>
     <tr data-hook="admin_users_index_headers">
       <th><%= sort_link @search,:email, t(:user), {}, {:title => 'users_email_title'} %></th>
-      <th><%= t(:nick_name)%></th>
-      <th><%= t(:point)%></th>
+      <th><%= sort_link @search,:point, t(:nick_name)%></th>
+      <th><%= sort_link @search,:point, t(:point)%></th>
       <th data-hook="admin_users_index_header_actions"></th>
     </tr>
   </thead>
