@@ -34,8 +34,12 @@
 </table>
 
 <%= paginate @users %>
-
-
+<div class="row">
+  <strong><%= t(:users_total) %>: </strong><%= @users.total_count %>
+</div>
+<div class="row">
+  <strong><%= t(:points_total) %>: </strong><%= @points_total %>
+</div>
 <% content_for :sidebar do %>
   <div class="box" data-hook="admin_users_index_search">
     <h3><%= t(:search) %></h3>

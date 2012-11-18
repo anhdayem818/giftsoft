@@ -742,6 +742,7 @@ vn:
   please_define_payment_methods: "Please define some payment methods first."
   powered_by: "Tiếp sức bởi"
   point: "Điểm tích lũy"
+  points_total: "Tổng điểm"
   presentation: Trình bày
   preview: Xem trước
   previous: Trước
@@ -1156,8 +1157,9 @@ vn:
   user_rule: 
     choose_users: Choose users
   users: Người dùng
+  users_total: Tổng số Người dùng
   validate_on_profile_create: Validate on profile create
-  validation: 
+  validation:
     cannot_be_greater_than_available_stock: "cannot be greater than available stock."
     cannot_be_less_than_shipped_units: "cannot be less than the number of shipped units."
     cannot_destory_line_item_as_inventory_units_have_shipped: "Cannot destory line item as some inventory units have shipped."
