@@ -61,7 +61,7 @@ vn:
         state: State
       spree/line_item:
         price: Price
-        quantity: Quantity
+        quantity: Số lượng
       spree/option_type: 
         name: Name
         presentation: Presentation
@@ -71,7 +71,7 @@ vn:
         created_at: "Ngày mua"
         email: "email"
         ip_address: "IP Address"
-        item_total: "Item Total"
+        item_total: "Tổng số sản phẩm"
         number: "Mã số"
         payment_state: "Trạng thái thanh toán"
         shipment_state: "Trạng thái vận chuyển"

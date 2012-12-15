@@ -53,4 +53,8 @@ Spree::Order.class_eval do
       .select("sum(total) as total, DATE(updated_at) as updated_at")
       .group("DATE(updated_at)")
   end
+  
+  def item_count
+    line_items.sum(:quantity)
+  end
 end

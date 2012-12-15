@@ -16,6 +16,7 @@
 /nbproject
 /public/assets/
 /public/spree/
+/public/spree.tar
 /config/database.yml
 /.sass-cache/
 vendor/cache

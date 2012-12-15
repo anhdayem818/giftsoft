@@ -99,6 +99,12 @@
       <td class="total"><span><%= number_to_currency @order.item_total %></span></td>
     </tr>
   </tfoot>
+  <tfoot id="item-count">
+    <tr class="total">
+      <td colspan="4"><b><%= t(:item_total, :scope => 'activerecord.attributes.spree/order') %>:</b></td>
+      <td class="total"><span><%= @order.item_count %></span></td>
+    </tr>
+  </tfoot>
   <tfoot id="order-charges" data-hook="order_details_adjustments">
     <% @order.adjustments.eligible.each do |adjustment| %>
     <% next if (adjustment.originator_type == 'Spree::TaxRate') and (adjustment.amount == 0) %>
