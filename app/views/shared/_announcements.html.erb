@@ -1,0 +1,15 @@
+<% if @announcements.size > 0%>
+<div class="row pull-right">
+  <div class="span12 info-panel">
+	  <table border="0">
+		<% @announcements.each do |announcement|%>
+	  	<tr>
+			<td class="date"><%= announcement.created_at.strftime("%d-%m-%Y") %></td>
+			<td class="info"><%= announcement.description %></td>
+		</tr>
+		<% end %>
+	  </table>
+  </div>
+          
+</div>
+<% end %>

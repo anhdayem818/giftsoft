@@ -3,6 +3,7 @@ Spree::HomeController.class_eval do
   def index
     @searcher = Spree::Config.searcher_class.new(params)
     @products = @searcher.retrieve_products.order("updated_at DESC")
+    @announcements = Announcement.limit(5).order("created_at DESC")
     respond_with(@products)
   end
   def set_current_page

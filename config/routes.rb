@@ -15,6 +15,7 @@ Giftshop::Application.routes.draw do
 
   namespace :admin do
     resources :articles
+    resources :announcements
   end
 
   resources :products do

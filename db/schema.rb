@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120923151328) do
+ActiveRecord::Schema.define(:version => 20121219083344) do
+
+  create_table "announcements", :force => true do |t|
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -585,12 +591,8 @@ ActiveRecord::Schema.define(:version => 20120923151328) do
     t.datetime "reset_password_sent_at"
     t.string   "username"
     t.integer  "point",                                :default => 0
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
   end
 
-  add_index "spree_users", ["confirmation_token"], :name => "index_spree_users_on_confirmation_token", :unique => true
   add_index "spree_users", ["email"], :name => "email_idx_unique", :unique => true
   add_index "spree_users", ["persistence_token"], :name => "index_users_on_persistence_token"
 

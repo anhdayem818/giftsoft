@@ -4,3 +4,30 @@
 #head_contact {
     min-height: 156px;
 }
+/* panel and content*/
+.info-panel {
+  -moz-border-radius: 15px; 
+  border-radius: 15px; 
+  background-color: #e0ebf6; 
+  padding: 15px; 
+  behavior: url(http://cdn.adfoc.us/css/pie.htc);
+  /*text-align: center;*/
+}
+.info-panel td.date {
+    text-align: right;
+    vertical-align: top;
+    width: 125px;
+    border-right: 1px dashed #5a5a5a;
+    padding-right: 5px;
+    font-weight: bold;
+    font-style: italic;
+}
+.info-panel td.info {
+    text-align: left;
+    vertical-align: top;
+    padding-left: 5px;
+    font-size: 15px;
+}
+.info-panel tr {
+	border-bottom: none;
+}
