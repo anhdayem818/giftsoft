@@ -15,7 +15,9 @@ body {
 hr {
   border-color: lighten($body_text_color, 60);
 }
-
+#content {
+  margin-top: 60px;
+}
 /* Custom text-selection colors (remove any text shadows: twitter.com/miketaylr/status/12228805301) */
 ::-moz-selection{background: $link_text_color; color: $layout_background_color; text-shadow: none;}
 ::selection {background: $link_text_color; color: $layout_background_color; text-shadow: none;} 
@@ -346,6 +348,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
     background-position: -479px -5px;
   }
   .out-of-stock {
+    color: red;
     margin-top: 15px;
   }
   span.price {

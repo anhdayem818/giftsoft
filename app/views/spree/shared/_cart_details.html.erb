@@ -1,15 +1,19 @@
 <nav class="sidebar-item" id="cart-details">
-    <% if @out_stock %>
-      <div class="help-inline">Vượt số lượng sản phẩm trong kho</div>
-    <% end %>
-  <em>Lưu ý: Đơn hàng tối thiểu 200k</em>
+  <% if @out_stock %>
+    <div class="help-inline">Vượt số lượng sản phẩm trong kho</div>
+  <% end %>
+  
+  <em>Lưu ý: Đơn hàng tối thiểu <%=  min_total/1000%>k</em>
+  <% unless returning_customer? %>
+    <em>(Áp dụng với khách hàng mua lần đầu, hoặc chưa đăng nhập)</em>
+  <% end %>
   <% item_total = current_order.present? ? current_order.item_total : 0 %>
-  <% can_check_out = item_total > 200000 %>
+  <% can_check_out = checkoutable? %>
   <div class="progress <%= "progress-striped active" if can_check_out %>">
     <% if can_check_out %>
         <div class="bar" style="width: 100%;"><%= sprintf("%.0f", item_total/1000) %>k</div>
     <% else %>
-        <div class="bar bar-warning" style="width: <%= item_total/2000%>%;"><%= sprintf("%.0f", item_total/1000) %>k</div>
+        <div class="bar bar-warning" style="width: <%= item_total/(min_total/100)%>%;"><%= sprintf("%.0f", item_total/1000) %>k</div>
     <% end %>
     <%#*<div style="position: absolute;left: 210px;">200k</div>%>
   </div>

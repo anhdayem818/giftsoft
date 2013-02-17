@@ -520,7 +520,7 @@ vn:
   included_in_this_shipment: Đã kèm cùng vào kiện vận chuyển này
   included_price_validation: "cannot be selected unless you have set a Default Tax Zone"
   instructions_to_reset_password: "Điền vào mẫu phía dưới và hướng dẫn cách thay đổi mật khẩu sẽ được gửi qua email đến bạn:"
-  insufficient_stock: "Insufficient stock available, only %{on_hand} remaining"
+  insufficient_stock: "Số lượng sản phẩm trong kho không đủ, chỉ còn lại %{on_hand} cái"
   integration_settings_warning: "Nếu bạn thay đang thay đổi Tích hợp thanh toán, bạn phải lưu trước khi thay đổi thông số tích hợp"
   intercept_email_address: Intercept Email Address
   intercept_email_instructions: "Override email recipient and replace with this address."
