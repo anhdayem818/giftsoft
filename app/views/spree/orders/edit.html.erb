@@ -26,10 +26,10 @@
           <%= button_tag :class => 'btn', :id => 'update-button' do %>
             <%= t(:update) %>
           <% end %>
-          <% if(@order.validate_total) %>
+          <% if(@order.item_total >= min_total) %>
             <%= link_to t(:checkout), checkout_path, :class => 'btn checkout primary', :id => 'checkout-link' %>
           <% else %>
-            <%= link_to t(:checkout), "#", :class => 'btn checkout primary disabled', :id => 'checkout-link' %>
+            <%= link_to t(:checkout), "#", :class => 'btn checkout primary disabled', :id => 'checkout-link', :min_total => min_total %>
           <% end %>
         </div>
           </div>

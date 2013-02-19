@@ -24,7 +24,7 @@
       </div>
   <% else %>
       <div>
-        <%= link_to t(:checkout), "#", :class => "btn checkout primary disabled", :id => 'checkout-link' %>
+        <%= link_to t(:checkout), "#", :class => "btn checkout primary disabled", :id => 'checkout-link', :min_total => min_total %>
         <%= link_to t(:details), cart_path %>
       </div>
   <% end %>

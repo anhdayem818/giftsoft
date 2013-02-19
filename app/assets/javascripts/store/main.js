@@ -16,7 +16,7 @@ $(document).ready(function() {
     //alert($(this).attr('price'));
     });
     $('.checkout.disabled').livequery('click', function(e){
-       alert('Quý khách vui lòng mua đủ 200.000đ, Xin cảm ơn!');
+       alert('Quý khách vui lòng mua đủ ' + $(this).attr('min_total') + 'đ , Xin cảm ơn!');
        e.preventDefault();
     });
 
