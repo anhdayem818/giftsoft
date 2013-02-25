@@ -4,7 +4,15 @@ module ApplicationHelper
   end
   
   def min_total
-    returning_customer? ? 200000 : 500000
+    if returning_customer? 
+      if current_user.orders.select(&:paid?).sum(&:total) > 1000000
+        100000 
+      else
+        200000
+      end
+    else
+      500000
+    end
   end
   def checkoutable?
     item_total = current_order.present? ? current_order.item_total : 0
