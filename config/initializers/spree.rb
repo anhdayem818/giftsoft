@@ -19,7 +19,6 @@ Spree.config do |config|
 end
 
 Spree.user_class = "Spree::User"
-
 #if Spree::Config.instance
 #  Spree::Config.set(:default_locale => 'de')
 #end
