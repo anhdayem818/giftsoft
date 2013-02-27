@@ -19,6 +19,7 @@
     <th><%= t(:sku) %></th>
     <th><%= sort_link @search,:name, t(:name), { :default_order => "desc" }, {:title => 'admin_products_listing_name_title'} %></th>
     <th><%= sort_link @search,:master_price, t(:master_price), {}, {:title => 'admin_products_listing_price_title'} %></th>
+	<th><%= t(:on_hand) %></th>
     <th data-hook="admin_products_index_header_actions"></th>
   </tr>
 <% @collection.each do |product| %>
@@ -27,6 +28,7 @@
     <td><%= product.sku rescue '' %></td>
     <td><%= link_to product.try(:name), edit_admin_product_path(product) %></td>
     <td><%= number_to_currency product.price rescue '' %></td>
+	<td><%= product.on_hand %></td>
     <td class="actions" data-hook="admin_products_index_row_actions">
       <%= link_to_edit product, :class => 'edit' unless product.deleted? %>
       &nbsp;

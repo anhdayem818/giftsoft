@@ -17,6 +17,5 @@ Spree::ProductsController.class_eval do
 
     respond_with(@product)
   end
-
   
 end
