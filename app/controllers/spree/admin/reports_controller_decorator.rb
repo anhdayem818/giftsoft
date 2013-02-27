@@ -4,7 +4,8 @@ module Spree
       respond_to :html
 
       AVAILABLE_REPORTS = {
-        :sales_total => { :name => I18n.t(:sales_total), :description => I18n.t(:sales_total_description) }
+        :sales_total => { :name => I18n.t(:sales_total), :description => I18n.t(:sales_total_description) },
+        :sales_detail => { :name => I18n.t(:sales_total), :description => I18n.t(:sales_total_description) }
       }
 
       def index
@@ -45,6 +46,16 @@ module Spree
         respond_with
       end
 
+      def sales_detail
+        params[:q] = {} unless params[:q]
+        params[:q][:s] ||= "created_at desc"
+        params[:q][:payment_state_eq] = "paid"
+        time_range = (Time.now.midnight - 7.day)..Time.now.midnight
+        @line_items = LineItem.joins(:order)
+        .where(:spree_orders => {:payment_state => 'paid', :updated_at => time_range})
+        .select("sum(quantity) as quantity, variant_id, order_id").group(:variant_id)
+        
+      end
     end
   end
 end

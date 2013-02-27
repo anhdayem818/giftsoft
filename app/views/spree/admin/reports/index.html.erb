@@ -8,12 +8,15 @@
     </tr>
   </thead>
   <tbody>
-    <% @reports.each do |key, value| %>
+    
     <tr data-hook="reports_row">
-      <td><%= link_to value[:name], send("#{key}_admin_reports_url".to_sym) %></td>
-      <td><%= value[:description] %></td>
+      <td><%= link_to t(:sales_total), sales_total_admin_reports_url %></td>
+      <td><%= t(:sales_total_description) %></td>
     </tr>
-    <% end %>
+    <tr data-hook="reports_row">
+      <td><%= link_to t(:sales_detail), main_app.admin_reports_sales_detail_url %></td>
+      <td><%= t(:sales_detail_description) %></td>
+    </tr>
   </tbody>
 </table>
 
