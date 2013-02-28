@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,7 +22,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'spree_auth_devise', :git => 'git://github.com/spree/spree_auth_devise'
+
 gem 'acts_as_commentable'
 gem 'newrelic_rpm', :group => 'production'
 gem "daemons"
@@ -41,5 +41,7 @@ gem 'delayed_job_active_record'
 
 # To use debugger
 # gem 'debugger'
-gem 'spree', :git => 'git://github.com/spree/spree.git'
+gem 'spree', '1.2.0'
+gem 'spree_auth_devise', :git => 'git://github.com/spree/spree_auth_devise', :branch => "1-2-stable"
 gem 'spree_gateway', :git => 'git://github.com/spree/spree_gateway.git', :branch => "1-1-stable" # make sure to include after spree
+gem 'spree_print_invoice' , :git => 'git://github.com/spree/spree_print_invoice.git'

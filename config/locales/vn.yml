@@ -373,6 +373,10 @@ vn:
   customer_details: "Thông tin khách hàng"
   customer_details_updated: "The customer's details have been updated."
   customer_search: "Tìm kiếm khách hàng"
+  date:
+    month_names: [" "]
+    formats:
+      default: ""
   date_created: Ngày tạo
   date_range: "Giới hạn ngày"
   debit: Nợ
@@ -622,7 +626,7 @@ vn:
   new_user: "Người dùng mới"
   new_variant: "Biến thể mới"
   new_zone: "Vùng mới"
-  next: Tiếp
+  next: "Next"
   no: "No"
   no_items_in_cart: "Sọt rỗng"
   no_match_found: "Không thấy trùng"
@@ -646,7 +650,7 @@ vn:
     product_not_deleted: "Không thể xóa sản phẩm"
     variant_deleted: "Biến thể đã được xóa"
     variant_not_deleted: "Không thể xóa biến thể"
-  on_hand: "Còn lại"
+  on_hand: "on hand"
   one_default_category_with_default_tax_rate: "You should configure exactly one default category with your countries default tax rate"
   operation: Hoạt động
   option_type: "Option Type"
@@ -745,7 +749,7 @@ vn:
   points_total: "Tổng điểm"
   presentation: Trình bày
   preview: Xem trước
-  previous: Trước
+  previous: "previous"
   price: Giá
   price_range: Tìm theo giá
   price_sack: Price Sack
@@ -1123,6 +1127,9 @@ vn:
   there_were_problems_with_the_following_fields: "Thông báo lỗi"
   this_file_language: "tiếng Việt (VN)"
   thumbnail: "Hình nhỏ"
+  time:
+    formats:
+      default: "default"
   to_add_variants_you_must_first_define: "Để thêm biến thể, bạn phải định nghĩa trước"
   to_state: "To State"
   total: Giá trị
