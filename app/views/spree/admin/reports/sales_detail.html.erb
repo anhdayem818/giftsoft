@@ -1,8 +1,32 @@
 <h1><%= t(:sales_detail) %> </h1>
 
-<div id="flot-placeholder" style="width: 800px; height: 400px; padding: 0px; position: relative;" >
-  <% @line_items.each do |line_item| %>
-  
-  <% end %>
-</div>
+<h1><%= t(:listing_products) %></h1>
+
+<table class="index" id="listing_products">
+  <tr data-hook="admin_products_index_headers">
+    <th><%= t(:image) %></th>
+    <th><%= t(:sku) %></th>
+    <th><%= t(:name)%></th>
+    <th><%= t(:master_price) %></th>
+    <th><%= t(:sole_out) %></th>
+    <th><%= t(:on_hand) %></th>
+  </tr>
+<% @line_items.each do |item| %>
+  <% product = item.product %>
+  <tr <%= "style='color: red;'" if product.deleted? %> id="<%= spree_dom_id product %>" data-hook="admin_products_index_rows">
+    <td><%= link_to small_image(product), product %></td>
+    <td><%= product.sku rescue '' %></td>
+    <td><%= link_to product.try(:name), edit_admin_product_path(product) %></td>
+    <td><%= number_to_currency product.price rescue '' %></td>
+    <td><%= item.quantity %></td>
+    <td><%= product.on_hand %></td>
+    <td class="actions" data-hook="admin_products_index_row_actions">
+      
+    </td>
+  </tr>
+<% end %>
+</table>
+<%#= paginate @line_items %>
+
+
 

@@ -54,7 +54,7 @@ module Spree
         @line_items = LineItem.joins(:order)
         .where(:spree_orders => {:payment_state => 'paid', :updated_at => time_range})
         .select("sum(quantity) as quantity, variant_id, order_id").group(:variant_id)
-        
+        .includes(:product)
       end
     end
   end

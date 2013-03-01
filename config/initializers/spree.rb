@@ -16,9 +16,12 @@ Spree.config do |config|
   # config.always_put_site_name_in_title = false
   config.set(:default_locale => 'vn')
   config.set(:allow_ssl_in_production => false)
+  #config.set(:html_invoice_logo_path => "images/logo.png")
 end
 
 Spree.user_class = "Spree::User"
+#Spree::PrintInvoice::Config.set(:print_invoice_logo_path => "images/logo.png")
+#Spree::HtmlInvoice::Config.set(:html_invoice_logo_path => "images/logo.png")
 #if Spree::Config.instance
 #  Spree::Config.set(:default_locale => 'de')
 #end

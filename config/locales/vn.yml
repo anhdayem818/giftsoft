@@ -392,6 +392,44 @@ vn:
   depth: Sâu
   description: Miêu tả
   destroy: Hủy diệt
+  devise:
+    failure:
+      unauthenticated: 'You need to sign in or sign up before continuing.'
+      unconfirmed: 'You have to confirm your account before continuing.'
+      locked: 'Your account is locked.'
+      invalid: 'Invalid email or password.'
+      invalid_token: 'Invalid authentication token.'
+      timeout: 'Your session expired, please sign in again to continue.'
+      inactive: 'Your account was not activated yet.'
+    user_passwords:
+      user:
+        cannot_be_blank: 'Your password cannot be blank.'
+        send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
+        updated: 'Your password was changed successfully. You are now signed in.'
+    confirmations:
+      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
+      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+    user_registrations:
+      signed_up: 'Welcome! You have signed up successfully.'
+      inactive_signed_up: 'You have signed up successfully. However, we could not sign you in because your account is %{reason}.'
+      updated: 'You updated your account successfully.'
+      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+    user_sessions:
+      signed_in: 'Signed in successfully.'
+      signed_out: 'Signed out successfully.'
+    unlocks:
+      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
+      unlocked: 'Your account was successfully unlocked. You are now signed in.'
+    oauth_callbacks:
+      success: 'Successfully authorized from %{kind} account.'
+      failure: 'Could not authorize you from %{kind} because "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Confirmation instructions'
+      reset_password_instructions:
+        subject: 'Reset password instructions'
+      unlock_instructions:
+        subject: 'Unlock Instructions'
   didnt_receive_confirmation_instructions: "Didn't receive confirmation instructions?"
   didnt_receive_unlock_instructions: "Didn't receive unlock instructions?"
   discount_amount: "Chiếc khấu"
@@ -476,6 +514,10 @@ vn:
   flat_rate_per_item: "Lãi suất sàn (cho từng món hàng)"
   flat_rate_per_order: "Lãi suất sàn (cho từng đơn hàng)"
   flexible_rate: "Lãi suất dao động"
+  footer_left: ""
+  footer_left2: ""
+  footer_right: ""
+  footer_right2: ""
   forgot_password: "Quên mật khẩu"
   free_shipping: Free Shipping
   from_state: From State
@@ -533,6 +575,9 @@ vn:
   inventory_adjustment: "Điều chỉnh hàng tồn"
   inventory_setting_description: "Cấu hình hàng tồn, đơn đặt hàng trước, hàng đã bán hết"
   inventory_settings: "Tùy chỉnh hàng tồn"
+  invoice:
+    header: ""
+  invoice_print: "In hoa don"
   is_not_available_to_shipment_address: không thể chuyển đến địa chỉ chỉ định
   issue_number: Vấn đề số
   item: Món
@@ -650,7 +695,7 @@ vn:
     product_not_deleted: "Không thể xóa sản phẩm"
     variant_deleted: "Biến thể đã được xóa"
     variant_not_deleted: "Không thể xóa biến thể"
-  on_hand: "on hand"
+  on_hand: "Còn Lại"
   one_default_category_with_default_tax_rate: "You should configure exactly one default category with your countries default tax rate"
   operation: Hoạt động
   option_type: "Option Type"
@@ -702,10 +747,11 @@ vn:
   overview: Tổng kết
   page_only_viewable_when_logged_in: Trang này chỉ xem được sau khi đã đăng nhập
   page_only_viewable_when_logged_out: Trang này chỉ xem được sau khi đã đăng xuất
-  pagination: 
-    next_page: "next page &raquo;"
-    previous_page: "&laquo; previous page"
-    truncate: "&hellip;"
+  views:
+    pagination: 
+      next_page: "next page &raquo;"
+      previous_page: "&laquo; previous page"
+      truncate: "&hellip;"
   paid: Đã thanh toán
   parent_category: "Loại mặt hàng mẹ"
   password: Mật khẩu

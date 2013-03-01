@@ -41,7 +41,9 @@ gem 'delayed_job_active_record'
 
 # To use debugger
 # gem 'debugger'
+gem 'spree_html_invoice' , :git => 'git://github.com/dancinglightning/spree-html-invoice.git'
 gem 'spree', '1.2.0'
 gem 'spree_auth_devise', :git => 'git://github.com/spree/spree_auth_devise', :branch => "1-2-stable"
 gem 'spree_gateway', :git => 'git://github.com/spree/spree_gateway.git', :branch => "1-1-stable" # make sure to include after spree
-gem 'spree_print_invoice' , :git => 'git://github.com/spree/spree_print_invoice.git'
+#gem 'spree_print_invoice' , :git => 'git://github.com/spree/spree_print_invoice.git'
+

@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/dancinglightning/spree-html-invoice.git
+  revision: 1bead35ba06ccbecbf57b7b9819b361aeb4b2818
+  specs:
+    spree_html_invoice (1.1)
+      spree_core (>= 1.0.0)
+
+GIT
   remote: git://github.com/spree/spree_auth_devise
   revision: f1a865916aa93f14a17e16cb6fa69718a5b20af0
   branch: 1-2-stable
@@ -25,14 +32,6 @@ GIT
       i18n (~> 0.6)
       rails-i18n
       spree_core
-
-GIT
-  remote: git://github.com/spree/spree_print_invoice.git
-  revision: b283eebd887b2dca321a5065703e5e2edb84d9a0
-  specs:
-    spree_print_invoice (1.0.0)
-      prawn (= 0.8.4)
-      spree_core (~> 1.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -156,16 +155,6 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
-    prawn (0.8.4)
-      prawn-core (>= 0.8.4, < 0.9)
-      prawn-core (>= 0.8.4, < 0.9)
-      prawn-layout (>= 0.8.4, < 0.9)
-      prawn-layout (>= 0.8.4, < 0.9)
-      prawn-security (>= 0.8.4, < 0.9)
-      prawn-security (>= 0.8.4, < 0.9)
-    prawn-core (0.8.4)
-    prawn-layout (0.8.4)
-    prawn-security (0.8.4)
     rabl (0.6.5)
       activesupport (>= 2.3.14)
       multi_json (~> 1.0)
@@ -280,7 +269,7 @@ DEPENDENCIES
   spree (= 1.2.0)
   spree_auth_devise!
   spree_gateway!
+  spree_html_invoice!
   spree_i18n!
-  spree_print_invoice!
   sprockets
   uglifier (>= 1.0.3)

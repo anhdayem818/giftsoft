@@ -42,9 +42,11 @@ Spree::Order.class_eval do
 
   def load_address
     if self.user.present?
-      saved_order = self.user.orders.where("bill_address_id is not null").first
-      self.ship_address = self.bill_address = saved_order.bill_address if saved_order.present?
-      self.save
+      saved_order = self.user.orders.complete.where("bill_address_id is not null").first
+      if saved_order.present?
+        self.ship_address = self.bill_address = saved_order.bill_address 
+        self.save
+      end
     end
   end
 
