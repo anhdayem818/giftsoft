@@ -1,4 +1,5 @@
-Spree::Order.class_eval do
+module Spree
+  Order.class_eval do
   #has_many :line_items, :dependent => :destroy, :class_name => "Spree::LineItem"
   def add_variant(variant, quantity = 1)
     current_item = find_line_item_by_variant(variant)
@@ -59,4 +60,28 @@ Spree::Order.class_eval do
   def item_count
     line_items.sum(:quantity)
   end
+  
+  def update_payment_state
+        
+    #line_item are empty when user empties cart
+    if self.line_items.empty? || round_money(payment_total) < round_money(total)
+      self.payment_state = 'balance_due'
+      self.payment_state = 'failed' if payments.present? and payments.last.state == 'failed'
+    elsif round_money(payment_total) > round_money(total)
+      self.payment_state = 'credit_owed'
+    else
+      self.payment_state = 'paid'
+      self.paid_at = Time.now()
+    end
+
+    if old_payment_state = self.changed_attributes['payment_state']
+      self.state_changes.create({
+        :previous_state => old_payment_state,
+        :next_state     => self.payment_state,
+        :name           => 'payment',
+        :user_id        => (User.respond_to?(:current) && User.current && User.current.id) || self.user_id
+      }, :without_protection => true)
+    end
+  end
+end
 end

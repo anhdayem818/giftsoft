@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: git://github.com/spree/spree_i18n.git
-  revision: 6416e2b3595bcad5d88b92ccca383df4e10d7c98
+  revision: b532ef2c73eca1fc9cfe1e736fe73ceb4148934a
   specs:
     spree_i18n (1.0.0)
       i18n (~> 0.6)
@@ -102,7 +102,7 @@ GEM
       rails (~> 3.1)
     delayed_job (3.0.5)
       activesupport (~> 3.0)
-    delayed_job_active_record (0.4.2)
+    delayed_job_active_record (0.4.3)
       activerecord (>= 2.1.0, < 4)
       delayed_job (~> 3.0)
     devise (2.2.3)
@@ -144,7 +144,7 @@ GEM
     nested_set (1.7.0)
       activerecord (>= 3.0.0)
       railties (>= 3.0.0)
-    newrelic_rpm (3.5.7.59)
+    newrelic_rpm (3.5.8.70)
     nokogiri (1.5.6)
     orm_adapter (0.4.0)
     paperclip (2.8.0)
@@ -241,7 +241,7 @@ GEM
     state_machine (1.1.2)
     stringex (1.3.3)
     thor (0.17.0)
-    tilt (1.3.3)
+    tilt (1.3.4)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)

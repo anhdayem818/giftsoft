@@ -19,7 +19,7 @@
     <td><%= link_to product.try(:name), edit_admin_product_path(product) %></td>
     <td><%= number_to_currency product.price rescue '' %></td>
     <td><%= item.quantity %></td>
-    <td><%= product.on_hand %></td>
+    <td><%= product.on_hand + product.in_process %></td>
     <td class="actions" data-hook="admin_products_index_row_actions">
       
     </td>
