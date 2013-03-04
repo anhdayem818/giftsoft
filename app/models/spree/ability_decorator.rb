@@ -8,6 +8,7 @@ module Spree
         can :manage, Order
         can :manage, LineItem
         can :manage, Payment
+        can :manage, Shipment
         can :read, Product
         can :index, Product
         can :admin, Product
