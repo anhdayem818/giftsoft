@@ -1234,7 +1234,7 @@ vn:
   users_total: Tổng số Người dùng
   validate_on_profile_create: Validate on profile create
   validation:
-    cannot_be_greater_than_available_stock: "cannot be greater than available stock."
+    cannot_be_greater_than_available_stock: "không thể vượt giới hạn trong kho."
     cannot_be_less_than_shipped_units: "cannot be less than the number of shipped units."
     cannot_destory_line_item_as_inventory_units_have_shipped: "Cannot destory line item as some inventory units have shipped."
     is_too_large: "quá lớn -- số hàng hiện có không đủ đáp ứng!"

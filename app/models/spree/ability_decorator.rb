@@ -6,6 +6,7 @@ module Spree
       user ||= User.new
       if user.has_spree_role? "sale"
         can :manage, Order
+        can :manage, LineItem
         can :manage, Payment
         can :read, Product
         can :index, Product
