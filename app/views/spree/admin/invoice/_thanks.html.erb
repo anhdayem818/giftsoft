@@ -1,0 +1,14 @@
+<%
+base = @order.number[1 .. -1]
+%>
+
+<%unless @packaging_slip%>
+<table>
+  <tr>
+    <td colspan="2">
+      &nbsp;
+    </td>
+  </tr>
+
+</table>
+<%end%>

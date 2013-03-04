@@ -374,9 +374,26 @@ vn:
   customer_details_updated: "The customer's details have been updated."
   customer_search: "Tìm kiếm khách hàng"
   date:
-    month_names: [" "]
+    abbr_month_names: ""
+    day_names:
+      - "1"
+      - "2"
+    abbr_day_names: ""
+    month_names: 
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
     formats:
-      default: ""
+      default: "%d-%m-%Y"
   date_created: Ngày tạo
   date_range: "Giới hạn ngày"
   debit: Nợ
@@ -577,7 +594,8 @@ vn:
   inventory_settings: "Tùy chỉnh hàng tồn"
   invoice:
     header: ""
-  invoice_print: "In hoa don"
+    print: "In hóa đơn"
+  invoice_print: "In hóa đơn"
   is_not_available_to_shipment_address: không thể chuyển đến địa chỉ chỉ định
   issue_number: Vấn đề số
   item: Món
@@ -620,6 +638,7 @@ vn:
   mail_methods: Mail Methods
   mail_server_preferences: Cấu hình Mail Server
   make_refund: Thối tiền
+  manage: "Quản lý"
   mark_shipped: "Chứng hàng đã chuyển"
   master_price: "Giá chủ"
   match_choices: 
@@ -1110,6 +1129,8 @@ vn:
   sort_ordering: "Thứ tự sắp xếp"
   special_instructions: "Special Instructions"
   spree: 
+    time: "Giờ"
+    date: "Ngày"
   spree/order: 
     coupon_code: Coupon Code
     date: Date

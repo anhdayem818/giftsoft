@@ -52,7 +52,7 @@ module Spree
         params[:q][:payment_state_eq] = "paid"
         time_range = (Time.now.midnight - 7.day)..Time.now.midnight
         @line_items = LineItem.joins(:order)
-        .where(:spree_orders => {:payment_state => 'paid', :updated_at => time_range})
+        .where(:spree_orders => {:payment_state => 'paid', :paid_at => time_range})
         .select("sum(quantity) as quantity, variant_id, order_id").group(:variant_id)
         .includes(:product)
       end

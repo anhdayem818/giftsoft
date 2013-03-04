@@ -18,7 +18,7 @@
           <input type="text" name="keywords" class="search-query span2" placeholder="<%= t(:search) %>">
         </form>
         <ul class="nav pull-right">
-
+          
           <li class="dropdown">
             <a href="#" id="cart-dropdown" rel="tooltip" class="dropdown-toggle cart" data-toggle="dropdown">
               <%= t(:cart)  %>  <b class="caret"></b></a>
@@ -40,6 +40,9 @@
                 <li><%= link_to t(:logout), spree.destroy_user_session_path %></li>
               </ul>
             </li>
+            <% if current_user.has_spree_role?("sale") || current_user.has_spree_role?("admin") %>
+            <li><%= link_to t(:manage), spree.admin_orders_path %></li>
+            <% end %>
           <% else %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t(:login)  %>  <b class="caret"></b></a>
@@ -56,6 +59,7 @@
             <li>
               <%= link_to t(:register), spree.signup_path %>
             </li>
+            
           <% end %>
         </ul>
       </div><!-- /.nav-collapse -->
