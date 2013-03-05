@@ -599,6 +599,7 @@ vn:
   is_not_available_to_shipment_address: không thể chuyển đến địa chỉ chỉ định
   issue_number: Vấn đề số
   item: Món
+  item_count: "Số sản phẩm"
   item_description: "Miêu tả món hàng"
   item_total: "Tổng số tiền"
   item_total_rule: 
