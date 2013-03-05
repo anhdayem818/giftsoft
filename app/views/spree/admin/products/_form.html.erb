@@ -87,6 +87,11 @@
         <%= f.collection_select(:tax_category_id, @tax_categories, :id, :name, { :include_blank => true }, { 'style' => 'width:200px' }) %>
         <%= f.error_message_on :tax_category %>
       <% end %>
+      <%= f.field_container :taxon do %>
+        <%= f.label :taxon, t(:taxon) %><br />
+		<% taxon_id = @product.taxons.first.nil?? 0 : @product.taxons.first.id %>
+        <%= select_tag :taxon_id, options_from_collection_for_select(Spree::Taxon.all, "id", "name", taxon_id) %>
+      <% end %>
     </div>
   </div>
 
