@@ -1116,7 +1116,7 @@ vn:
   shipping_total: "Tổng tiền vận chuyển"
   shop_by_taxonomy: "Mua theo %{taxonomy}"
   shopping_cart: "Sọt mua sắm"
-  short_description: "Short description"
+  short_description: "Mô tả ngắn gọn"
   show: Xem
   show_active: "Liệt kê đơn còn hiệu lực"
   show_deleted: "Hiện đơn hàng đã xóa"
