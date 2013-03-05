@@ -7,7 +7,7 @@
     <col class="total"/>
   </colgroup>
   <tr>
-    <td class="sku bold"><%= t(:sku) unless @receipt %></td>
+    <td class="name bold"><%= t(:name) unless @receipt %></td>
     <td class="desc bold"><%= t(:item_description) %></td>
     <td class="price bold"><%=t(:price) unless @receipt%></td>
     <td class="qty bold"><%= t(:qty) %> </td>
@@ -15,8 +15,8 @@
   </tr>
   <% @order.line_items.each do |item| %>
     <tr>
-      <td class="cell"><%=item.variant.sku unless @receipt%></td>
-      <td class="cell"><%= item.variant.product.description rescue item.variant.product.name %></td>
+      <td class="cell"><%=item.variant.name unless @receipt%></td>
+      <td class="cell"><%= item.variant.product.short_desc rescue item.variant.product.name %></td>
       <td class="cell price"><%=number_to_currency(item.price) unless @receipt%></td>
       <td class="cell qty"><%=item.quantity %></td>
       <td class="cell total"><%=number_to_currency(item.price * item.quantity) %></td>
