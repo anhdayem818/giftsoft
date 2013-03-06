@@ -39,7 +39,7 @@ $(document).ready(function() {
         $("#cart-checkout").removeClass("disabled");
         return false;
     })
-    
+    $(".search-query").product_autocomplete();
     function addToCart(object, variant_id) {
         var original_html = object.html();
         object.html("Đang xử lý");

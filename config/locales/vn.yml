@@ -102,7 +102,7 @@ vn:
         description: Description
         master_price: "Master Price"
         name: Name
-        on_hand: "On Hand"
+        on_hand: "Hàng còn"
         shipping_category: "Shipping Category"
         tax_category: "Tax Category"
       spree/promotion:
@@ -292,6 +292,7 @@ vn:
   attachment_styles: "Paperclip Styles"
   authorization_failure: "Không được ủy quyền truy cập"
   authorized: Được ủy quyền
+  available: "Hàng còn"
   availability: "Availability"
   available_on: "Có hàng vào ngày"
   available_taxons: "Đơn vị phân loại hiện có"

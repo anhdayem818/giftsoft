@@ -8,7 +8,8 @@
  *= require store/spree_core
  *= require screen
  *= require store/products
-  *= require store/checkout
+ *= require store/checkout
  *= require store/main
  *= require articles
+ *= require_tree .
 */
