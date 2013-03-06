@@ -15,10 +15,12 @@ format_product_autocomplete = function(item){
     }
 
     html += "<div><h4>" + product['name'] + "</h4>";
-    if (product['master']) {
-      html += "<span><strong><%= ::I18n.t(:sku) %>: </strong>" + product['master']['sku'] + "</span>";
+
+    if(product['count_on_hand'] > 0) {
+      html += "<span><strong><%= ::I18n.t(:available) %>: </strong>" + product['count_on_hand'] + "</span></div>";
+    } else {
+      html += "<span><strong><%= ::I18n.t(:out_of_stock) %></strong></span></div>";
     }
-    html += "<span><strong>.&nbsp;<%= ::I18n.t(:available) %>: </strong>" + product['count_on_hand'] + "</span></div>";
   }else{
     // variant
     var variant = item.data['variant'];

@@ -775,7 +775,7 @@ vn:
   order_updated: "Đơn hàng được cập nhật"
   orders: Đơn hàng
   other_payment_options: Tùy chọn Thanh toán khác
-  out_of_stock: "Tạm hết"
+  out_of_stock: "Hết hàng"
   over_paid: "Trả lố"
   overview: Tổng kết
   page_only_viewable_when_logged_in: Trang này chỉ xem được sau khi đã đăng nhập
