@@ -8,6 +8,7 @@ module Spree
           if params[:product].present?
             @taxon = Taxon.find(params[:taxon_id])
             if @taxon
+              @product.taxons.destroy_all
               @product.taxons << @taxon
               @product.save
               @taxons = @product.taxons
