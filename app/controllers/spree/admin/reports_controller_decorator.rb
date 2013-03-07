@@ -48,13 +48,24 @@ module Spree
 
       def sales_detail
         params[:q] = {} unless params[:q]
-        params[:q][:s] ||= "created_at desc"
-        params[:q][:payment_state_eq] = "paid"
-        time_range = (Time.now.midnight - 7.day)..Time.now.midnight
-        @line_items = LineItem.joins(:order)
-        .where(:spree_orders => {:payment_state => 'paid', :paid_at => time_range})
-        .select("sum(quantity) as quantity, variant_id, order_id").group(:variant_id)
-        .includes(:product)
+        params[:q][:s] ||= "name"
+        if params[:q][:created_at_gt].blank?
+          params[:q][:created_at_gt] = Time.now.beginning_of_week
+        else
+          params[:q][:created_at_gt] = Time.zone.parse(params[:q][:created_at_gt]).beginning_of_day rescue Time.now.beginning_of_week
+        end
+        if params[:q][:created_at_lt].blank?
+          params[:q][:created_at_lt] = Time.now
+        else
+          params[:q][:created_at_lt] = Time.zone.parse(params[:q][:created_at_lt]).end_of_day rescue Time.now
+        end
+        
+        #params[:q][:payment_state_eq] = "paid"
+        @start_date = params[:q][:created_at_gt]
+        @end_date = params[:q][:created_at_lt]
+        @search = Product.not_deleted.ransack({:s => "name"})
+        @products = @search.result
+        #@products = Product.not_deleted.order(:name)
       end
     end
   end

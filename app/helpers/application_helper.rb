@@ -4,6 +4,9 @@ module ApplicationHelper
   end
   
   def min_total
+    if(current_user.present? && current_user.has_spree_role?("sale"))
+      return 0
+    end
     if returning_customer? 
       if current_user.orders.select(&:paid?).sum(&:total) > 1000000
         100000 

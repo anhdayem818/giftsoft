@@ -9,24 +9,30 @@
     <th><%= t(:name)%></th>
     <th><%= t(:master_price) %></th>
     <th><%= t(:sole_out) %></th>
+    <th><%= t(:in_process) %></th>
     <th><%= t(:on_hand) %></th>
   </tr>
-<% @line_items.each do |item| %>
-  <% product = item.product %>
-  <tr <%= "style='color: red;'" if product.deleted? %> id="<%= spree_dom_id product %>" data-hook="admin_products_index_rows">
+<% @products.each do |product| %>
+  <% if product.show_in_report?(@start_date, @end_date) %>
+  <tr id="<%= spree_dom_id product %>" data-hook="admin_products_index_rows">
     <td><%= link_to small_image(product), product %></td>
     <td><%= product.sku rescue '' %></td>
     <td><%= link_to product.try(:name), edit_admin_product_path(product) %></td>
     <td><%= number_to_currency product.price rescue '' %></td>
-    <td><%= item.quantity %></td>
-    <td><%= product.on_hand + product.in_process %></td>
+    <td><%= product.sole_out(@start_date, @end_date) %></td>
+    <td><%= product.in_process %></td>
+    <td><%= product.on_hand %></td>
     <td class="actions" data-hook="admin_products_index_row_actions">
       
     </td>
   </tr>
+  <% end %>
 <% end %>
 </table>
 <%#= paginate @line_items %>
+<% content_for :sidebar do %>
+  <%= render :partial => 'spree/admin/shared/details_report_criteria', :locals => {} %>
+<% end %>
 
 
 
