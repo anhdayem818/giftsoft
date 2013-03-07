@@ -10,7 +10,7 @@ Spree::Product.class_eval do
   end
   
   def self.not_deleted
-    where('deleted_at IS NULL')
+    where('spree_products.deleted_at IS NULL')
   end
   
   def show_in_report?(start_date = 7.days.ago, end_date = Time.now)
