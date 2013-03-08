@@ -87,14 +87,13 @@
         <%= f.collection_select(:tax_category_id, @tax_categories, :id, :name, { :include_blank => true }, { 'style' => 'width:200px' }) %>
         <%= f.error_message_on :tax_category %>
       <% end %>
-      <%= f.field_container :taxon do %>
-        <%= f.label :taxon, t(:taxon) %><br />
-		<% taxon_id = @product.taxons.first.nil?? 0 : @product.taxons.first.id %>
-        <%= select_tag :taxon_id, options_from_collection_for_select(Spree::Taxon.all, "id", "name", taxon_id) %>
-      <% end %>
+
     </div>
   </div>
-
+  <%= f.field_container :taxons do %>
+    <%= f.label :taxon, t(:taxons) %><br />
+    <%= f.text_field :taxon_ids, :value => @product.taxon_ids.join(',') %>
+  <% end %>
   <h2><%= t(:metadata) %></h2>
   <div data-hook="admin_product_form_meta">
     <%= f.field_container :meta_keywords do %>
@@ -110,3 +109,10 @@
 
   <div data-hook="admin_product_form_additional_fields"></div>
 </div>
+<% unless Rails.env.test? %>
+  <script>
+  $("#product_option_type_ids").select2();
+
+  $('.select2-container').css({width: '20em'})
+  </script>
+<% end %>
