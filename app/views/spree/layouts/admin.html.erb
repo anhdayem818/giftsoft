@@ -57,7 +57,9 @@
 
     <% if content_for?(:sidebar) %>
       <br class="clear" />
+	  
       <div id="sidebar" data-hook>
+		<%= link_to image_tag('admin/close.png'), '#', :class=>'close', :id => 'btn-close', :state=>'expand' %>
         <%= yield :sidebar %>
       </div>
     <% end %>
