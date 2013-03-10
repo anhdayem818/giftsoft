@@ -813,7 +813,7 @@ vn:
     completed: Hoàn tất
     credit_owed: credit owed
     failed: failed
-    paid: Đẵ thanh toán
+    paid: Đã thanh toán
     pending: pending
     processing: Đang xử lý
     void: void
