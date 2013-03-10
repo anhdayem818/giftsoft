@@ -741,6 +741,7 @@ vn:
   order: Đơn hàng
   order_confirmation_note: ""
   order_date: "Ngày đặt hàng"
+  
   order_details: "Chi tiết đơn hàng"
   order_email_resent: "Đơn hàng đã được gửi email lại"
   order_mailer: 
@@ -786,6 +787,7 @@ vn:
       previous_page: "&laquo; previous page"
       truncate: "&hellip;"
   paid: Đã thanh toán
+  paid_date: "Ngày thanh toán"
   parent_category: "Loại mặt hàng mẹ"
   password: Mật khẩu
   password_reset_instructions: "Hướng dẫn đặt lại mật khẩu"
