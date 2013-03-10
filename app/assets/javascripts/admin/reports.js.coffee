@@ -1,5 +1,5 @@
 $(document).ready ()->
-  unless(typeof variable == 'undefined')
+  unless(typeof report_data== 'undefined')
     $.plot($("#flot-placeholder"),
       [ report_data ], {
       points: { show: false },
