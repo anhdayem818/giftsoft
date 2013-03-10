@@ -813,9 +813,9 @@ vn:
     completed: Hoàn tất
     credit_owed: credit owed
     failed: failed
-    paid: paid
+    paid: Đẵ thanh toán
     pending: pending
-    processing: processing
+    processing: Đang xử lý
     void: void
   payment_updated: Thanh toán đã được cập nhật
   payments: Thanh toán
