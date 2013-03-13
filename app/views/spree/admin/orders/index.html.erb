@@ -100,10 +100,18 @@
         <%= f.check_box :completed_at_not_null, {:checked => @show_only_completed}, '1', '' %>
         <%= label_tag nil, t(:show_only_complete_orders) %>
       </p>
+      
       <p>
-        <% @show_only_paid = params[:q][:payment_state_eq].present? %>
-        <%= f.check_box :payment_state_eq, {:checked => @show_only_paid}, 'paid', '' %>
+        <%= f.radio_button :payment_state_eq, 'paid' %>
         <%= label_tag nil, t(:paid) %>
+      </p>
+      <p>
+        <%= f.radio_button :payment_state_eq, 'balance_due' %>
+        <%= label_tag nil, t(:balance_due, :scope => 'payment_states') %>
+      </p>
+      <p>
+        <%= f.radio_button :payment_state_eq, '' %>
+        <%= label_tag nil, t(:all) %>
       </p>
       <div data-hook="admin_orders_index_search_buttons">
         <p><%= button t(:search) %></p>
