@@ -29,6 +29,7 @@ module Spree
 #      @products = @searcher.retrieve_products
 #      respond_with(@products)
       @products = Product.where(["spree_products.name #{LIKE} ?", "%#{params[:keywords]}%"])
+        .where("deleted_at is null")
     end
   end
 end

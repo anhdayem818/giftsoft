@@ -2,21 +2,38 @@ module Spree
   module Admin
     ProductsController.class_eval do
       
-        def update_before
-          # note: we only reset the product properties if we're receiving a post from the form on that tab
-          #@product = @object
-          if params[:product].present?
-            @taxon = Taxon.find(params[:taxon_id])
-            if @taxon
-              @product.taxons.destroy_all
-              @product.taxons << @taxon
-              @product.save
-              @taxons = @product.taxons
+      def collection
+        return @collection if @collection.present?
+
+        unless request.xhr?
+          params[:q] ||= {}
+          params[:q][:deleted_at_null] ||= "1"
+
+          params[:q][:s] ||= "name asc"
+
+          @search = super.ransack(params[:q])
+          @collection = @search.result.
+            group_by_products_id.
+            includes([:master, {:variants => [:images, :option_values]}]).
+            page(params[:page]).
+            per(Spree::Config[:admin_products_per_page])
+
+            # PostgreSQL compatibility
+            if params[:q][:s].include?("master_price")
+              @collection = @collection.group("spree_variants.price")
             end
-          end
-          return unless params[:clear_product_properties]
-          params[:product] ||= {}
+        else
+          includes = [{:variants => [:images,  {:option_values => :option_type}]}, {:master => :images}]
+
+          @collection = super.where(["name #{LIKE} ?", "%#{params[:q]}%"]).where("deleted_at is null")
+          @collection = @collection.includes(includes).limit(params[:limit] || 10)
+
+          tmp = super.where(["#{Variant.table_name}.sku #{LIKE} ?", "%#{params[:q]}%"])
+          tmp = tmp.includes(:variants_including_master).limit(params[:limit] || 10)
+          @collection.concat(tmp).uniq!
         end
+        @collection
+      end
     end
   end
 end
