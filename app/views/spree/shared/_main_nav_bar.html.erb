@@ -16,7 +16,6 @@
         </ul>
         <form class="navbar-search pull-left" action="/products">
           <input type="text" name="keywords" class="search-query span3" placeholder="<%= t(:search) %>">
-          <input type="hidden" name="show_out_stock" value="1"/>
         </form>
         <ul class="nav pull-right">
           
@@ -36,6 +35,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username  %>  <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><%= link_to t(:account), spree.account_path %></li>
+                <li><%= link_to t(:my_orders), spree.account_path %></li>
                 <li><a href="<%=main_app.static_path("how_to")%>#point">Điểm tích lũy: <span class="badge badge-info"><%= current_user.point %></span></a></li>
                 <li class="divider"></li>
                 <li><%= link_to t(:logout), spree.destroy_user_session_path %></li>

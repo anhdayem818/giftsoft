@@ -668,7 +668,7 @@ vn:
   missing_required_information: "Thiếu thông tin yêu cầu"
   month: "Tháng"
   my_account: "Tài khoản của tôi"
-  my_orders: "Đơn đặt hàng của tôi"
+  my_orders: "Đơn hàng của tôi"
   name: Tên
   name_or_sku: "Tên hoặc SKU"
   new: Mới
@@ -765,7 +765,7 @@ vn:
     confirm: confirm
     delivery: Giao hàng
     payment: Thanh toán
-    resumed: resumed
+    resumed: Đă phục hồi
     returned: returned
     skrill: skrill
   order_summary: Tóm tắt đơn đặt hàng
@@ -1041,8 +1041,8 @@ vn:
     successfully_removed: "Đã xóa thành công!"
     successfully_updated: "Đã cập nhật thành công!"
   response_code: "Mã phản hồi"
-  resume: "tiếp tục"
-  resumed: Đã tiếp tục
+  resume: "Phục hồi"
+  resumed: Đã phục hồi
   return: trở về
   return_authorization: Ủy Quyền Trả Về
   return_authorization_updated: Ủy Quyền Trả Về đã được cập nhật
@@ -1122,7 +1122,7 @@ vn:
   short_description: "Mô tả ngắn gọn"
   show: Xem
   show_active: "Liệt kê đơn còn hiệu lực"
-  show_deleted: "Hiện đơn hàng đã xóa"
+  show_deleted: "Hiện luôn đã xóa"
   show_incomplete_orders: "Hiện đơn hàng chưa hoàn tất"
   show_only_complete_orders: "Chỉ hiện đơn hàng đã hoàn tất"
   show_out_of_stock_products: "Hiện sảm phẩm hết hàng"
