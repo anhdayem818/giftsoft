@@ -16,4 +16,9 @@ Spree::Product.class_eval do
   def show_in_report?(start_date = 7.days.ago, end_date = Time.now)
     sole_out(start_date, end_date) != 0 || in_process != 0 || on_hand != 0
   end
+  
+  def resume
+    self.update_column(:deleted_at, nil)
+    variants_including_master_and_deleted.update_all(:deleted_at => nil)
+  end
 end

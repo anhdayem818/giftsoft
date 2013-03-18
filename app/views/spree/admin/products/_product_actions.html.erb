@@ -1,0 +1,7 @@
+<%= link_to_edit product, :class => 'edit' unless product.deleted? %>
+&nbsp;
+<%= link_to_clone product, :class => 'clone' %>
+&nbsp;
+<%= link_to_delete product unless product.deleted? %>
+&nbsp;
+<%= link_to_with_icon('edit', t(:resume), "/admin/products/#{product.permalink}/resume", :class => 'resume-resource') if product.deleted? %>
