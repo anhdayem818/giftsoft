@@ -1,0 +1,7 @@
+<h1>Editing instruction</h1>
+
+<%= form_for @instruction, {:url => main_app.admin_instruction_path(@instruction)} do |f| %>
+    <%= render 'form', :f => f %>
+<% end %>
+
+<%= link_to 'Back', main_app.admin_instructions_path %>

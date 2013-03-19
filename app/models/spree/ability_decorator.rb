@@ -13,6 +13,9 @@ module Spree
         can :index, Product
         can :admin, Product
       end
+      if user.has_spree_role? "admin"
+        can :manage, Instruction
+      end
     end
   end
 end

@@ -1,0 +1,5 @@
+<a name="instruction_<%= instruction.id %>">
+  <h3 style="color:#009933"><%= instruction.title %></h3>
+  <h5><%= link_to "Edit", main_app.edit_admin_instruction_path(instruction)%></h5>
+</a>
+<%= instruction.content.html_safe %>

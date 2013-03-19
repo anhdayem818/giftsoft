@@ -1,0 +1,12 @@
+<%= render "map" %>
+<div class="row">
+  <div class="span3">
+    <%= render "hight_light"%>
+  </div>
+  <div class="span9">
+    <% @instructions.each do |instruction| %>
+      <%= render "instruction", {instruction: instruction} %>
+    <% end %>
+  </div>
+
+</div>

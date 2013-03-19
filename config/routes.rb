@@ -4,6 +4,7 @@ Giftshop::Application.routes.draw do
 
   resources :statics
 
+  resources :instructions
   match "/admin/reports/sales_detail" => "spree/admin/reports#sales_detail"
   match '/admin/products/:id/resume' => 'spree/admin/products#resume'
   # This line mounts Spree's routes at the root of your application.
@@ -16,7 +17,7 @@ Giftshop::Application.routes.draw do
   namespace :admin do
     resources :articles
     resources :announcements
-    
+    resources :instructions
   end
 
   

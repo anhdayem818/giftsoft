@@ -1,0 +1,9 @@
+<ul class="nav nav-list">
+  <% @instructions.each do |instruction| %>
+    <li><%= link_to instruction.title, "#instruction_#{instruction.id}"%></li>
+  <% end %>
+  <% if can? :create, Instruction %>
+  <li><%= link_to "+ Add new", main_app.new_admin_instruction_path %></li>
+  <% end %>
+</ul>
+  
