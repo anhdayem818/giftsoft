@@ -7,6 +7,7 @@
     <col class="total"/>
   </colgroup>
   <tr>
+    <td class="name bold"><%= t(:image) %></td>
     <td class="name bold"><%= t(:name) unless @receipt %></td>
     <td class="desc bold"><%= t(:item_description) %></td>
     <td class="price bold"><%=t(:price) unless @receipt%></td>
@@ -14,7 +15,9 @@
     <td class="total bold"><%= t(:total) %></td>
   </tr>
   <% @order.line_items.each do |item| %>
+    <% image = item.product.images.first %>
     <tr>
+      <td class="cell"><%= link_to image_tag(image.attachment.url(:mini)), image.attachment.url(:product) %></td>
       <td class="cell"><%=item.variant.name unless @receipt%></td>
       <td class="cell"><%= item.variant.product.short_desc rescue item.variant.product.name %></td>
       <td class="cell price"><%=number_to_currency(item.price) unless @receipt%></td>
