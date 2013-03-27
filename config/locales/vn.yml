@@ -1243,6 +1243,7 @@ vn:
   use_s3: "Use Amazon S3 For Images"
   user: Người dùng
   user_account: Tài khoản người dùng
+  user_comment_on: "[%{username}] bình luận SP"
   user_created_successfully: "Tạo người dùng thành công"
   user_rule: 
     choose_users: Choose users

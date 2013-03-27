@@ -37,11 +37,10 @@
                 <li><%= link_to t(:account), spree.account_path %></li>
                 <li><%= link_to t(:my_orders), spree.account_path %></li>
                 <li><a href="<%=main_app.static_path("how_to")%>#point">Điểm tích lũy: <span class="badge badge-info"><%= current_user.point %></span></a></li>
-                <li class="divider"></li>
                 <li><%= link_to t(:logout), spree.destroy_user_session_path %></li>
               </ul>
             </li>
-            <% if current_user.has_spree_role?("sale") || current_user.has_spree_role?("admin") %>
+            <% if current_user.has_spree_role?("sale") && (current_user.has_spree_role?("admin") || current_user.has_spree_role?("sale")) %>
             <li><%= link_to t(:manage), spree.admin_orders_path %></li>
             <% end %>
           <% else %>
@@ -56,7 +55,6 @@
               </ul>
 
             </li>
-            <li class="divider-vertical"></li>
             <li>
               <%= link_to t(:register), spree.signup_path %>
             </li>
