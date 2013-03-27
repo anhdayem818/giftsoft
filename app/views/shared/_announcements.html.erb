@@ -20,7 +20,7 @@
 		<% @comments.each do |comment|%>
 	  	<tr>
 			<td class="date"><%= comment.created_at.strftime("%d-%m-%Y") %></td>
-			<td class="info"><%= t(:user_comment_on, :username => comment.author_name) %> <%= link_to(comment.commentable.name, comment.commentable) %> <%= ": " + comment.comment %></td>
+			<td class="info"><%= t(:user_comment_on, :username => comment.author) %> <%= link_to(comment.commentable.name, comment.commentable) %> <%= ": " + comment.comment %></td>
 		</tr>
 		<% end %>
 	  </table>
