@@ -9,7 +9,6 @@
       <%= link_to image_tag("logo.png"), '/', :class=>"brand" %>
       <div class="nav-collapse">
         <ul class="nav">
-          <li <%= "class='active'" if @current_page=="home"%>><%= link_to t(:home), '/' %></li>
           <li <%= "class='active'" if @current_page=="how_to"%>><%= link_to t(:how_to), main_app.instructions_path %></li>
           <li <%= "class='active'" if @current_page=="discount"%>><%= link_to t(:discount), main_app.static_url("discount") %></li>
           <li <%= "class='active'" if @current_page=="article"%>><%= link_to t(:article), main_app.articles_path %></li>

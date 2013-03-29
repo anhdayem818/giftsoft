@@ -6,6 +6,12 @@ class Comment < ActiveRecord::Base
   after_create :finalize
   #author_name is used to allow users who not logged in be able to give comments
   validates :author_name, :presence => true, :unless => :user_login?
+  validates :comment, :presence => true
+  validate :exclude_bots
+  
+  def exclude_bots
+    errors.add(:comment, 'invalid comment') if self.comment.match(/href=/)
+  end
   
   def user_login?
     self.user.present?
