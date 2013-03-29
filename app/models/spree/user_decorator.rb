@@ -7,5 +7,13 @@ module Spree
       Spree::UserViewOrder.exists?(["user_id =? AND order_id = ?", id, order.id])
     end
     has_many :user_view_orders
+    
+    def admin_group?
+      has_spree_role?("admin") || has_spree_role?("sale")
+    end
+    
+    def vip?
+      orders.select(&:paid?).sum(&:total) > 1000000
+    end
   end
 end

@@ -18,10 +18,6 @@ Spree::BaseHelper.module_eval do
     end
   end
   
-  def admin_group?(user)
-    user.has_spree_role?("admin") || user.has_spree_role?("sale")
-  end
-  
   def vip_user?(user)
     user.orders.select(&:paid?).sum(&:total) > 1000000
   end

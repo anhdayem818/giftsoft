@@ -1,17 +1,17 @@
 module Spree
   ProductsHelper.module_eval do
     def comment_class(comment)
-      if comment.user.present? && admin_group?(comment.user)
+      if comment.user.present? && comment.user.admin_group?
         "admin"
       end
     end
     
     def avatar(comment)
       if comment.user.present? 
-        if admin_group?(comment.user)
+        if comment.user.admin_group?
           "avatars/admin.png"
         else 
-          if vip_user?(comment.user)
+          if comment.user.vip?
             "avatars/vip.png"
           else
             "avatars/guess.jpg"
