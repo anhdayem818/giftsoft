@@ -40,7 +40,7 @@
                 <li><%= link_to t(:logout), spree.destroy_user_session_path %></li>
               </ul>
             </li>
-            <% if current_user.has_spree_role?("sale") && (current_user.has_spree_role?("admin") || current_user.has_spree_role?("sale")) %>
+            <% if (current_user.has_spree_role?("admin") || current_user.has_spree_role?("sale")) %>
             <li><%= link_to t(:manage), spree.admin_orders_path %></li>
             <% end %>
           <% else %>
