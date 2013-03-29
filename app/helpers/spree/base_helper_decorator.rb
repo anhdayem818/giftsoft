@@ -17,4 +17,12 @@ Spree::BaseHelper.module_eval do
       link_to(@related_article.title, main_app.article_path(@related_article), :class=>"pull-right").html_safe
     end
   end
+  
+  def admin_group?(user)
+    user.has_spree_role?("admin") || user.has_spree_role?("sale")
+  end
+  
+  def vip_user?(user)
+    user.orders.select(&:paid?).sum(&:total) > 1000000
+  end
 end

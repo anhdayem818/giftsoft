@@ -11,6 +11,9 @@
 .comments .details {
     padding-left: 70px;
 }
+.comments .admin {
+  color: blue;
+}
 #products {
     margin: 0 0 9px 0px;
 }

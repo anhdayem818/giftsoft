@@ -1,16 +1,6 @@
 <p class="clear"></p>
 <div class="comments">
-  <%@product.comments.each do |comment|%>
-  <div class="form-actions">
-    <%= image_tag "avatar_icon.jpg", :class=>"avatar" %>
-    <div class="details">
-      <h4><%= comment.user.present?? comment.user.username : comment.author_name %></h4>
-      <em><%= comment.created_at.utc.getlocal("+07:00").asctime %></em>
-      <div><%= comment.comment %></div>
-    </div>
-  </div>
-  <% end %>
-  <% @comment = @product.comments.new %>
+  <% @comment = Comment.new() %>
   <%= form_for @comment, :url => main_app.product_comments_path(@product), :remote=>true do |f| %>
     <%= f.text_area :comment, :class=>"span8", :rows => 4%>
     <div>
@@ -24,4 +14,17 @@
       
     </div>
   <% end %>
+  <%@comments.each do |comment|%>
+  <div class="form-actions">
+    
+    <%= image_tag avatar(comment), :class=>"avatar" %>
+    
+    <div class="details">
+      <strong class="<%= comment_class(comment) %>"><%= comment.author %> - </strong>
+      <em><%= comment.created_at.utc.getlocal("+07:00").asctime %></em>
+      <div><%= comment.comment %></div>
+    </div>
+  </div>
+  <% end %>
+  
 </div>

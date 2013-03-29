@@ -15,7 +15,7 @@ module Spree
         end
         @related_products = @searcher.retrieve_products
 
-
+      @comments = @product.comments.order("created_at desc")
       respond_with(@product)
     end
 
