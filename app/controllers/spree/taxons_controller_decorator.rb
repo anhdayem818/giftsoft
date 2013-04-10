@@ -4,7 +4,12 @@ Spree::TaxonsController.class_eval do
     return unless @taxon
 
     @searcher = Spree::Config.searcher_class.new(params.merge(:taxon => @taxon.id))
-    @products = @searcher.retrieve_products.order("spree_products.updated_at DESC")
+    if (current_user.present? && current_user.admin_group?)
+      @products = @searcher.retrieve_products.order("spree_products.name")
+    else
+      @products = @searcher.retrieve_products.order("spree_products.updated_at DESC")
+    end
+
 
     respond_with(@taxon)
   end
