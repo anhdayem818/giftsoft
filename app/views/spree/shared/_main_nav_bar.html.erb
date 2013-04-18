@@ -10,6 +10,9 @@
       <div class="nav-collapse">
         <ul class="nav">
           <li <%= "class='active'" if @current_page=="how_to"%>><%= link_to t(:how_to), main_app.instructions_path %></li>
+          <% if (current_user && current_user.admin_group?) %>
+          <li <%= "class='active'" if @current_page=="announcements"%>><%= link_to t(:announcements), main_app.admin_announcements_path %></li>
+          <% end %>
           <li <%= "class='active'" if @current_page=="discount"%>><%= link_to t(:discount), main_app.static_url("discount") %></li>
           <li <%= "class='active'" if @current_page=="article"%>><%= link_to t(:article), main_app.articles_path %></li>
         </ul>
@@ -39,7 +42,7 @@
                 <li><%= link_to t(:logout), spree.destroy_user_session_path %></li>
               </ul>
             </li>
-            <% if (current_user.has_spree_role?("admin") || current_user.has_spree_role?("sale")) %>
+            <% if (current_user.admin_group?) %>
             <li><%= link_to t(:manage), spree.admin_orders_path %></li>
             <% end %>
           <% else %>

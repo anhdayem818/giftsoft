@@ -1,8 +1,8 @@
 <h1>Editing article</h1>
 
-<%= form_for @article, {:url => main_app.admin_article_path(@article)} do |f| %>
+<%= form_for @announcement, {:url => main_app.admin_announcement_path(@announcement)} do |f| %>
     <%= render 'form', :f => f %>
 <% end %>
 
-<%= link_to 'Show', main_app.admin_article_path(@article) %> |
-<%= link_to 'Back', main_app.admin_articles_path %>
+<%= link_to 'Show', main_app.admin_announcement_path(@announcement) %> |
+<%= link_to 'Back', main_app.admin_announcements_path %>

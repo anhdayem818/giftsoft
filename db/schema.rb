@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130305093926) do
+ActiveRecord::Schema.define(:version => 20130418141703) do
 
   create_table "announcements", :force => true do |t|
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.boolean  "popup"
   end
 
   create_table "articles", :force => true do |t|
@@ -57,6 +58,33 @@ ActiveRecord::Schema.define(:version => 20130305093926) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "instructions", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name",                 :default => "", :null => false
+    t.text     "description"
+    t.datetime "available_on"
+    t.datetime "deleted_at"
+    t.string   "permalink"
+    t.string   "meta_description"
+    t.string   "meta_keywords"
+    t.integer  "tax_category_id"
+    t.integer  "shipping_category_id"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.integer  "count_on_hand",        :default => 0,  :null => false
+  end
+
+  add_index "products", ["available_on"], :name => "index_spree_products_on_available_on"
+  add_index "products", ["deleted_at"], :name => "index_spree_products_on_deleted_at"
+  add_index "products", ["name"], :name => "index_spree_products_on_name"
+  add_index "products", ["permalink"], :name => "index_spree_products_on_permalink"
 
   create_table "spree_activators", :force => true do |t|
     t.string   "description"

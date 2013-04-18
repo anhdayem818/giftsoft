@@ -4,8 +4,11 @@
     <h3 id="notice-modal-label"><%= t(:notice) %></h3>
   </div>
   <div class="modal-body">
-    - Giá trên web là giá sỉ áp dụng cho đơn hàng đầu tiên là 500k, đơn hàng tiếp theo là 200k ( Đối với các bạn ở tỉnh đặt hàng thì sau khi shop nhận được tiền trong tài khoản ngân hàng thì mới tiến hành chuyển hàng) <br/>
-	- Từ ngày 2/3 shop chính thức chuyển qua 493/21 cmt8 các bạn vào hướng dẫn để xem chi tiết đường đi đến shop nhé.
+    <% @notices.each do |notice|%>
+    <div>
+      <%= notice.description %>
+    </div>
+    <% end %>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

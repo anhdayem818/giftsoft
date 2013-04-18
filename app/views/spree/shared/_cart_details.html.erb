@@ -19,7 +19,7 @@
   </div>
   <% if can_check_out %>
       <div>
-        <%= link_to t(:checkout), checkout_path, :class => "btn checkout primary", :id => 'checkout-link' %>
+        <%= link_to t(:checkout), spree.checkout_path, :class => "btn checkout primary", :id => 'checkout-link' %>
         <%= link_to t(:details), spree.cart_path %>
       </div>
   <% else %>

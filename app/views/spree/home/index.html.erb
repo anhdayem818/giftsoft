@@ -1,5 +1,8 @@
 <% content_for :header do %>
-<%= render :partial=>"shared/announcements" %>
+<div id="headline">
+<%= render "shared/announcements" %>
+<%= render "shared/comments" %>
+</div>
 <% end %>
 <% content_for :sidebar do %>
   <div data-hook="homepage_sidebar_navigation">

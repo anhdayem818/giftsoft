@@ -8,7 +8,8 @@ Spree::HomeController.class_eval do
       @products = @searcher.retrieve_products.order("updated_at DESC")
     end
     
-    @announcements = Announcement.limit(5).order("created_at DESC")
+    @announcements = Announcement.not_notices.limit(5).order("created_at DESC")
+    @notices = Announcement.notices
     @comments = Comment.limit(5).order("created_at DESC")
     respond_with(@products)
   end
