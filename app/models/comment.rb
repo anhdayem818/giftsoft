@@ -10,7 +10,8 @@ class Comment < ActiveRecord::Base
   validate :exclude_bots
   
   def exclude_bots
-    errors.add(:comment, 'invalid comment') if self.comment.match(/href=/)
+    expr = /href=|http:/
+    errors.add(:comment, 'invalid comment') if self.comment.match(expr)
   end
   
   def user_login?
