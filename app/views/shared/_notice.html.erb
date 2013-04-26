@@ -15,19 +15,19 @@
   </div>
 </div>
 <script>
+  
   $(document).ready(function () {
-    if($.cookie("notice") != "true") {
+    var timestamp = '<%= @last_notice_time %>';
+    console.log($.cookie("notice-time"));
+    if($.cookie("notice") != "true" || $.cookie("notice-time") < timestamp) {
       $.cookie("notice", "true", { expires: 7 });
+      $.cookie("notice-time", timestamp)
       $('#notice-modal').modal({
         keyboard: true,
         show: true
       });
     } else {
-      $('#notice-modal').modal({
-        keyboard: true,
-        show: true
-      });
-      $('#notice-modal').modal("hide");
+      $('#notice-modal').hide();
     }
   });
 </script>

@@ -2,12 +2,21 @@
   <% if @announcements.present? %>
   <div class="span12 info-panel">
 	  <table border="0">
+      <% if (current_user && current_user.admin_group?) %>
+      <th>Date</th>
+      <th width="70%">Content</th>
+      <th width="80px">Popup</th>
+      <th></th>
+      <% end %>
 		<% @announcements.each do |announcement|%>
 	  	<tr>
 			<td class="date"><%= announcement.created_at.strftime("%d-%m-%Y") %></td>
 			<td class="info"><%= announcement.description %></td>
       <% if (current_user && current_user.admin_group?) %>
-      <td class="actions"><%= link_to "Edit", main_app.edit_admin_announcement_path(announcement)%></td>
+      <td align="center"><%= check_box_tag "check_box_#{announcement.id}", announcement.popup, '', {:disabled => true} %></td>
+      <td class="actions">
+        <%= link_to "Edit", main_app.edit_admin_announcement_path(announcement)%>
+      </td>
       <% end %>
 		</tr>
 		<% end %>

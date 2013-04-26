@@ -10,6 +10,7 @@ Spree::HomeController.class_eval do
     
     @announcements = Announcement.not_notices.limit(5).order("created_at DESC")
     @notices = Announcement.notices
+    @last_notice_time = Announcement.notices.maximum(:updated_at)
     @comments = Comment.limit(5).order("created_at DESC")
     respond_with(@products)
   end

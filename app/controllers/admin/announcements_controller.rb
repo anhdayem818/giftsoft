@@ -59,7 +59,7 @@ class AnnouncementsController < Spree::BaseController
     @announcement = Announcement.find(params[:id])
 
     respond_to do |format|
-      if @announcement.update_attributes(params[:article])
+      if @announcement.update_attributes(params[:announcement])
         format.html { redirect_to main_app.admin_announcements_path, notice: 'Announcement was successfully updated.' }
         format.json { head :no_content }
       else
