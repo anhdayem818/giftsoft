@@ -94,6 +94,10 @@
     <%= f.label :taxon, t(:taxons) %><br />
     <%= f.text_field :taxon_ids, :value => @product.taxon_ids.join(',') %>
   <% end %>
+  <%= f.field_container :option_types do %>
+    <%= f.label :option_type_ids, t(:option_types) %><br />
+    <%= f.select :option_type_ids, option_types_options_for(@product), {}, :class => "select2", :multiple => true %>
+  <% end %>
   <h2><%= t(:metadata) %></h2>
   <div data-hook="admin_product_form_meta">
     <%= f.field_container :meta_keywords do %>

@@ -9,11 +9,10 @@ module Spree
 
       referer = request.env['HTTP_REFERER']
 
+      taxon = @product.taxons.first || Taxon.first
+      @searcher = Spree::Config.searcher_class.new(:taxon => taxon.id)
 
-        @product.taxons.each do |taxon|
-          @searcher = Spree::Config.searcher_class.new(:taxon => taxon.id)
-        end
-        @related_products = @searcher.retrieve_products
+      @related_products = @searcher.retrieve_products
 
       @comments = @product.comments.order("created_at desc")
       respond_with(@product)

@@ -13,9 +13,8 @@
             <li>
               <%= radio_button_tag "products[#{@product.id}]", v.id, checked, :disabled => !v.in_stock && !Spree::Config[:allow_backorders] %>
               <label for="<%= ['products', @product.id, v.id].join('_') %>">
-                <span class="variant-description">
-                  <%= variant_options v %>
-                </span>
+                
+                <%= image_tag v.images.first.try(:mini_url) %>
                 <% if variant_price_diff v %>
                   <span class="price diff"><%= variant_price_diff v %></span>
                 <% end %>

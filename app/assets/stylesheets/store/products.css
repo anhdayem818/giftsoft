@@ -23,3 +23,14 @@
 .product-image a {
     min-height: 100px;
 }
+#product-variants [type=radio]{
+  display: none;
+}
+#product-variants label {
+  padding-right: 10px;
+  float: left;
+}
+#product-variants label img:hover {
+  border: 1px solid #4DEC46;
+  margin: -1px;
+}
