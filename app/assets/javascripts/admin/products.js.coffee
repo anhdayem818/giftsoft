@@ -12,10 +12,10 @@ $(document).ready ()->
         authenticity_token: AUTH_TOKEN
       },
       dataType: 'script',
-      success: (response)-> 
+      success: (response)->
         el.parents("td").html(response.responseText);
       ,
-      error: (response, textStatus, errorThrown)-> 
+      error: (response, textStatus, errorThrown)->
         el.parents("td").html(response.responseText);
         #show_flash_error(response.responseText);
     });

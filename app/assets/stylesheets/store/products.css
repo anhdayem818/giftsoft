@@ -34,3 +34,13 @@
   border: 1px solid #4DEC46;
   margin: -1px;
 }
+#product-variants label img.active {
+  border: 1px solid #4DEC46;
+  margin: -1px;
+}
+#product-variants ul li .count-on-hand{
+  margin-top: 5px;
+  font-size: 13px;
+  color: #999;
+  height: 20px;
+}

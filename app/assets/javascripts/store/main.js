@@ -21,7 +21,7 @@ $(document).ready(function() {
     });
 
     $('#cart-details a.delete').livequery('click', function(e) {
-        
+
         //var items = '{id: }';
         //$.post("/orders/populate", $.parseJSON(items));
         //var obj = jQuery.parseJSON(items);
@@ -66,6 +66,6 @@ $(document).ready(function() {
             }
         });
         //$("#cart-checkout").removeClass("disabled");
-        
+
     }
 })
