@@ -43,6 +43,7 @@
 #product-variants ul li {
     float: left;
     padding-left: 20px;
+    padding-bottom: 30px;
 }
 #product-variants ul li .count-on-hand{
     margin-top: 5px;
