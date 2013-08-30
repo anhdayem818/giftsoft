@@ -29,10 +29,11 @@
 #product-variants label {
   padding-right: 10px;
   float: left;
+  height: 58px;
 }
 #product-variants label img:hover {
   border: 1px solid #4DEC46;
-  margin: -1px;
+  margin: -1px 0 -1px -1px;
 }
 #product-variants label img.active {
   border: 1px solid #4DEC46;
