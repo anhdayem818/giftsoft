@@ -46,7 +46,8 @@
                   <span class="price diff"><%= variant_price_diff v %></span>
                 <% end %>
                 <div class="count-on-hand" <%= "style='display: none'".html_safe unless checked %>>
-                  <%= "#{v.options_text}, còn #{v.count_on_hand} SP" %>
+                  <div><%= v.options_text %></div>
+                  <div><%= "còn #{v.count_on_hand} sp" %></div>
                 </div>
               </label>
             </li>
