@@ -13,8 +13,10 @@ $ ->
 
       $('#product-price .selling').text($(this).data('price'))
 
-      $('#product-variants ul li .count-on-hand').text('')
-      $(this).find('.count-on-hand').text("Còn " + $(this).data('count_on_hand') + " sản phẩm")
+      #$('#product-variants ul li .count-on-hand').text('')
+      #$(this).find('.count-on-hand').text("Còn " + $(this).data('count_on_hand') + " SP")
+      $('.count-on-hand').hide()
+      $(this).find('.count-on-hand').show()
       $('#quantity').attr("max", $(this).data('count_on_hand'))
       $('#quantity').val(1)
 

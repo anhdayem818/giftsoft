@@ -29,7 +29,7 @@
     <% end %>
 
     <% if @product.has_variants? %>
-      <div id="product-variants" class="columns five alpha">
+      <div id="product-variants" class="columns alpha">
         <h6 class="product-section-title"><%= t(:variants) %></h6>
         <ul>
           <% has_checked = false
@@ -45,8 +45,8 @@
                 <% if variant_price_diff v %>
                   <span class="price diff"><%= variant_price_diff v %></span>
                 <% end %>
-                <div class="count-on-hand">
-                  <%= checked ? "Còn #{v.count_on_hand} sản phẩm" : "" %>
+                <div class="count-on-hand" <%= "style='display: none'".html_safe unless checked %>>
+                  <%= "#{v.options_text}, còn #{v.count_on_hand} SP" %>
                 </div>
               </label>
             </li>
