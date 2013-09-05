@@ -1,10 +1,37 @@
 <%= form_for :order, :url => populate_orders_url do |f| %>
   <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
+    <% if @product.price %>
+        <div data-hook="product_price" class="five <% if !@product.has_variants? %> alpha <% else %> omega <% end %>">
+
+          <div id="product-price">
+            <h6 class="product-section-title"><%= t(:price) %></h6>
+            <div><span class="price selling" itemprop="price"><%= number_to_currency @product.price %></span></div>
+          </div>
+
+          <div class="add-to-cart">
+            <% if @product.has_stock? || Spree::Config[:allow_backorders] %>
+                <%= number_field_tag (@product.has_variants? ? :quantity : "variants[#{@product.master.id}]"),
+                   (@product.on_hand.to_i - @quantity_cart_follow_variant[@product.master.id].to_i) == 0 ? 0 : 1, :class => 'title', :in => ((@product.on_hand.to_i - @quantity_cart_follow_variant[@product.master.id].to_i) == 0 ? 0 : 1)..@product.on_hand.to_i - @quantity_cart_follow_variant[@product.master.id].to_i %>
+                <% if @product.has_stock? %>
+                    <%= button_tag :class => 'btn add-to-cart input-medium', :id => 'add-to-cart-button', :type => :submit do %>
+                        <%= t(:add_to_cart) %>
+                    <% end %>
+                <% else %>
+                    <a href="#" class="btn"><%= t(:out_of_stock) %></a>
+                <% end %>
+            <% else %>
+                <%= content_tag('strong', t(:out_of_stock)) %>
+            <% end %>
+          </div>
+
+        </div>
+    <% end %>
+
     <% if @product.has_variants? %>
-      <div id="product-variants" class="columns five alpha">
+      <div id="product-variants" class="columns alpha">
         <h6 class="product-section-title"><%= t(:variants) %></h6>
-        <ul>
+        <ul class="clearfix">
           <% has_checked = false
           @product.variants.active.each_with_index do |v,index|
             next if v.option_values.empty? || (!v.in_stock && !Spree::Config[:show_zero_stock_products])
@@ -18,8 +45,9 @@
                 <% if variant_price_diff v %>
                   <span class="price diff"><%= variant_price_diff v %></span>
                 <% end %>
-                <div class="count-on-hand">
-                  <%= checked ? "Còn #{v.count_on_hand.to_i - @quantity_cart_follow_variant[v.id].to_i} sản phẩm" : "" %>
+                <div class="count-on-hand" <%= "style='display: none'".html_safe unless checked %>>
+                  <div><%= v.options_text %></div>
+                  <div class="quantity"><%= "còn #{v.count_on_hand.to_i - @quantity_cart_follow_variant[v.id].to_i} sp" %></div>
                 </div>
               </label>
             </li>
@@ -27,33 +55,6 @@
         </ul>
       </div>
     <% end%>
-
-    <% if @product.price %>
-      <div data-hook="product_price" class="columns five <% if !@product.has_variants? %> alpha <% else %> omega <% end %>">
-        
-        <div id="product-price">
-          <h6 class="product-section-title"><%= t(:price) %></h6>
-          <div><span class="price selling" itemprop="price"><%= number_to_currency @product.price %></span></div>
-        </div>
-
-        <div class="add-to-cart">
-          <% if @product.has_stock? || Spree::Config[:allow_backorders] %>      
-            <%= number_field_tag (@product.has_variants? ? :quantity : "variants[#{@product.master.id}]"),
-             (@product.on_hand.to_i - @quantity_cart_follow_variant[@product.master.id].to_i) == 0 ? 0 : 1, :class => 'title', :in => ((@product.on_hand.to_i - @quantity_cart_follow_variant[@product.master.id].to_i) == 0 ? 0 : 1)..@product.on_hand.to_i - @quantity_cart_follow_variant[@product.master.id].to_i %>
-            <% if @product.has_stock? %>
-              <%= button_tag :class => 'btn add-to-cart input-medium', :id => 'add-to-cart-button', :type => :submit do %>
-                <%= t(:add_to_cart) %>
-              <% end %>
-            <% else %>
-              <a href="#" class="btn"><%= t(:out_of_stock) %></a>
-            <% end %>
-          <% else %>
-            <%= content_tag('strong', t(:out_of_stock)) %>
-          <% end %>
-        </div>
-
-      </div>
-    <% end %>    
 
   </div>
 <% end %>

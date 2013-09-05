@@ -13,8 +13,7 @@ $ ->
 
       $('#product-price .selling').text($(this).data('price'))
 
-      $('#product-variants ul li .count-on-hand').text('')
-      $(this).find('.count-on-hand').text("Còn " + $(this).attr('data-count_on_hand') + " sản phẩm")
+      $(this).find('.count-on-hand .quantity').text("còn " + $(this).attr('data-count_on_hand') + " sp")
       $('#quantity').attr("max", $(this).attr('data-count_on_hand'))
 
       count_on_hand = parseInt $(this).attr('data-count_on_hand')
@@ -24,6 +23,10 @@ $ ->
       else
         $('#quantity').attr("min", 1)
         $('#quantity').val(1)
+
+      $('.count-on-hand').hide()
+      $(this).find('.count-on-hand').show()
+
 
     $.each $('#product-variants ul li'), (index, li) ->
       if $(li).find('img').hasClass("active")
@@ -84,7 +87,7 @@ addToCart = (object, variant_id, quantity) ->
             current_quantity = $(el).parent().attr('data-count_on_hand') - quantity
             li = $(el).parent()
             li.attr('data-count_on_hand', current_quantity)
-            li.find('.count-on-hand').text("Còn " + current_quantity + " sản phẩm")
+            li.find('.count-on-hand .quantity').text("Còn " + current_quantity + " sản phẩm")
             $('#quantity').val(current_quantity)
             $('#quantity').attr("max", current_quantity)
             if current_quantity <= 0

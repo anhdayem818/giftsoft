@@ -34,7 +34,7 @@ $(document).ready(function() {
               current_quantity = parseInt($(this).attr('data-count_on_hand')) + restore_quantity;
               $(this).attr('data-count_on_hand', current_quantity);
               if ($(this).find('img').hasClass('active')){
-                $(this).find('.count-on-hand').text("Còn " + current_quantity + " sản phẩm");
+                $(this).find('.count-on-hand .quantity').text("còn " + current_quantity + " sp");
                 $('#quantity').attr("max", current_quantity);
                 $('#quantity').attr("min", 1);
                 $('#quantity').val(1);

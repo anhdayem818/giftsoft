@@ -27,13 +27,14 @@
 
         <h1 class="product-title" itemprop="name"><%= accurate_title %></h1>
         <div class="fb-like" data-send="false" data-width="450" data-show-faces="false"></div>
+        <div id="cart-form" data-hook="cart_form">
+          <%= render :partial => 'cart_form' %>
+        </div>
         <div itemprop="description" data-hook="description">
           <%= product_description(@product) rescue t(:product_has_no_description) %>
         </div>
 
-        <div id="cart-form" data-hook="cart_form">
-          <%= render :partial => 'cart_form' %>
-        </div>
+
 
       </div>
 
