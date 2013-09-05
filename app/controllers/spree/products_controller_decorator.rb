@@ -3,6 +3,13 @@ module Spree
     HTTP_REFERER_REGEXP = /^https?:\/\/[^\/]+\/t\/([a-z0-9\-\/]+)$/
     def show
       return unless @product
+      @order = current_order(true)
+      @quantity_cart_follow_variant = []
+      if @order.present? && @order.line_items.length > 0
+        @order.line_items.each do |line_item|
+          @quantity_cart_follow_variant[line_item.variant_id] = line_item.quantity
+        end
+      end
 
       @variants = Spree::Variant.active.includes([:option_values, :images]).where(:product_id => @product.id)
       @product_properties = Spree::ProductProperty.includes(:property).where(:product_id => @product.id)

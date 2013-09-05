@@ -4,7 +4,7 @@ Spree::OrdersController.class_eval do
     puts "=================================="
     puts session[:order_id]
     @order = current_order(true)
-    
+
     item = nil
     params[:products].each do |product_id,variant_id|
       quantity = params[:quantity].to_i if !params[:quantity].is_a?(Hash)

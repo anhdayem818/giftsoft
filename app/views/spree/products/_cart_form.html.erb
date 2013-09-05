@@ -10,7 +10,7 @@
             next if v.option_values.empty? || (!v.in_stock && !Spree::Config[:show_zero_stock_products])
             checked = !has_checked && (v.in_stock || Spree::Config[:allow_backorders])
             has_checked = true if checked %>
-            <li class="clearfix" data-price=<%= number_to_currency v.price %> data-count_on_hand=<%= v.count_on_hand %>>
+            <li class="clearfix" data-price=<%= number_to_currency v.price %> variant_id=<%= v.id %> data-count_on_hand=<%= v.count_on_hand.to_i - @quantity_cart_follow_variant[v.id].to_i %>>
               <%= radio_button_tag "products[#{@product.id}]", v.id, checked, :disabled => !v.in_stock && !Spree::Config[:allow_backorders] %>
               <label for="<%= ['products', @product.id, v.id].join('_') %>">
 
@@ -19,7 +19,7 @@
                   <span class="price diff"><%= variant_price_diff v %></span>
                 <% end %>
                 <div class="count-on-hand">
-                  <%= checked ? "Còn #{v.count_on_hand} sản phẩm" : "" %>
+                  <%= checked ? "Còn #{v.count_on_hand.to_i - @quantity_cart_follow_variant[v.id].to_i} sản phẩm" : "" %>
                 </div>
               </label>
             </li>
@@ -39,7 +39,7 @@
         <div class="add-to-cart">
           <% if @product.has_stock? || Spree::Config[:allow_backorders] %>      
             <%= number_field_tag (@product.has_variants? ? :quantity : "variants[#{@product.master.id}]"),
-              1, :class => 'title', :in => 1..@product.on_hand %>
+             (@product.on_hand.to_i - @quantity_cart_follow_variant[@product.master.id].to_i) == 0 ? 0 : 1, :class => 'title', :in => ((@product.on_hand.to_i - @quantity_cart_follow_variant[@product.master.id].to_i) == 0 ? 0 : 1)..@product.on_hand.to_i - @quantity_cart_follow_variant[@product.master.id].to_i %>
             <% if @product.has_stock? %>
               <%= button_tag :class => 'btn add-to-cart input-medium', :id => 'add-to-cart-button', :type => :submit do %>
                 <%= t(:add_to_cart) %>
