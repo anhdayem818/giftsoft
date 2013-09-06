@@ -101,6 +101,7 @@ vn:
         cost_price: "Cost Price"
         description: Description
         master_price: "Master Price"
+        original_price: "Original Price"
         name: Name
         on_hand: "Hàng còn"
         shipping_category: "Shipping Category"
@@ -655,6 +656,7 @@ vn:
   manage: "Quản lý"
   mark_shipped: "Chứng hàng đã chuyển"
   master_price: "Giá chủ"
+  original_price: "Giá gốc"
   match_choices: 
     all: "All"
     none: "None"

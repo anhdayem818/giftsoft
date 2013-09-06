@@ -86,6 +86,7 @@ en:
         cost_price: "Cost Price"
         description: Description
         master_price: "Master Price"
+        original_price: "Original Price"
         name: Name
         on_hand: "On Hand"
         shipping_category: "Shipping Category"
@@ -519,6 +520,7 @@ en:
   make_refund: Make refund
   mark_shipped: "Mark Shipped"
   master_price: "Master Price"
+  original_price: "Original Price"
   match_choices:
     none: "None"
     one: "One"

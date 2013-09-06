@@ -363,6 +363,12 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
     }  
   }
 
+  span.original-price {
+    font-weight: bold;
+    color: red;
+    text-decoration: line-through;
+  }
+
   .taxon-title {
     font-size: $product_list_header_font_size;
   }

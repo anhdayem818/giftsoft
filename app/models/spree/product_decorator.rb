@@ -1,6 +1,7 @@
 Spree::Product.class_eval do
   acts_as_commentable
-  attr_accessible :short_desc
+  attr_accessible :short_desc, :original_price
+  delegate_belongs_to :master, :original_price
   def in_process
     has_variants? ? variants.sum(&:in_process) : master.in_process
   end
