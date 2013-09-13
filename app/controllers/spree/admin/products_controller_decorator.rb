@@ -8,41 +8,41 @@ module Spree
           format.html { redirect_to collection_url }
           format.js  { render 'actions' }
         end
+      end
 
-        protected
+      protected
 
-        def collection
-          return @collection if @collection.present?
+      def collection
+        return @collection if @collection.present?
 
-          unless request.xhr?
-            params[:q] ||= {}
-            params[:q][:deleted_at_null] ||= "1"
+        unless request.xhr?
+          params[:q] ||= {}
+          params[:q][:deleted_at_null] ||= "1"
 
-            params[:q][:s] ||= "name asc"
+          params[:q][:s] ||= "name asc"
 
-            @search = super.ransack(params[:q])
-            @collection = @search.result.
-                group_by_products_id.
-                includes([:master, {:variants => [:images, :option_values]}]).
-                page(params[:page]).
-                per(Spree::Config[:admin_products_per_page])
+          @search = super.ransack(params[:q])
+          @collection = @search.result.
+              group_by_products_id.
+              includes([:master, {:variants => [:images, :option_values]}]).
+              page(params[:page]).
+              per(Spree::Config[:admin_products_per_page])
 
-            # PostgreSQL compatibility
-            if params[:q][:s].include?("master_price")
-              @collection = @collection.group("spree_variants.price")
-            end
-          else
-            includes = [{:variants => [:images,  {:option_values => :option_type}]}, {:master => :images}]
-
-            @collection = super.where(["name #{LIKE} ? AND deleted_at is null", "%#{params[:q]}%"])
-            @collection = @collection.includes(includes).limit(params[:limit] || 10)
-
-            tmp = super.where(["#{Variant.table_name}.sku #{LIKE} ?", "%#{params[:q]}%"])
-            tmp = tmp.includes(:variants_including_master).limit(params[:limit] || 10)
-            @collection.concat(tmp).uniq!
+          # PostgreSQL compatibility
+          if params[:q][:s].include?("master_price")
+            @collection = @collection.group("spree_variants.price")
           end
-          @collection
+        else
+          includes = [{:variants => [:images,  {:option_values => :option_type}]}, {:master => :images}]
+
+          @collection = super.where(["name #{LIKE} ? AND deleted_at is null", "%#{params[:q]}%"])
+          @collection = @collection.includes(includes).limit(params[:limit] || 10)
+
+          tmp = super.where(["#{Variant.table_name}.sku #{LIKE} ?", "%#{params[:q]}%"])
+          tmp = tmp.includes(:variants_including_master).limit(params[:limit] || 10)
+          @collection.concat(tmp).uniq!
         end
+        @collection
       end
     end
   end
