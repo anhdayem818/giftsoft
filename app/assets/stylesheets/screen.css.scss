@@ -364,9 +364,18 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
   }
 
   span.original-price {
+    position: relative;
     font-weight: bold;
     color: red;
-    text-decoration: line-through;
+  }
+
+  span.original-price::after {
+    border-bottom: 2px solid red;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 45%;
   }
 
   .taxon-title {
