@@ -75,9 +75,13 @@ class AnnouncementsController < Spree::BaseController
     @announcement = Announcement.find(params[:id])
     @announcement.destroy
 
-    respond_to do |format|
-      format.html { redirect_to articles_url }
-      format.json { head :no_content }
+    if request.xhr?
+      render :json => { :result => 'ok' }
+    else
+      respond_to do |format|
+        format.html { redirect_to articles_url }
+        format.json { head :no_content }
+      end
     end
   end
 end

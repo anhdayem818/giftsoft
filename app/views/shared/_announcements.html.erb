@@ -9,14 +9,16 @@
       <th></th>
       <% end %>
 		<% @announcements.each do |announcement|%>
-	  	<tr>
-			<td class="date"><%= announcement.created_at.strftime("%d-%m-%Y") %></td>
-			<td class="info"><%= announcement.description %></td>
-      <% if (current_user && current_user.admin_group?) %>
-      <td align="center"><%= check_box_tag "check_box_#{announcement.id}", announcement.popup, '', {:disabled => true} %></td>
-      <td class="actions">
-        <%= link_to "Edit", main_app.edit_admin_announcement_path(announcement)%>
-      </td>
+	  	<tr class="announcement">
+        <td class="date"><%= announcement.created_at.strftime("%d-%m-%Y") %></td>
+        <td class="info"><%= announcement.description %></td>
+        <% if (current_user && current_user.admin_group?) %>
+        <td align="center"><%= check_box_tag "check_box_#{announcement.id}", announcement.popup, announcement.popup, {:disabled => true} %></td>
+        <td class="actions">
+          <%= link_to "Edit", main_app.edit_admin_announcement_path(announcement)%>
+          &nbsp;
+          <%= link_to "Delete", '#',:class => 'delete-announcement', 'data-id' => announcement.id  %>
+        </td>
       <% end %>
 		</tr>
 		<% end %>
