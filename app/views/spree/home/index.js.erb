@@ -1,7 +1,5 @@
-//alert('ddddddddddd');
 <% if @products.length > 0 %>
   $('#products').append("<%= escape_javascript(render "products" , :products => @products).html_safe %>");
-//  $('#products').attr('data-page', (parseInt($('#products').attr('data-page'))) + 1);
 <% else %>
   $("#products-loading").remove();
 <% end %>
