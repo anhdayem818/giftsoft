@@ -18,15 +18,19 @@
   
   $(document).ready(function () {
     var timestamp = '<%= @last_notice_time %>';
-    if($.cookie("notice") != "true" || $.cookie("notice-time") < timestamp) {
-      $.cookie("notice", "true", { expires: 7 });
-      $.cookie("notice-time", timestamp)
-      $('#notice-modal').modal({
-        keyboard: true,
-        show: true
-      });
-    } else {
-      $('#notice-modal').hide();
-    }
+    $('#notice-modal').hide();
+    <% unless @notices.empty? %>
+      if($.cookie("notice") != "true" || $.cookie("notice-time") < timestamp) {
+        $.cookie("notice", "true", { expires: 7 });
+        $.cookie("notice-time", timestamp)
+        $('#notice-modal').modal({
+          keyboard: true,
+          show: true
+        });
+
+      } else {
+        $('#notice-modal').hide();
+      }
+    <% end %>
   });
 </script>
