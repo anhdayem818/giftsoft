@@ -11,6 +11,9 @@ Spree::TaxonsController.class_eval do
     end
 
 
-    respond_with(@taxon)
+    respond_with(@taxon) do |format|
+      format.html
+      format.js
+    end
   end
 end
