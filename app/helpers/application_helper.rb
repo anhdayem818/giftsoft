@@ -14,7 +14,7 @@ module ApplicationHelper
         200000
       end
     else
-      500000
+      200000
     end
   end
   def checkoutable?

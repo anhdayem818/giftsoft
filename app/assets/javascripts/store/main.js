@@ -8,7 +8,7 @@ $(document).ready(function() {
         return this.length !== 0;
     }
     $('.carousel').carousel();
-
+    build_events_add_to_cart();
     $('.checkout.disabled').livequery('click', function(e){
        alert('Quý khách vui lòng mua đủ ' + $(this).attr('min_total') + 'đ , Xin cảm ơn!');
        e.preventDefault();
