@@ -1,6 +1,3 @@
-<%
-  paginated_products ||= products
-%>
 <% if products.empty? %>
   <%= t(:no_products_found) %>
 <% elsif params.key?(:keywords) %>
@@ -8,38 +5,37 @@
 <% end %>
 
 <% if products.any? %>
-<ul id="products" class="inline product-listing" data-hook>
-  <% reset_cycle('default') %>
-  <% products.each_with_index do |product, index| %>
-      <% if index % 4 == 0 %>
-        <% @column = 0 %>
-        <div class="clearfix">
-      <% end %>
-        <li id="product_<%= product.id %>" variant_id="<%= product.master.id%>" class="span2" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
-          <div class="product-image">
-            <%= link_to small_image(product, :itemprop => "image", :class=>"img-rounded"), product, :itemprop => 'url' %>
-            <span class="original-price"><%= number_to_currency product.original_price %></span>
-            <span class="price selling" itemprop="price"><%= number_to_currency product.price %></span>
+  <ul id="products" class="inline product-listing" data-hook data-page="1">
+    <% reset_cycle('default') %>
+
+    <% products.each_with_index do |product, index| %>
+        <% if index % 4 == 0 %>
+          <% @column = 0 %>
+          <div class="clearfix">
+        <% end %>
+          <li id="product_<%= product.id %>" variant_id="<%= product.master.id%>" class="span2" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
+            <div class="product-image">
+              <%= link_to small_image(product, :itemprop => "image", :class=>"img-rounded"), product, :itemprop => 'url' %>
+              <span class="original-price"><%= number_to_currency product.original_price %></span>
+              <span class="price selling" itemprop="price"><%= number_to_currency product.price %></span>
+            </div>
+
+            <%= link_to truncate(product.name, :length => 50), product, :itemprop => "name", :title => product.name %>
+
+            <% unless product.has_stock? %>
+            <a href="#" class="btn out-of-stock disabled" price ="<%= product.price %>"><%= t(:out_of_stock) %></a>
+            <% else %>
+            <a class="btn add-to-cart" price ="<%= product.price %>"><%= t(:add_to_cart) %></a>
+            <% end %>
+
+          </li>
+        <% @column += 1 %>
+        <% if index == products.length || @column == 4 %>
           </div>
-
-          <%= link_to truncate(product.name, :length => 50), product, :itemprop => "name", :title => product.name %>
-
-          <% unless product.has_stock? %>
-          <a href="#" class="btn out-of-stock disabled" price ="<%= product.price %>"><%= t(:out_of_stock) %></a>
-          <% else %>
-          <a class="btn add-to-cart" price ="<%= product.price %>"><%= t(:add_to_cart) %></a>
-          <% end %>
-
-        </li>
-      <% @column += 1 %>
-      <% if @column == 4 %>
-        </div>
-      <% end %>
-  <% end %>
-  <% reset_cycle("classes") %>
-</ul>
+        <% end %>
+    <% end %>
+    <% reset_cycle("classes") %>
+  </ul>
 <% end %>
 
-<% if paginated_products.respond_to?(:num_pages) %>
-  <%= paginate paginated_products %>
-<% end %>
+

@@ -17,6 +17,13 @@
 #products {
     margin: 0 0 9px 0px;
 }
+#products-loading{
+    text-align: center;
+    display: none;
+}
+#products-loading img{
+    width: 100px;
+}
 .price.selling {
     position: relative;
 }

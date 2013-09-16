@@ -53,10 +53,10 @@ $ ->
           variant_id = parseInt $(el).val()
     if variant_id == -1
       variant_id = parseInt $('[data-hook="product_left_part"]').attr('variant_id')
-    addToCart($(this), variant_id, quantity)
+    addToCartOnShow($(this), variant_id, quantity)
     false
 
-addToCart = (object, variant_id, quantity) ->
+addToCartOnShow = (object, variant_id, quantity) ->
   original_html = object.html()
   object.html "Đang xử lý"
   object.addClass "disabled"

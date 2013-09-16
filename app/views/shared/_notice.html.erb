@@ -18,7 +18,6 @@
   
   $(document).ready(function () {
     var timestamp = '<%= @last_notice_time %>';
-    console.log($.cookie("notice-time"));
     if($.cookie("notice") != "true" || $.cookie("notice-time") < timestamp) {
       $.cookie("notice", "true", { expires: 7 });
       $.cookie("notice-time", timestamp)
