@@ -5,6 +5,7 @@ module Spree
     def initialize(user)
       user ||= User.new
       if user.has_spree_role? "sale"
+        can :manage, Adjustment
         can :manage, Order
         can :manage, LineItem
         can :manage, Payment
