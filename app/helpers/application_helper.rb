@@ -8,7 +8,7 @@ module ApplicationHelper
       return 0
     end
     if returning_customer? 
-      if current_user.orders.select(&:paid?).sum(&:total) > 1000000
+      if current_user.orders.select(&:paid?).sum(&:total) > 500000
         0 
       else
         200000
