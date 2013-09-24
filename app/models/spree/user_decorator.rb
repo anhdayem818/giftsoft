@@ -7,7 +7,8 @@ module Spree
       Spree::UserViewOrder.exists?(["user_id =? AND order_id = ?", id, order.id])
     end
     has_many :user_view_orders
-    
+    has_many :notifications
+
     def admin_group?
       has_spree_role?("admin") || has_spree_role?("sale")
     end

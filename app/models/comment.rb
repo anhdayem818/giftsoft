@@ -35,10 +35,12 @@ class Comment < ActiveRecord::Base
   def send_notifies
     self.commentable.comments.includes(:user).each do |com|
       if(com.user.present? && !com.user.eql?(self.user) && com.user.username != "admin")
+        self.commentable.notifications.create!(:user_id => com.user.id)
         CommentMailer.notify(self, com.user).deliver
       end
     end
     admin = Spree::User.find_by_username("admin")
+    self.commentable.notifications.create!(:user_id => admin.id)
     CommentMailer.notify(self, admin).deliver
   end
 

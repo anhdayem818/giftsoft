@@ -10,6 +10,13 @@ module Spree
           @quantity_cart_follow_variant[line_item.variant_id] = line_item.quantity
         end
       end
+      # Read notifications
+      if current_user
+        @product.notifications.where(:user_id => current_user.id, :read => false).each do |notify|
+        #current_user.notifications.unread.where(:notificationable_id => @product.id).each do |notify|
+          notify.read!
+        end
+      end
 
       @variants = Spree::Variant.active.includes([:option_values, :images]).where(:product_id => @product.id)
       @product_properties = Spree::ProductProperty.includes(:property).where(:product_id => @product.id)

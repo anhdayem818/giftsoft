@@ -79,3 +79,47 @@ header .navbar {
     background-position: -479px 0px;
     padding-left: 25px;
 }
+
+.navbar-inner{
+  position: relative;
+  .notification{
+    list-style: none;
+    cursor: pointer;
+    position: absolute;
+    right: 40px;
+    top: 22px;
+    width: 22px;
+    .dropdown-menu{
+      left: -185px;
+      max-height: 230px;
+      overflow: auto;
+      width: 210px;
+      .user-comment{
+        span.username{
+          color: red;
+        }
+      }
+      .notificationable-name{
+        color: #005580;
+      }
+    }
+    span.notification-count {
+      display: block;
+      height: 15px;
+      width: 15px;
+      line-height: 15px;
+      -moz-border-radius: 30px;
+      border-radius: 30px;
+      background-color: red;
+      color: white;
+      text-align: center;
+      font-size: 10px;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      top: -25px;
+      right: -12px;
+    }
+  }
+}
