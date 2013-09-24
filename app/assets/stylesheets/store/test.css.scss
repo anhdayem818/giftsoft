@@ -1,0 +1,54 @@
+#promotion-products-slider{
+  height: 350px;
+  background-color: white;
+  padding-top: 20px;
+  a{
+    color: white;
+  }
+  &.royalSlider{
+    width:auto;
+  }
+  .rsVisibleNearbyWrap{
+    height: 350px !important;
+    width: 80% !important;
+    left: 10%;
+    .rsOverflow{
+      width: 200px !important;
+      height: 350px !important;
+      background-color: white;
+    }
+  }
+  .rsArrowRight{
+    right: -7px;
+  }
+  .rsArrowLeft{
+    left: -27px;
+  }
+  .rsSlide{
+    line-height: 200px;
+    text-align: center;
+    background-color: white;
+    .image{
+      position: relative;
+      height: 350px;
+      .product-info{
+        position: absolute;
+        bottom: 15px;
+        line-height: 22px;
+        text-align: center;
+        width: 200px;
+        z-index: 9;
+        a{
+          color: #005580;
+          z-index: 9;
+        }
+      }
+    }
+  }
+  .rsImg{
+    max-height: 200px;
+    max-width: 200px;
+    margin-top: 0px !important;
+    margin-left: 0px !important;
+  }
+}

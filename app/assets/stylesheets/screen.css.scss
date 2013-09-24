@@ -1,7 +1,7 @@
 @import "store/variables";
 
 /*--------------------------------------*/
-/* Basic styles 
+/* Basic styles
 /*--------------------------------------*/
 body {
   font-family: $ff_base;
@@ -21,10 +21,10 @@ hr {
 }
 /* Custom text-selection colors (remove any text shadows: twitter.com/miketaylr/status/12228805301) */
 ::-moz-selection{background: $link_text_color; color: $layout_background_color; text-shadow: none;}
-::selection {background: $link_text_color; color: $layout_background_color; text-shadow: none;} 
+::selection {background: $link_text_color; color: $layout_background_color; text-shadow: none;}
 
 /*  j.mp/webkit-tap-highlight-color */
-a:link {-webkit-tap-highlight-color: $link_text_color;} 
+a:link {-webkit-tap-highlight-color: $link_text_color;}
 
 ins {background-color: $link_text_color; color: $layout_background_color; text-decoration: none;}
 mark {background-color: $link_text_color; color: $layout_background_color; font-style: italic; font-weight: bold;}
@@ -51,7 +51,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
       }
     }
   }
-  
+
   dl {
     dt, dd {
       display: inline-block;
@@ -64,7 +64,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
     }
     dt {
       font-weight: bold;
-      text-transform: uppercase;      
+      text-transform: uppercase;
     }
     dd {
       margin-left: -23px;
@@ -81,7 +81,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
   h5 { font-size: $sub_heading_font_size;     line-height: $sub_heading_font_size + 10;     }
   h6 { font-size: $sub_heading_font_size - 2; line-height: $sub_heading_font_size - 2 + 10; }
 
-  h1, h2, h3, h4, h5, h6 {    
+  h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     color: $title_text_color;
   }
@@ -89,7 +89,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
   /*--------------------------------------*/
   /* Forms
   /*--------------------------------------*/
-  
+
 
   label.error {
     display: block;
@@ -104,13 +104,13 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
     font-size: 1.2em;
   }
 
-  
+
 
   .ie8 {
     a.button {
       line-height: 16px;
     }
-  } 
+  }
 
 
 
@@ -175,7 +175,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
         a{
           font-weight: bold;
           font-size: $header_navigation_font_size;
-          text-transform: uppercase;          
+          text-transform: uppercase;
         }
       }
     }
@@ -189,7 +189,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
     padding-bottom: 6px;
 
     li {
-      
+
       a {
         font-size: $horizontal_navigation_font_size;
         padding: 5px;
@@ -253,7 +253,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
   }
 
   #breadcrumbs {
-    
+
     padding: 3px 0;
     margin-bottom: 15px;
     ul {
@@ -360,7 +360,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
     }
     &.diff {
       font-weight: bold;
-    }  
+    }
   }
 
   span.original-price {
@@ -416,7 +416,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
 
       .product-image {
         border: 1px solid lighten($body_text_color, 60);
-        padding: 5px;        
+        padding: 5px;
         min-height: 110px;
         background-color: $product_background_color;
 
@@ -443,7 +443,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
 
     a {
       color: $link_text_color;
-    }    
+    }
   }
 
   .search-results-title {
@@ -586,7 +586,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
             color: $layout_background_color;
 
             &:hover {
-              color: $layout_background_color !important;              
+              color: $layout_background_color !important;
             }
           }
         }
@@ -624,14 +624,14 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
       #summary-order-total {
         @extend span.price;
         font-size: $base_font_size + 2;
-      }      
+      }
     }
   }
 
-  #billing, #shipping, #shipping_method, 
+  #billing, #shipping, #shipping_method,
   #payment, #order_details, #order_summary {
     margin-top: 10px;
-    
+
     padding: 10px;
 
     legend {
@@ -678,11 +678,11 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
         font-size: $base_font_size + 4;
         color: $body_text_color;
 
-        tr { 
+        tr {
           border-top: 1px solid lighten($body_text_color, 60);
-          
+
           td {
-            padding: 10px; 
+            padding: 10px;
           }
         }
       }
@@ -708,7 +708,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
   #shipping_method {
     p {
       label {
-        float: left; 
+        float: left;
         font-weight: bold;
         font-size: $base_font_size + 2;
         margin-right: 40px;
@@ -756,7 +756,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
       margin-top: 15px;
       text-align: right;
     }
-    
+
     #subtotal {
       text-align: right;
       text-transform: uppercase;
@@ -765,7 +765,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
       span.order-total {
         @extend span.price;
       }
-    } 
+    }
   }
 
   #empty-cart {
@@ -784,7 +784,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
 
   #registration {
     h6 {
-      text-transform: uppercase;      
+      text-transform: uppercase;
     }
 
     #existing-customer {
@@ -850,17 +850,17 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
     }
     p[data-hook="use_billing"] {
       margin-top: -15px;
-    }    
+    }
   }
 
   /* All Mobile Sizes (devices and browser) */
-  @media only screen and (max-width: 767px) {        
+  @media only screen and (max-width: 767px) {
 
     html {
       -webkit-text-size-adjust: none;
     }
 
-    #order_details .steps-data div.columns, 
+    #order_details .steps-data div.columns,
     #order_summary .steps-data div.columns {
       padding: 0;
       margin: 0;
@@ -891,7 +891,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
     #order_details, #order {
       table[data-hook="order_details"] {
         width: 100%;
-      } 
+      }
     }
 
     #update-cart {
@@ -961,7 +961,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
           }
           td[data-hook="cart_item_price"], td[data-hook="cart_item_total"],
           td[data-hook="order_item_price"], td[data-hook="order_item_total"]  {
-            font-size: $base_font_size !important; 
+            font-size: $base_font_size !important;
           }
           td[data-hook="cart_item_image"], td[data-hook="order_item_image"] {
             img {
@@ -969,7 +969,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
             }
           }
         }
-      }  
+      }
     }
 
   }
@@ -981,17 +981,17 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
       float: none !important;
     }
   }
-  
+
   @media only screen and (min-width: 768px) and (max-width: 959px) {
     .container .offset-by-nine.coupon-code-field {
       padding-left: 380px;
     }
   }
-  
+
 
   /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
   @media only screen and (max-width: 479px) {
-    
+
     .progress-steps li {
       padding: 0;
       margin: 0;
@@ -1032,10 +1032,10 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
             }
           }
           td[data-hook="cart_item_price"], td[data-hook="cart_item_total"] {
-            font-size: $base_font_size + 2 !important; 
+            font-size: $base_font_size + 2 !important;
           }
         }
-      }  
+      }
     }
 
     table.order-summary {
@@ -1048,7 +1048,7 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
       tbody tr { display: inline-block; vertical-align: top; }
       td { display: block; min-height: 1.25em; }
     }
-    
+
 
     figure#logo {
       text-align: center;
@@ -1097,5 +1097,5 @@ mark {background-color: $link_text_color; color: $layout_background_color; font-
     #content {
       text-align: center;
     }
-        
+
   }

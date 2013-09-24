@@ -6,3 +6,4 @@
 //
 
 //= require_directory .
+//= require royalslider/jquery.royalslider.min

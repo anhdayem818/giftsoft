@@ -8,6 +8,7 @@ Spree::HomeController.class_eval do
     else
       @products = @searcher.retrieve_products.order("updated_at DESC")
     end
+    @promotion_products = @products.where("original_price IS NOT NULL")
 
     @announcements = Announcement.not_notices.limit(5).order("created_at DESC")
     @notices = Announcement.notices
