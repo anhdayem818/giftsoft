@@ -1,4 +1,4 @@
-<% if promotion_products.any? %>
+<% if promotion_products.present? && promotion_products.any? %>
   <br class="clear"/>
   <div id="promotion-products-slider" class="royalSlider rsDefault visibleNearby">
     <% promotion_products.each do |product| %>
