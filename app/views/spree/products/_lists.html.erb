@@ -15,7 +15,11 @@
     <% unless product.has_stock? %>
       <a href="#" class="btn out-of-stock disabled" price ="<%= product.price %>"><%= t(:out_of_stock) %></a>
     <% else %>
-      <a class="btn add-to-cart" price ="<%= product.price %>"><%= t(:add_to_cart) %></a>
+      <% if product.available_on > Time.now %>
+        <span class='coming-product'>Hàng sắp về</span>
+      <% else %>
+        <a class="btn add-to-cart" price ="<%= product.price %>"><%= t(:add_to_cart) %></a>
+      <% end %>
     <% end %>
 
   </li>

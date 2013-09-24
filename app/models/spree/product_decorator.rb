@@ -13,6 +13,10 @@ Spree::Product.class_eval do
   def self.not_deleted
     where('spree_products.deleted_at IS NULL')
   end
+
+  def self.available
+    where('spree_products.available_on IS NOT NULL')
+  end
   
   def show_in_report?(start_date = 7.days.ago, end_date = Time.now)
     sole_out(start_date, end_date) != 0 || in_process != 0 || on_hand != 0
