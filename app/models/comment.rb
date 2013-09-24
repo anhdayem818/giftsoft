@@ -33,7 +33,7 @@ class Comment < ActiveRecord::Base
     self.delay.send_notifies
   end
   def send_notifies
-    self.commentable.comments.includes(:user).each do |com|
+    self.commentable.comments.group(:user_id).includes(:user).each do |com|
       if(com.user.present? && !com.user.eql?(self.user) && com.user.username != "admin")
         self.commentable.notifications.create!(:user_id => com.user.id)
         CommentMailer.notify(self, com.user).deliver
