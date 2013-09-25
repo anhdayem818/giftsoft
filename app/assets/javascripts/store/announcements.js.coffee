@@ -8,5 +8,7 @@ $(document).ready ->
         type: 'DELETE'
         success: (data) ->
           object.parents('.announcement').remove()
+          if $('#announcements .announcement').length == 0
+            $('#announcements').remove()
 
     false
