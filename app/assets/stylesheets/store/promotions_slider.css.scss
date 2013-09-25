@@ -1,7 +1,7 @@
 #promotion-products-slider{
-  height: 350px;
+  height: 220px;
   background-color: white;
-  padding-top: 20px;
+  padding: 10px 0;
   a{
     color: white;
   }
@@ -9,13 +9,17 @@
     width:auto;
   }
   .rsVisibleNearbyWrap{
-    height: 350px !important;
+    height: 220px !important;
     width: 80% !important;
     left: 10%;
     .rsOverflow{
       width: 200px !important;
-      height: 350px !important;
+      height: 220px !important;
       background-color: white;
+      left: 2%;
+      .rsContainer{
+        width: 180px;
+      }
     }
   }
   .rsArrowRight{
@@ -25,30 +29,34 @@
     left: -6px;
   }
   .rsSlide{
-    line-height: 200px;
+    line-height: 110px;
+    width: 200px;
     text-align: center;
     background-color: white;
-    .image{
-      position: relative;
-      height: 350px;
+    .product-item{
+      height: 220px;
+      .product-image{
+        height: 110px;
+      }
       .product-info{
-        position: absolute;
-        bottom: 15px;
         line-height: 22px;
         text-align: center;
-        width: 200px;
-        z-index: 9;
+        padding-top: 10px;
         a{
           color: #005580;
-          z-index: 9;
         }
       }
     }
   }
   .rsImg{
-    max-height: 200px;
-    max-width: 200px;
+    max-height: 110px;
+    max-width: 110px;
     margin-top: 0px !important;
     margin-left: 0px !important;
+    width: auto !important;
+    height: auto !important;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
   }
 }

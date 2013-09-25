@@ -3,8 +3,10 @@
   <div id="promotion-products-slider" class="royalSlider rsDefault visibleNearby">
     <% promotion_products.each do |product| %>
       <% if product.images.first.present? %>
-        <div class="image">
-          <a class="rsImg" href="<%= product.images.first.attachment.url(:large) %>" ></a>
+        <div class="product-item">
+          <div class="product-image">
+            <a class="rsImg" href="<%= product.images.first.attachment.url(:large) %>" ></a>
+          </div>
           <div class="product-info">
             <span class="original-price"><%= number_to_currency product.original_price %></span><br/>
             <span class="price"><%= number_to_currency product.price %></span><br/>
@@ -32,17 +34,17 @@
       keyboardNavEnabled: true,
       globalCaptionInside: false,
       startSlideId: 1,
-      autoPlay: {
-        enabled: true,
-        delay:	2000
-      },
+//      autoPlay: {
+//        enabled: true,
+//        delay:	2000
+//      },
       visibleNearby: {
         enabled: true,
         centerArea: 0.2,
-        center: true,
-        breakpoint: 650,
-        breakpointCenterArea: 0.64,
-        navigateByCenterClick: true
+        center: true
+//        breakpoint: 650,
+//        breakpointCenterArea: 0.64,
+//        navigateByCenterClick: true
       }
     });
   });
