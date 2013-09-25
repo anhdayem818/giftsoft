@@ -356,7 +356,7 @@ vn:
   country: Quốc gia
   country_based: "Dựa trên quốc gia"
   coupon: Coupon
-  coupon_code: Coupon code
+  coupon_code: "Mã coupon"
   coupon_code_applied: The coupon code was successfully applied to your order.
   create: Tạo
   create_a_new_account: "Tạo một tài khoản mới"

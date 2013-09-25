@@ -4,7 +4,9 @@ $(document).ready ->
       id = $(this).data('id')
       object = $(this)
       $.ajax
-        url: location.pathname + '/' + id
+        url: '/admin/announcements/' + id
         type: 'DELETE'
         success: (data) ->
           object.parents('.announcement').remove()
+
+    false

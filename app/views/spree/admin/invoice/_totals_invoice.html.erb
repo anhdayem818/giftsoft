@@ -46,4 +46,10 @@
   </tr>
   <% end %>
   <% end %>
+  <% if @order.payment_state == 'paid' %>
+    <tr class="total">
+      <td class="cel1 bold"><%= t(:coupon_code) %></td>
+      <td class="cel2 cell" align="right"><%= @order.coupon %></td>
+    </tr>
+  <% end %>
 </table>

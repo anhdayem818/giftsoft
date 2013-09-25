@@ -1,5 +1,6 @@
 module Spree
   Order.class_eval do
+    attr_accessible :coupon
     #has_many :line_items, :dependent => :destroy, :class_name => "Spree::LineItem"
     def add_variant(variant, quantity = 1)
       current_item = find_line_item_by_variant(variant)
