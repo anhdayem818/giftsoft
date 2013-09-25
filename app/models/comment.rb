@@ -33,15 +33,18 @@ class Comment < ActiveRecord::Base
     self.delay.send_notifies
   end
   def send_notifies
+    user_comment = self.user
     self.commentable.comments.group(:user_id).includes(:user).each do |com|
-      if(com.user.present? && !com.user.eql?(self.user) && com.user.username != "admin")
-        self.commentable.notifications.create!(:user_id => com.user.id)
+      if(com.user.present? && !com.user.eql?(user_comment) && com.user.username != "admin")
+        self.commentable.notifications.create!(:user_id => com.user.id, :user_comment_id => user_comment.id)
         CommentMailer.notify(self, com.user).deliver
       end
     end
     admin = Spree::User.find_by_username("admin")
-    self.commentable.notifications.create!(:user_id => admin.id)
-    CommentMailer.notify(self, admin).deliver
+    if user_comment != admin
+      self.commentable.notifications.create!(:user_id => admin.id, :user_comment_id => user_comment.id)
+      CommentMailer.notify(self, admin).deliver
+    end
   end
 
   def author
