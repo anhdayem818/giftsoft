@@ -95,7 +95,14 @@ function build_events_add_to_cart(){
     var product = $(this).closest('[data-hook="products_list_item"]');
     var name = product.children('[itemprop="name"]').attr('title');
     var variant_id = product.attr('variant_id');
-    addToCart($(this), variant_id);
-    //alert($(this).attr('price'));
+    if ($(this).parent('.dropdown').find('.dropdown-menu').html() == undefined){
+      addToCart($(this), variant_id);
+    }
+  });
+
+  $('#products .add-variant-to-cart').unbind("click");
+  $('#products .add-variant-to-cart').click(function() {
+    var variant_id = $(this).data('id');
+    addToCart($(this).parents('.dropdown').find('.add-to-cart'), variant_id);
   });
 }

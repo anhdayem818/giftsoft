@@ -18,7 +18,19 @@
       <% if product.available_on > Time.now %>
         <span class='coming-product'>Hàng sắp về</span>
       <% else %>
-        <a class="btn add-to-cart" price ="<%= product.price %>"><%= t(:add_to_cart) %></a>
+
+        <div class="dropdown">
+          <a class="btn dropdown-toggle add-to-cart" data-toggle="dropdown" price ="<%= product.price %>"><%= t(:add_to_cart) %></a>
+          <% if product.has_variants? %>
+            <div class="dropdown-menu variants-dropdown">
+              <% product.variants.each do |variant| %>
+                <div class="variant add-variant-to-cart" data-id="<%= variant.id %>">
+                  <%= image_tag variant.images.first.try(:mini_url) %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     <% end %>
 
