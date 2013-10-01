@@ -1,3 +1,9 @@
+.label-promotion-title{
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
 #promotion-products-slider{
   height: 220px;
   background-color: white;
@@ -10,8 +16,8 @@
   }
   .rsVisibleNearbyWrap{
     height: 220px !important;
-    width: 80% !important;
-    left: 10%;
+    //width: 80% !important;
+    //left: 10%;
     .rsOverflow{
       width: 200px !important;
       height: 220px !important;

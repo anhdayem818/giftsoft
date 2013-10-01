@@ -1,5 +1,6 @@
 <% if promotion_products.present? && promotion_products.any? %>
   <br class="clear"/>
+  <h6 class="label-promotion-title">Sản phẩm khuyến mãi</h6>
   <div id="promotion-products-slider" class="royalSlider rsDefault visibleNearby">
     <% promotion_products.each do |product| %>
       <% if product.images.first.present? %>
