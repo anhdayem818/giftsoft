@@ -123,3 +123,22 @@ header .navbar {
     }
   }
 }
+
+
+#support{
+  background: image_url('store/support_icon.png') no-repeat;
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 160px;
+  height: 150px;
+  padding-left: 145px;
+  background-size: 150px;
+  background-color: #fff;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border: 1px solid #00adee;
+  box-shadow: 0 0 2px 2px #dedede;
+}
