@@ -34,7 +34,7 @@ gem 'delayed_job_active_record'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn', "~> 4.6.3"
 
 # Deploy with Capistrano
 # gem 'capistrano'
