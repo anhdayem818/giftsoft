@@ -23,10 +23,13 @@ module Spree
     end
 
     def check_coupon
-      order = Order.where(:coupon => self.coupon).first
-      if order.present?
-        order.user_id = self.id
-        order.save!
+      if self.coupon.present?
+        order = Order.where(:coupon => self.coupon).first
+        if order.present? && order.coupon.present?
+          order.user_id = self.id
+          order.coupon = nil
+          order.save!
+        end
       end
     end
   end

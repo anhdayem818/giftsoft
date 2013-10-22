@@ -28,7 +28,7 @@
             <div class="dropdown-menu variants-dropdown">
               <% product.variants.each do |variant| %>
                 <div class="variant add-variant-to-cart" data-id="<%= variant.id %>">
-                  <%= image_tag variant.images.first.try(:mini_url) %>
+                  <%= image_tag variant.images.first.try(:mini_url) if variant.images.present? %>
                 </div>
               <% end %>
             </div>
