@@ -1,30 +1,13 @@
-class PhukiensaoProduct < ActiveRecord::Base
-  self.table_name = "spree_products"
+class PhukiensaoProductImage < ActiveRecord::Base
+  self.table_name = "spree_assets"
   self.primary_key = "id"
   attr_protected :id
-
-  def self.clone(product)
-    if product.present?
-
-      establish_connection(:phukiensao_production)
-      params = product.attributes
-      params.delete("is_clone")
-      clone_product = self.new(params)
-      clone_product.id = nil
-      if clone_product.save
-        params = product.images.first.attributes
-        clone_image = clone_product.images.build(params)
-        clone_image.id = nil
-        clone_image.product_id = clone_product.id
-        clone.save
-
-        product.is_clone = true
-        product.save
-      else
-        false
-      end
-    else
-      false
-    end
-  end
+  attr_accessible :id, :type, :viewable_id, :attachment_width, :attachment_height, :attachment_file_size, :position, :viewable_type, :attachment_content_type, :attachment_file_name, :attachment_updated_at, :alt
+  has_attached_file :attachment,
+                    styles: { mini: '48x48>', small: '100x100>', product: '240x240>', large: '600x600>' },
+                    default_style: :product,
+                    url: '/spree/products/:id/:style/:basename.:extension',
+                    path: ':rails_root/public/spree/products/:id/:style/:basename.:extension',
+                    convert_options: { all: '-strip -auto-orient' }
+  establish_connection(:phukiensao_production)
 end

@@ -24,3 +24,17 @@ $(document).ready ->
           url: location.pathname + '?page=' + page
           type: 'GET'
           dataType : 'script'
+
+  $('#products .clone.active').live 'click', (e) ->
+    $this = $(this)
+    $this.attr('disabled', 'disabled').removeClass('active')
+    $.ajax
+      dataType: 'json'
+      url: '/phukienso_products/clone'
+      type: 'POST'
+      data: {id: $this.attr('data-id')}
+      success: (data) ->
+        if data.result == 'success'
+          $this.text('Cloned').removeClass('btn-primary').addClass('disabled')
+        else
+          alert 'error'

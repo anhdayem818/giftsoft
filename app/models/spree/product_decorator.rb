@@ -29,4 +29,15 @@ Spree::Product.class_eval do
     self.update_column(:deleted_at, nil)
     variants_including_master_and_deleted.update_all(:deleted_at => nil)
   end
+
+
+  # disabled some method when clone product
+  def set_master_variant_defaults
+  end
+  def add_properties_and_option_types_from_prototype
+  end
+  def build_variants_from_option_values_hash
+  end
+  def save_master
+  end
 end

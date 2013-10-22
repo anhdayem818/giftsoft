@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418141703) do
+ActiveRecord::Schema.define(:version => 20131021111421) do
 
   create_table "announcements", :force => true do |t|
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.boolean  "popup"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "popup",       :default => false
   end
 
   create_table "articles", :force => true do |t|
@@ -64,6 +64,23 @@ ActiveRecord::Schema.define(:version => 20130418141703) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "notificationable_id"
+    t.string   "notificationable_type"
+    t.boolean  "read",                  :default => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.integer  "user_comment_id"
   end
 
   create_table "products", :force => true do |t|
@@ -124,17 +141,17 @@ ActiveRecord::Schema.define(:version => 20130418141703) do
 
   create_table "spree_adjustments", :force => true do |t|
     t.integer  "source_id"
-    t.decimal  "amount",          :precision => 12, :scale => 2
+    t.decimal  "amount",          :precision => 8, :scale => 2
     t.string   "label"
     t.string   "source_type"
     t.integer  "adjustable_id"
-    t.datetime "created_at",                                                       :null => false
-    t.datetime "updated_at",                                                       :null => false
+    t.datetime "created_at",                                                      :null => false
+    t.datetime "updated_at",                                                      :null => false
     t.boolean  "mandatory"
     t.boolean  "locked"
     t.integer  "originator_id"
     t.string   "originator_type"
-    t.boolean  "eligible",                                       :default => true
+    t.boolean  "eligible",                                      :default => true
     t.string   "adjustable_type"
   end
 
@@ -229,10 +246,10 @@ ActiveRecord::Schema.define(:version => 20130418141703) do
   create_table "spree_line_items", :force => true do |t|
     t.integer  "order_id"
     t.integer  "variant_id"
-    t.integer  "quantity",                                  :null => false
-    t.decimal  "price",      :precision => 12, :scale => 2, :null => false
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.integer  "quantity",                                 :null => false
+    t.decimal  "price",      :precision => 8, :scale => 2, :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   add_index "spree_line_items", ["order_id"], :name => "index_spree_line_items_on_order_id"
@@ -285,23 +302,24 @@ ActiveRecord::Schema.define(:version => 20130418141703) do
 
   create_table "spree_orders", :force => true do |t|
     t.string   "number",               :limit => 15
-    t.decimal  "item_total",                         :precision => 12, :scale => 2, :default => 0.0, :null => false
-    t.decimal  "total",                              :precision => 12, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "item_total",                         :precision => 8, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "total",                              :precision => 8, :scale => 2, :default => 0.0, :null => false
     t.string   "state"
-    t.decimal  "adjustment_total",                   :precision => 12, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "adjustment_total",                   :precision => 8, :scale => 2, :default => 0.0, :null => false
     t.integer  "user_id"
-    t.datetime "created_at",                                                                         :null => false
-    t.datetime "updated_at",                                                                         :null => false
+    t.datetime "created_at",                                                                        :null => false
+    t.datetime "updated_at",                                                                        :null => false
     t.datetime "completed_at"
     t.integer  "bill_address_id"
     t.integer  "ship_address_id"
-    t.decimal  "payment_total",                      :precision => 12, :scale => 2, :default => 0.0
+    t.decimal  "payment_total",                      :precision => 8, :scale => 2, :default => 0.0
     t.integer  "shipping_method_id"
     t.string   "shipment_state"
     t.string   "payment_state"
     t.string   "email"
     t.text     "special_instructions"
     t.datetime "paid_at"
+    t.string   "coupon"
   end
 
   add_index "spree_orders", ["number"], :name => "index_spree_orders_on_number"
@@ -319,10 +337,10 @@ ActiveRecord::Schema.define(:version => 20130418141703) do
   end
 
   create_table "spree_payments", :force => true do |t|
-    t.decimal  "amount",            :precision => 12, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "amount",            :precision => 8, :scale => 2, :default => 0.0, :null => false
     t.integer  "order_id"
-    t.datetime "created_at",                                                        :null => false
-    t.datetime "updated_at",                                                        :null => false
+    t.datetime "created_at",                                                       :null => false
+    t.datetime "updated_at",                                                       :null => false
     t.integer  "source_id"
     t.string   "source_type"
     t.integer  "payment_method_id"
@@ -372,7 +390,7 @@ ActiveRecord::Schema.define(:version => 20130418141703) do
   add_index "spree_product_properties", ["product_id"], :name => "index_product_properties_on_product_id"
 
   create_table "spree_products", :force => true do |t|
-    t.string   "name",                 :default => "", :null => false
+    t.string   "name",                 :default => "",    :null => false
     t.text     "description"
     t.datetime "available_on"
     t.datetime "deleted_at"
@@ -381,10 +399,12 @@ ActiveRecord::Schema.define(:version => 20130418141703) do
     t.string   "meta_keywords"
     t.integer  "tax_category_id"
     t.integer  "shipping_category_id"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.integer  "count_on_hand",        :default => 0
     t.string   "short_desc"
+    t.integer  "like_count",           :default => 0
+    t.boolean  "is_clone",             :default => false
   end
 
   add_index "spree_products", ["available_on"], :name => "index_spree_products_on_available_on"
@@ -638,19 +658,20 @@ ActiveRecord::Schema.define(:version => 20130418141703) do
   add_index "spree_users", ["persistence_token"], :name => "index_users_on_persistence_token"
 
   create_table "spree_variants", :force => true do |t|
-    t.string   "sku",                                          :default => "",    :null => false
-    t.decimal  "price",         :precision => 10, :scale => 0,                    :null => false
-    t.decimal  "weight",        :precision => 8,  :scale => 2
-    t.decimal  "height",        :precision => 8,  :scale => 2
-    t.decimal  "width",         :precision => 8,  :scale => 2
-    t.decimal  "depth",         :precision => 8,  :scale => 2
+    t.string   "sku",                                           :default => "",    :null => false
+    t.decimal  "original_price", :precision => 10, :scale => 0
+    t.decimal  "price",          :precision => 10, :scale => 0,                    :null => false
+    t.decimal  "weight",         :precision => 8,  :scale => 2
+    t.decimal  "height",         :precision => 8,  :scale => 2
+    t.decimal  "width",          :precision => 8,  :scale => 2
+    t.decimal  "depth",          :precision => 8,  :scale => 2
     t.datetime "deleted_at"
-    t.boolean  "is_master",                                    :default => false
+    t.boolean  "is_master",                                     :default => false
     t.integer  "product_id"
-    t.integer  "count_on_hand",                                :default => 0
-    t.decimal  "cost_price",    :precision => 8,  :scale => 2
+    t.integer  "count_on_hand",                                 :default => 0
+    t.decimal  "cost_price",     :precision => 8,  :scale => 2
     t.integer  "position"
-    t.integer  "lock_version",                                 :default => 0
+    t.integer  "lock_version",                                  :default => 0
   end
 
   add_index "spree_variants", ["product_id"], :name => "index_spree_variants_on_product_id"

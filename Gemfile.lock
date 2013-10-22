@@ -187,6 +187,7 @@ GEM
       actionpack (~> 3.0)
       activerecord (~> 3.0)
       polyamorous (~> 0.5.0)
+    rb-readline (0.4.2)
     rdoc (3.12.2)
       json (~> 1.4)
     sass (3.2.6)
@@ -267,6 +268,7 @@ DEPENDENCIES
   mysql2
   newrelic_rpm
   rails (= 3.2.11)
+  rb-readline (~> 0.4.2)
   sass-rails (~> 3.2.3)
   spree (= 1.2.4)
   spree_auth_devise!

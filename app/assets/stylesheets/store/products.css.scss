@@ -16,6 +16,10 @@
 }
 #products {
     margin: 0 0 9px 0px;
+  .clone{
+    display: inline-block;
+    height: auto;
+  }
 }
 #products-loading{
     text-align: center;

@@ -25,4 +25,13 @@ module ApplicationHelper
   def returning_customer?
     current_user.present? && current_user.orders.select(&:paid?).present?
   end
+
+  def clone_product_btn(product)
+    if product.is_clone
+      "<a class='clone btn btn-mini disabled' disabled>Cloned</a>"
+    else
+      "<a class='clone active btn btn-mini btn-primary' data-id='#{product.id}'>Clone</a>"
+    end
+
+  end
 end

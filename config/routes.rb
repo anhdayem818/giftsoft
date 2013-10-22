@@ -1,5 +1,7 @@
 Giftshop::Application.routes.draw do
 
+  post 'phukienso_products/clone' => 'phukienso_products#clone'
+
   resources :articles
 
   resources :statics

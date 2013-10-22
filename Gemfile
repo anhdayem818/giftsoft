@@ -47,3 +47,5 @@ gem 'spree_auth_devise', :git => 'git://github.com/spree/spree_auth_devise', :br
 gem 'spree_gateway', :git => 'git://github.com/spree/spree_gateway.git', :branch => "1-1-stable" # make sure to include after spree
 #gem 'spree_print_invoice' , :git => 'git://github.com/spree/spree_print_invoice.git'
 
+
+gem 'rb-readline', '~> 0.4.2'
