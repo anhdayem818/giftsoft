@@ -37,7 +37,7 @@ class PhukiensaoProduct < ActiveRecord::Base
               puts "clone image"
               clone_image.save
               system "ssh root@phukiensao.com mkdir /home/rails/phukiensao.com/public/spree/products/#{clone_image_id}"
-              system "scp -r /home/rails/public/spree/products/#{img.id} root@phukiensao.com:/home/rails/phukiensao.com/public/spree/products/#{clone_image_id}"
+              system "scp -r /home/rails/public/spree/products/#{img.id}/* root@phukiensao.com:/home/rails/phukiensao.com/public/spree/products/#{clone_image_id}"
             end
           end
         end

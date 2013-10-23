@@ -12,7 +12,9 @@ Spree::CheckoutController.class_eval do
   end
   def set_coupon_code
     if @order.coupon.blank?
-      @order.update_attributes!(:coupon => ([*'0'..'9'] + [*'A'..'Z']).shuffle.take(8).join)
+      # @order.update_attributes!(:coupon => ([*'0'..'9'] + [*'A'..'Z']).shuffle.take(8).join)
+      @order.coupon = ([*'0'..'9'] + [*'A'..'Z']).shuffle.take(8).join
+      @order.save
     end
   end
   private
