@@ -12,6 +12,8 @@ class PhukiensaoProduct < ActiveRecord::Base
       puts "clone product: #{clone_product.to_json}"
 
       if clone_product.save
+        # set prepare to update url img
+        desc = product.description
         puts "clone product save success"
         product.variants_including_master.each do |v|
           puts "variant of product: #{v.to_json} ---------------------------------"
@@ -26,7 +28,8 @@ class PhukiensaoProduct < ActiveRecord::Base
             v.images.each do |img|
               puts "image of variant: #{img.to_json} -------------------------------"
               params = img.attributes
-              clone_image_id = PhukiensaoProductImage.maximum(:id) + 1
+              max_id = PhukiensaoProductImage.maximum(:id) || 0
+              clone_image_id = max_id + 1
               params.delete(:id)
               clone_image = PhukiensaoProductImage.new(params)
               clone_image.id = clone_image_id
@@ -36,11 +39,25 @@ class PhukiensaoProduct < ActiveRecord::Base
               clone_image.attachment_content_type = params["attachment_content_type"]
               puts "clone image"
               clone_image.save
-              system "ssh root@phukiensao.com mkdir /home/rails/phukiensao.com/public/spree/products/#{clone_image_id}"
-              system "scp -r /home/rails/public/spree/products/#{img.id}/* root@phukiensao.com:/home/rails/phukiensao.com/public/spree/products/#{clone_image_id}"
+              #system "mkdir /home/wf04/Desktop/research-project/a_gift_shop/#{clone_image_id}"
+              #system "cp -r /home/wf04/Desktop/research-project/giftshop/public/spree/products/#{img.id}/* /home/wf04/Desktop/research-project/a_gift_shop/#{clone_image_id}"
+              system "mkdir /home/rails/phukiensao.com/public/spree/products/#{clone_image_id}"
+              system "cp -r /home/rails/muamely.com/public/spree/products/#{img.id}/* /home/rails/phukiensao.com/public/spree/products/#{clone_image_id}"
+
+              # update url img in description
+              desc.gsub("spree/products/#{img.id}", "spree/products/#{clone_image_id}") if desc.include?("spree/products/#{img.id}")
+
             end
           end
         end
+
+        #if desc != product description => update
+        if desc != clone_product.description
+          clone_product.update_attributes(description: desc)
+          puts 'update descrption ===========================*****************%%%%%%%%%%%%%%%%%%'
+        end
+
+
         puts 'update is_clone========================================'
         product.is_clone = true
         product.save
