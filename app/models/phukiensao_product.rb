@@ -45,7 +45,7 @@ class PhukiensaoProduct < ActiveRecord::Base
               system "cp -r /home/rails/muamely.com/public/spree/products/#{img.id}/* /home/rails/phukiensao.com/public/spree/products/#{clone_image_id}"
 
               # update url img in description
-              desc.gsub("spree/products/#{img.id}", "spree/products/#{clone_image_id}") if desc.include?("spree/products/#{img.id}")
+              desc = desc.gsub("spree/products/#{img.id}", "spree/products/#{clone_image_id}") if desc.include?("spree/products/#{img.id}")
 
             end
           end
@@ -59,8 +59,7 @@ class PhukiensaoProduct < ActiveRecord::Base
 
 
         puts 'update is_clone========================================'
-        product.is_clone = true
-        product.save
+        product.update_attibutes(is_clone: true)
       else
         puts "((((((((((((((((((((((((+++++++++++++++++++++++++++++++"
         puts clone_product.errors.to_yaml
