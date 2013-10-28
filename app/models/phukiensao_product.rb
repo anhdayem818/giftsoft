@@ -33,7 +33,7 @@ class PhukiensaoProduct < ActiveRecord::Base
               params.delete(:id)
               clone_image = PhukiensaoProductImage.new(params)
               clone_image.id = clone_image_id
-              clone_image.viewable_id = v.id
+              clone_image.viewable_id = clone_variant.id
               clone_image.attachment = URI.parse("http://muamely.com/spree/products/#{clone_image_id}/#{params['attachment_file_name']}")
               clone_image.attachment_file_name = params['attachment_file_name']
               clone_image.attachment_content_type = params["attachment_content_type"]
