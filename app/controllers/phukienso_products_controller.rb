@@ -3,7 +3,7 @@ class PhukiensoProductsController < Spree::BaseController
 
   def clone
     product = Spree::Product.find_by_id(params[:id])
-    if PhukiensaoProduct.clone(product)
+    if PhukiensaoProduct.clone_db(product)
       render :json => {result: 'success'}
     else
       render :json => {result: 'fail'}

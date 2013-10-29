@@ -3,7 +3,11 @@ class PhukiensaoProduct < ActiveRecord::Base
   self.primary_key = "id"
   attr_protected :id
   establish_connection(:phukiensao_production)
-  def self.clone(product)
+  def self.clone_db(product)
+    PhukiensaoTaxonomy.clone_exactly()
+    PhukiensaoTaxon.clone_exactly()
+
+
     if product.present?
       params = product.attributes
       params.delete("is_clone")
@@ -12,6 +16,11 @@ class PhukiensaoProduct < ActiveRecord::Base
       puts "clone product: #{clone_product.to_json}"
 
       if clone_product.save
+        # create option type
+        PhukiensaoOptionType.clone_db(product, clone_product)
+        # create product taxon
+        PhukiensaoProductTaxon.clone_db(product, clone_product)
+
         # set prepare to update url img
         desc = product.description
         puts "clone product save success"
@@ -24,6 +33,9 @@ class PhukiensaoProduct < ActiveRecord::Base
           clone_variant.product_id = clone_product.id
           puts "clone variant: #{clone_variant.to_json}"
           if clone_variant.save
+            # clone option value
+            PhukiensaoOptionValue.clone_db(v, clone_variant)
+
             puts "clone variant success"
             v.images.each do |img|
               puts "image of variant: #{img.to_json} -------------------------------"
@@ -39,8 +51,9 @@ class PhukiensaoProduct < ActiveRecord::Base
               clone_image.attachment_content_type = params["attachment_content_type"]
               puts "clone image"
               clone_image.save
-              #system "mkdir /home/wf04/Desktop/research-project/a_gift_shop/#{clone_image_id}"
-              #system "cp -r /home/wf04/Desktop/research-project/giftshop/public/spree/products/#{img.id}/* /home/wf04/Desktop/research-project/a_gift_shop/#{clone_image_id}"
+
+              #system "mkdir /home/wf04/Desktop/research-project/giftshop_clone/public/spree/products/#{clone_image_id}"
+              #system "cp -r /home/wf04/Desktop/research-project/giftshop/public/spree/products/#{img.id}/* /home/wf04/Desktop/research-project/giftshop_clone/public/spree/products/#{clone_image_id}"
               system "mkdir /home/rails/phukiensao.com/public/spree/products/#{clone_image_id}"
               system "cp -r /home/rails/muamely.com/public/spree/products/#{img.id}/* /home/rails/phukiensao.com/public/spree/products/#{clone_image_id}"
 
@@ -57,9 +70,8 @@ class PhukiensaoProduct < ActiveRecord::Base
           puts 'update descrption ===========================*****************%%%%%%%%%%%%%%%%%%'
         end
 
-
         puts 'update is_clone========================================'
-        product.update_attibutes(is_clone: true)
+        product.update_attributes(is_clone: true)
       else
         puts "((((((((((((((((((((((((+++++++++++++++++++++++++++++++"
         puts clone_product.errors.to_yaml
@@ -68,16 +80,6 @@ class PhukiensaoProduct < ActiveRecord::Base
     else
       false
     end
-  end
-
-  # disabled some method when clone product
-  def set_master_variant_defaults
-  end
-  def add_properties_and_option_types_from_prototype
-  end
-  def build_variants_from_option_values_hash
-  end
-  def save_master
   end
 
 
