@@ -141,4 +141,12 @@ header .navbar {
   -webkit-border-radius: 10px;
   border: 1px solid #00adee;
   box-shadow: 0 0 2px 2px #dedede;
+  p{
+    padding: 8px 0;
+    margin: 0px;
+  }
+  a{
+    margin-top: 6px;
+    display: inline-block;
+  }
 }
