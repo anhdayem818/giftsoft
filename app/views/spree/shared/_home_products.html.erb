@@ -18,6 +18,7 @@
         <div class="product-image">
           <% if (current_user && current_user.admin_group?) %>
             <%= clone_product_btn(product).html_safe %>
+            <b><%= product.on_hand %></b>
           <% end %>
           <%= link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url' %>
         </div>
@@ -39,6 +40,7 @@
         <div class="product-image">
           <% if (current_user && current_user.admin_group?) %>
             <%= clone_product_btn(product).html_safe %>
+            <b><%= product.on_hand %></b>
           <% end %>
           <%= link_to small_image(product, :itemprop => "image"), product.images[0].attachment.url(:product), :itemprop => 'url', :class=>"preview" %>
         </div>

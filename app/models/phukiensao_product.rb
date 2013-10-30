@@ -46,11 +46,13 @@ class PhukiensaoProduct < ActiveRecord::Base
               clone_image = PhukiensaoProductImage.new(params)
               clone_image.id = clone_image_id
               clone_image.viewable_id = clone_variant.id
-              clone_image.attachment = URI.parse("http://muamely.com/spree/products/#{clone_image_id}/#{params['attachment_file_name']}")
+              clone_image.attachment = URI.parse("http://muamely.com/spree/products/#{clone_image_id}/#{URI.encode(params['attachment_file_name'])}")
               clone_image.attachment_file_name = params['attachment_file_name']
               clone_image.attachment_content_type = params["attachment_content_type"]
               puts "clone image"
               clone_image.save
+
+              desc = desc.gsub("spree/products/#{img.id}", "spree/products/#{clone_image_id}") if desc.include?("spree/products/#{img.id}")
 
               #system "mkdir /home/wf04/Desktop/research-project/giftshop_clone/public/spree/products/#{clone_image_id}"
               #system "cp -r /home/wf04/Desktop/research-project/giftshop/public/spree/products/#{img.id}/* /home/wf04/Desktop/research-project/giftshop_clone/public/spree/products/#{clone_image_id}"
@@ -58,7 +60,7 @@ class PhukiensaoProduct < ActiveRecord::Base
               system "cp -r /home/rails/muamely.com/public/spree/products/#{img.id}/* /home/rails/phukiensao.com/public/spree/products/#{clone_image_id}"
 
               # update url img in description
-              desc = desc.gsub("spree/products/#{img.id}", "spree/products/#{clone_image_id}") if desc.include?("spree/products/#{img.id}")
+              #desc = desc.gsub("spree/products/#{img.id}", "spree/products/#{clone_image_id}") if desc.include?("spree/products/#{img.id}")
 
             end
           end
