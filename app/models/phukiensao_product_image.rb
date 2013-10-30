@@ -25,15 +25,15 @@ class PhukiensaoProductImage < ActiveRecord::Base
     puts "clone image"
     clone_image.save
 
-    FileUtils.mkdir("/home/wf04/Desktop/research-project/giftshop_clone/public/spree/products/#{clone_image.id}")
-    FileUtils.cp_r(Dir.glob("/home/wf04/Desktop/research-project/giftshop/public/spree/products/#{img.id}/*"), "/home/wf04/Desktop/research-project/giftshop_clone/public/spree/products/#{clone_image.id}/")
+    #FileUtils.mkdir("/home/wf04/Desktop/research-project/giftshop_clone/public/spree/products/#{clone_image.id}")
+    #FileUtils.cp_r(Dir.glob("/home/wf04/Desktop/research-project/giftshop/public/spree/products/#{img.id}/*"), "/home/wf04/Desktop/research-project/giftshop_clone/public/spree/products/#{clone_image.id}/")
 
     #system "mkdir /home/rails/phukiensao.com/public/spree/products/#{clone_image.id} && cp -r /home/rails/muamely.com/public/spree/products/#{img.id}/* /home/rails/phukiensao.com/public/spree/products/#{clone_image.id}"
     #system "mkdir /home/rails/phukiensao.com/public/spree/products/#{clone_image.id}"
     #system "cp -r /home/rails/muamely.com/public/spree/products/#{img.id}/* /home/rails/phukiensao.com/public/spree/products/#{clone_image.id}"
 
-    #FileUtils.mkdir("/home/rails/phukiensao.com/public/spree/products/#{clone_image.id}")
-    #FileUtils.cp_r(Dir.glob("/home/rails/muamely.com/public/spree/products/#{img.id}/*"), "/home/rails/phukiensao.com/public/spree/products/#{clone_image.id}")
+    FileUtils.mkdir("/home/rails/phukiensao.com/public/spree/products/#{clone_image.id}")
+    FileUtils.cp_r(Dir.glob("/home/rails/muamely.com/public/spree/products/#{img.id}/*"), "/home/rails/phukiensao.com/public/spree/products/#{clone_image.id}")
 
     return clone_image
   end

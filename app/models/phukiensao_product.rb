@@ -50,13 +50,13 @@ class PhukiensaoProduct < ActiveRecord::Base
         # add new image if not exist in variant
         nokogiri_desc = Nokogiri::HTML(desc)
         nokogiri_desc.search('img').each do |img_tag|
-          puts "tagggggggggggggggggggggggggggggggggggggggggggggggggg"
-          puts img_tag.attr('src')
-          puts img_tag.attr('src').include?("spree/products/")
-          puts !img_tag.attr('src').include?("http")
+          #puts "tagggggggggggggggggggggggggggggggggggggggggggggggggg"
+          #puts img_tag.attr('src')
+          #puts img_tag.attr('src').include?("spree/products/")
+          #puts !img_tag.attr('src').include?("http")
           if img_tag.attr('src').include?("spree/products/") && !img_tag.attr('src').include?("http")
             img_id = img_tag.attr('src').split('/products/')[1].split('/')[0]
-            puts "image iddddddddddddddddddd #{img_id}"
+            #puts "image iddddddddddddddddddd #{img_id}"
             #img_id = img_tag.attr('src').gsub("../../../spree/products/", "").split("/")[0]
             pks_img = PhukiensaoProductImage.find_by_id(img_id)
             if pks_img.blank? || (pks_img.present? && pks_img.viewable.present? && pks_img.viewable.product.present? && pks_img.viewable.product.id != clone_product.id)
@@ -69,7 +69,7 @@ class PhukiensaoProduct < ActiveRecord::Base
         #if desc != product description => update
         if desc != clone_product.description
           clone_product.update_attributes(description: desc)
-          puts 'update descrption ===========================*****************%%%%%%%%%%%%%%%%%%'
+          #puts 'update descrption ===========================*****************%%%%%%%%%%%%%%%%%%'
         end
 
         puts 'update is_clone========================================'
