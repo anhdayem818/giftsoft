@@ -1,18 +1,22 @@
 <p class="clear"></p>
 <div class="comments">
-  <% @comment = Comment.new() %>
-  <%= form_for @comment, :url => main_app.product_comments_path(@product), :remote=>true do |f| %>
-    <%= f.text_area :comment, :class=>"span8", :rows => 4%>
-    <div>
-      <div class="input-prepend input-append">
-        <% if current_user.nil? %>
-        <span class="add-on">Nhập tên</span>
-        <%= f.text_field :author_name, :class=>"span6", :placeholder=>t(:full_name) %>
-        <% end %>
-        <span><%= f.submit :value=>t(:create_comment), :class=>"btn" %></span>
+  <% if current_user.nil? %>
+    <%= link_to t("you_must_login_to_comment"), spree.new_user_session_path, :class => "btn" %>
+  <% else %>
+    <% @comment = Comment.new() %>
+    <%= form_for @comment, :url => main_app.product_comments_path(@product), :remote=>true do |f| %>
+      <%= f.text_area :comment, :class=>"span8", :rows => 4%>
+      <div>
+        <div class="input-prepend input-append">
+          <%# if current_user.nil? %>
+          <!--<span class="add-on">Nhập tên</span>-->
+          <%#= f.text_field :author_name, :class=>"span6", :placeholder=>t(:full_name) %>
+          <%# end %>
+          <span><%= f.submit :value=>t(:create_comment), :class=>"btn" %></span>
+        </div>
+
       </div>
-      
-    </div>
+    <% end %>
   <% end %>
   <%@comments.each do |comment|%>
   <div class="form-actions">

@@ -1074,3 +1074,6 @@ en:
   zone_based: "Zone Based"
   zone_setting_description: "Collections of countries, states or other zones to be used in various calculations."
   zones: Zones
+
+
+  you_must_login_to_comment: "You must login to comment"

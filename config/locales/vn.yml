@@ -1284,3 +1284,5 @@ vn:
   zone_based: "Dựa trên vùng"
   zone_setting_description: "Danh sách các quốc gia, bang hoặc vùng khác được dùng trong nhiều tính toán khác nhau."
   zones: Vùng
+
+  you_must_login_to_comment: "Bạn phải đăng nhập để bình luận"
