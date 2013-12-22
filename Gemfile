@@ -49,3 +49,4 @@ gem 'spree_gateway', :git => 'git://github.com/spree/spree_gateway.git', :branch
 
 
 gem 'rb-readline', '~> 0.4.2'
+gem 'barby'

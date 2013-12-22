@@ -1,0 +1,12 @@
+<style type="text/css">
+table.barby-barcode { border-spacing: 0; }
+tr.barby-row {}
+td.barby-cell { width: 1px; height: 30px; padding: 0px;}
+td.barby-cell.on { background: #000; }
+</style>
+<% barcode = Barby::Code39.new(params[:id]) %>
+<% outputter = Barby::HtmlOutputter.new(barcode)%>
+<div class=span2>
+<%#= outputter.to_html%>
+<%= barcode.to_html().html_safe %>
+</div>
