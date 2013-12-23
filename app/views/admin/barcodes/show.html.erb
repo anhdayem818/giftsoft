@@ -1,7 +1,8 @@
 <style type="text/css">
+body {margin: 0px;}
 table.barby-barcode { border-spacing: 0; }
 tr.barby-row {}
-td.barby-cell { width: 1px; height: 30px; padding: 0px;}
+td.barby-cell { width: 1px; height: 12px; padding: 0px;}
 td.barby-cell.on { background: #000; }
 </style>
 <% barcode = Barby::Code39.new(params[:id]) %>

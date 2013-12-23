@@ -80,6 +80,7 @@
             <%= f.text_field :depth, :size => 4 %>
           </li>
         </ul>
+        
       <% end %>
 
       <%= f.field_container :shipping_categories do %>
@@ -93,7 +94,7 @@
         <%= f.collection_select(:tax_category_id, @tax_categories, :id, :name, { :include_blank => true }, { 'style' => 'width:200px' }) %>
         <%= f.error_message_on :tax_category %>
       <% end %>
-
+      
     </div>
   </div>
   <%= f.field_container :taxons do %>

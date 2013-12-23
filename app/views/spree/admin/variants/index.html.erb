@@ -23,6 +23,8 @@
         <%= link_to_edit(variant) unless variant.deleted? %>
         &nbsp;
         <%= link_to_delete(variant) unless variant.deleted? %>
+        &nbsp;
+        <%= link_to t("print_barcode"), main_app.admin_barcode_path(variant.id), {"class" => "btn"} %>
       </td>
     </tr>
   <% end %>
