@@ -6,9 +6,4 @@
 &nbsp;
 <%= link_to_with_icon('edit', t(:resume), "/admin/products/#{product.permalink}/resume", :class => 're
   sume-resource') if product.deleted? %>
-&nbsp;
-<% if product.has_variants? %>
-  <%= link_to t("print_barcode"), admin_product_variants_url(product), {"class" => "btn"} %>
-<% else %>
-  <%= link_to t("print_barcode"), main_app.admin_barcode_path(product.master.id), {"class" => "btn"} %>
-<% end %>
+
