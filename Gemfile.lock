@@ -88,6 +88,7 @@ GEM
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
     cancan (1.6.7)
+    chunky_png (1.2.8)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -269,6 +270,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_commentable
   barby
+  chunky_png
   coffee-rails (~> 3.2.1)
   daemons
   delayed_job_active_record
