@@ -8,6 +8,7 @@
     <th><%= t(:price) %></th>
     <th><%= t(:sku) %></th>
     <th><%= t(:on_hand) %></th>
+    <th><%= t(:in_process) %></th>
     <th><%= t(:barcode) %></th>
     <th><%= t(:action) %></th>
   </tr>
@@ -20,6 +21,7 @@
       <td><%= money variant.price %></td>
       <td><%= variant.sku %></td>
       <td><%= variant.on_hand %></td>
+      <td><%= variant.in_process %></td>
       <td><%= link_to variant.id, main_app.admin_barcode_path(variant.id), {"class" => "btn"} %></td>
       <td valign="top">
         <%= link_to_edit(variant) unless variant.deleted? %>
