@@ -55,7 +55,7 @@
           <%= f.text_field :sku, :size => 16 %>
         <% end %>
 
-        <% if Spree::Config[:track_inventory_levels] %>
+        <% if Spree::Config[:track_inventory_levels] && current_user.has_spree_role?("admin") %>
           <%= f.field_container :on_hand do %>
             <%= f.label :on_hand, t(:on_hand) %><br />
             <%= f.number_field :on_hand, :min => 0 %>

@@ -26,7 +26,7 @@
       <p data-hook="cost_price"><%= f.label :cost_price, t(:cost_price) %>:<br />
       <%= f.text_field :cost_price, :value => number_to_currency(@variant.cost_price, :unit => '') %></p>
 
-    <% if Spree::Config[:track_inventory_levels] %>
+    <% if Spree::Config[:track_inventory_levels] && current_user.has_spree_role?("admin") %>
       <p data-hook="on_hand"><%= f.label :on_hand, t(:on_hand) %>: <br />
       <%= f.text_field :on_hand %></p>
     <% end %>
