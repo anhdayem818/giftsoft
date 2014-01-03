@@ -1,6 +1,17 @@
 module Spree
   module Admin
     ProductsController.class_eval do
+      def update
+        if params[:product][:taxon_ids].present?
+          params[:product][:taxon_ids] = params[:product][:taxon_ids].split(',')
+        end
+        if params[:product][:weight].present?
+          if @product.has_variants?
+            @product.variants_including_master.update_all("weight" => params[:product][:weight])
+          end
+        end
+        super
+      end
       def resume
         @product = find_resource
         @product.resume
