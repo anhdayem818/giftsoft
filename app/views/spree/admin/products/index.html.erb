@@ -19,7 +19,9 @@
     <th><%= t(:sku) %></th>
     <th><%= sort_link @search,:name, t(:name), { :default_order => "desc" }, {:title => 'admin_products_listing_name_title'} %></th>
     <th><%= sort_link @search,:master_price, t(:master_price), {}, {:title => 'admin_products_listing_price_title'} %></th>
-	<th><%= t(:on_hand) %></th>
+    <th><%= t(:on_hand) %></th>
+    <th><%= t(:in_process) %></th>
+    <th><%= t(:barcode) %></th>
     <th data-hook="admin_products_index_header_actions"></th>
   </tr>
 <% @collection.each do |product| %>
@@ -29,6 +31,14 @@
     <td><%= link_to product.try(:name), edit_admin_product_path(product) %></td>
     <td><%= number_to_currency product.price rescue '' %></td>
 	  <td><%= product.on_hand %></td>
+    <td><%= product.in_process %></td>
+    <td>
+      <% if product.has_variants? %>
+        <%= link_to t("barcodes"), admin_product_variants_url(product), {"class" => "btn"} %>
+      <% else %>
+        <%= link_to product.master.id, main_app.admin_barcode_path(product.master.id), {"class" => "btn"} %>
+      <% end %>
+    </td>
     <td class="actions" data-hook="admin_products_index_row_actions">
       <%= render 'product_actions', {product: product}%>
       

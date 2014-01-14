@@ -20,6 +20,7 @@ Giftshop::Application.routes.draw do
     resources :articles
     resources :announcements
     resources :instructions
+    resources :barcodes
   end
 
   

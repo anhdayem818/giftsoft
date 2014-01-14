@@ -46,6 +46,9 @@
       <% if !current_user.viewed?(order) %>
         <%= image_tag("store/icons/label_new_red.png") %>
       <% end %>
+      <% if order.user.orders.select(&:paid?).sum(&:total) < 500000 %>
+        <%= image_tag("store/icons/star32.png") %>
+      <% end %>
       </td>
     </tr>
   <% end %>

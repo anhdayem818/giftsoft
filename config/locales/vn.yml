@@ -969,6 +969,7 @@ vn:
   products: Sản phẩm
   latest_products: Hàng mới về
   popular_products: Mua nhiều nhất
+  print_barcode: "In mã vạch"
   products_with_zero_inventory_display: "Sản phẩm không có hàng tồn sẽ %{not} được hiển thị"
   promotion: Khuyến mãi
   promotion_action: Promotion Action

@@ -5,7 +5,7 @@
       
 initialize = ->
   mapOptions =
-    center: new google.maps.LatLng(-34.397, 150.644)
+    center: new google.maps.LatLng(10.792797,106.659361)
     zoom: 8
     mapTypeId: google.maps.MapTypeId.ROADMAP
 

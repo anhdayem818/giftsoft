@@ -4,4 +4,6 @@
 &nbsp;
 <%= link_to_delete product unless product.deleted? %>
 &nbsp;
-<%= link_to_with_icon('edit', t(:resume), "/admin/products/#{product.permalink}/resume", :class => 'resume-resource') if product.deleted? %>
+<%= link_to_with_icon('edit', t(:resume), "/admin/products/#{product.permalink}/resume", :class => 're
+  sume-resource') if product.deleted? %>
+

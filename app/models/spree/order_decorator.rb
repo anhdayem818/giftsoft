@@ -68,8 +68,6 @@ module Spree
       if self.line_items.empty? || round_money(payment_total) < round_money(total)
         self.payment_state = 'balance_due'
         self.payment_state = 'failed' if payments.present? and payments.last.state == 'failed'
-      elsif round_money(payment_total) > round_money(total)
-        self.payment_state = 'credit_owed'
       else
         self.payment_state = 'paid'
         self.paid_at = Time.now()

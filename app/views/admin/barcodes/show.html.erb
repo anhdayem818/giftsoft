@@ -1,0 +1,36 @@
+<style type="text/css">
+body {margin: 0px;}
+table.barby-barcode { border-spacing: 0; }
+tr.barby-row {}
+td.barby-cell { width: 1px; height: 10px; padding: 0px;}
+td.barby-cell.on { background: #000; }
+.span2 {
+  text-align: center;
+  width: 80px;
+  font-size: 12px;
+  float: left;
+}
+</style>
+<% barcode = Barby::Code39.new(params[:id]) %>
+<% outputter = Barby::PngOutputter.new(barcode)%>
+<% outputter.height = 20 %>
+<% outputter.margin = 0 %>
+<% num = params[:count].present? ? params[:count].to_i : 1 %>
+<% i = 0 %>
+<% while i < num do %>
+<% i += 1 %>
+<div class=span2>
+<% @blob = outputter.to_png() %>
+<% File.open('public/barcode.png', 'w'){|f| f.write @blob } %>
+  <div>
+    <%= @variant.product.name[0..14] %>
+  </div>
+  <div>
+    <%= image_tag("/barcode.png") %>
+  </div>
+  <div>
+    <%= t(:price) + ": #{@variant.price}"%>
+  </div>
+<%#= barcode.to_html().html_safe %>
+</div>
+<% end %>

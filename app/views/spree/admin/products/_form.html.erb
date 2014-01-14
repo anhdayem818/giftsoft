@@ -55,32 +55,34 @@
           <%= f.text_field :sku, :size => 16 %>
         <% end %>
 
-        <% if Spree::Config[:track_inventory_levels] %>
+        <% if Spree::Config[:track_inventory_levels] && current_user.has_spree_role?("admin") %>
           <%= f.field_container :on_hand do %>
             <%= f.label :on_hand, t(:on_hand) %><br />
             <%= f.number_field :on_hand, :min => 0 %>
           <% end %>
         <% end %>
 
-        <ul id="shipping_specs">
-          <li id="shipping_specs_weight_field">
-            <%= f.label :weight, t(:weight) %>
-            <%= f.text_field :weight, :size => 4 %>
-          </li>
-          <li id="shipping_specs_height_field">
-            <%= f.label :height, t(:height) %>
-            <%= f.text_field :height, :size => 4 %>
-          </li>
-          <li id="shipping_specs_width_field">
-            <%= f.label :width, t(:width) %>
-            <%= f.text_field :width, :size => 4 %>
-          </li>
-          <li id="shipping_specs_depth_field">
-            <%= f.label :depth, t(:depth) %>
-            <%= f.text_field :depth, :size => 4 %>
-          </li>
-        </ul>
+        
+        
       <% end %>
+      <ul id="shipping_specs">
+        <li id="shipping_specs_weight_field">
+          <%= f.label :weight, t(:weight) %>
+          <%= f.text_field :weight, :size => 4 %>
+        </li>
+        <li id="shipping_specs_height_field">
+          <%= f.label :height, t(:height) %>
+          <%= f.text_field :height, :size => 4 %>
+        </li>
+        <li id="shipping_specs_width_field">
+          <%= f.label :width, t(:width) %>
+          <%= f.text_field :width, :size => 4 %>
+        </li>
+        <li id="shipping_specs_depth_field">
+          <%= f.label :depth, t(:depth) %>
+          <%= f.text_field :depth, :size => 4 %>
+        </li>
+      </ul>
 
       <%= f.field_container :shipping_categories do %>
         <%= f.label :shipping_category_id, t(:shipping_categories) %><br />
@@ -93,7 +95,7 @@
         <%= f.collection_select(:tax_category_id, @tax_categories, :id, :name, { :include_blank => true }, { 'style' => 'width:200px' }) %>
         <%= f.error_message_on :tax_category %>
       <% end %>
-
+      
     </div>
   </div>
   <%= f.field_container :taxons do %>
