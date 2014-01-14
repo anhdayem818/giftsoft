@@ -19,9 +19,9 @@ Spree::Variant.class_eval do
       product.variants.update_all(price: self.price)
     end
 
-    #if self.is_master?
-    #  product = self.product
-    #  product.variants.update_all(price: self.price) if product.present? && product.variants.present?
-    #end
+    if self.is_master?
+      product = self.product
+      product.variants.update_all(price: self.price) if product.present? && product.variants.present?
+    end
   end
 end
