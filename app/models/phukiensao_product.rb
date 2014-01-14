@@ -84,7 +84,8 @@ class PhukiensaoProduct < ActiveRecord::Base
         end
 
         puts 'update is_clone========================================'
-        product.update_attributes(is_clone: true)
+        product.is_clone = true
+        product.save(:validate => true)
       else
         puts "((((((((((((((((((((((((+++++++++++++++++++++++++++++++"
         puts clone_product.errors.to_yaml
