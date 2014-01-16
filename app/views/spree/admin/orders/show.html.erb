@@ -21,7 +21,7 @@
   <% if @order.special_instructions.present? %>
     <div class='adr'>
       <h4><%= t(:note) %></h4>
-      <p><%= @order.special_instructions %></p>
+      <p><%= @order.special_instructions.html_safe %></p>
     </div>
     <% end %>
   <hr />
