@@ -111,5 +111,16 @@ module Spree
 
       update_hooks.each { |hook| self.send hook }
     end
+
+    def total_weight
+      total = 0
+      self.line_items.each do |line|
+        puts '-----------------------------------------'
+        puts line.variant.weight
+        total += (line.variant.weight || 0)*line.quantity
+      end
+      total || 0
+    end
+
   end
 end

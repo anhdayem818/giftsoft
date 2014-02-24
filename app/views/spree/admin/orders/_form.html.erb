@@ -43,6 +43,13 @@
           <td></td>
         </tr>
       </tbody>
+      <tbody id="order-total-weight" data-hook="admin_order_form_total_weight">
+          <tr>
+            <td colspan="4"><b><%= t(:order_total_weight) %>:</b></td>
+            <td class="total"><span id="order_total_weight"><%= number_with_delimiter(@order.total_weight.to_i, :delimiter => ' ') + ' gram' %></span></td>
+            <td></td>
+          </tr>
+      </tbody>
     </table>
 
     <p class="form-buttons" data-hook="admin_order_form_buttons">
