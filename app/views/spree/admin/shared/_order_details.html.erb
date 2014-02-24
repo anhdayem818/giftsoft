@@ -41,6 +41,16 @@
       <td class="total"><span id="order_total"><%= number_to_currency @order.total %></span></td>
     </tr>
   </tbody>
+
+  <tbody id="order-total-weight" data-hook="order_form_total_weight">
+  <tr>
+    <td colspan="4"><b><%= t(:order_total_weight) %>:</b></td>
+    <td class="total"><span id="order_total_weight"><%= number_with_delimiter(@order.total_weight.to_i, :delimiter => ' ') + ' gram' %></span></td>
+    <td></td>
+  </tr>
+  </tbody>
+
+
   <% if order.price_adjustment_totals.present? %>
     <tbody id="price-adjustments" data-hook="order_details_price_adjustments">
       <% @order.price_adjustment_totals.keys.each do |key| %>
