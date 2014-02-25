@@ -17,7 +17,16 @@ Spree.config do |config|
   config.set(:default_locale => 'vn')
   config.set(:allow_ssl_in_production => false)
   #config.set(:html_invoice_logo_path => "images/logo.png")
+  
 end
+
+
+Rails.application.config.after_initialize do
+    Rails.application.config.spree.calculators.shipping_methods << Spree::Calculator::FlexiWeight
+end
+#config = Rails.application.config
+#config.spree.calculators.shipping_methods << Spree::Calculator::FlexiWeight
+
 
 Spree.user_class = "Spree::User"
 #Spree::PrintInvoice::Config.set(:print_invoice_logo_path => "images/logo.png")
