@@ -1,6 +1,6 @@
 Spree::Product.class_eval do
   acts_as_commentable
-  attr_accessible :short_desc, :original_price, :pirce, :is_clone
+  attr_accessible :short_desc, :original_price, :is_clone, :public
   delegate_belongs_to :master, :original_price
 
   has_many :notifications, :as => :notificationable

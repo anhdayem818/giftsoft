@@ -40,13 +40,19 @@
         <%= f.field_container :cost_price do %>
           <%= f.label :cost_price, t(:cost_price) %><br />
           <%= f.text_field :cost_price, :value => number_to_currency(@product.cost_price, :unit => '') %>
-        <%= f.error_message_on :cost_price %>
-      <% end %>
+          <%= f.error_message_on :cost_price %>
+        <% end %>
 
       <%= f.field_container :available_on do %>
         <%= f.label :available_on, t(:available_on) %><br />
         <%= f.error_message_on :available_on %>
         <%= f.text_field :available_on, :class => 'datepicker' %>
+      <% end %>
+      
+      <%= f.field_container :public do %>
+        <%= f.label :public, t(:public) %><br />
+        <%= f.error_message_on :public %>
+        <%= f.check_box :public, :value => @product.public%>
       <% end %>
 
       <% unless @product.has_variants? %>

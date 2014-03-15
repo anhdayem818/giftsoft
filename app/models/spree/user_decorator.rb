@@ -1,7 +1,7 @@
 # Default implementation of User.  This class is intended to be modified by extensions (ex. spree_auth_devise)
 module Spree
   User.class_eval do
-    attr_accessible :username
+    attr_accessible :username, :vip
     validates :username, :presence => true, :uniqueness => true
 
     attr_accessor :coupon

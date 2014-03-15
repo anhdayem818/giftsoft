@@ -7,6 +7,10 @@
         <%= role.name %>
       </label> &nbsp;
     <% end %>
+    <br /><br />
+    <%= label_tag nil, t(:vip) %>
+    <%= f.check_box :vip, :value => @user.vip %>
+    <%#= check_box_tag 'user[vip]', 1, @user.vip %>
     <%= hidden_field_tag 'user[spree_role_ids][]', '' %>
   </p>
 </div>

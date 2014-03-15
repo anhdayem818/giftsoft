@@ -43,6 +43,7 @@ module Spree
 #      respond_with(@products)
       @products = Product.where(["spree_products.name #{LIKE} ?", "%#{params[:keywords]}%"])
         .where("deleted_at is null")
+        .where("public" => true)
       respond_with(@products) do |format|
         format.html
         format.json { render :json => json_data }
