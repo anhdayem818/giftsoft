@@ -4,6 +4,12 @@
     <%= f.email_field :email %>
     <%= error_message_on :user, :email %>
   <% end %>
+  
+  <%= f.field_container :username do %>
+    <%= f.label :username, t(:username) %><br />
+    <%= f.text_field :username %>
+    <%= error_message_on :user,:username %>
+  <% end %>
 
   <%= f.field_container :password do %>
     <%= f.label :password, t(:password) %><br />
