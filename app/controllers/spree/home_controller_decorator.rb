@@ -3,7 +3,7 @@ Spree::HomeController.class_eval do
 
   def index
     @searcher = Spree::Config.searcher_class.new(params)
-    if (current_user.present? && current_user.admin_group?)
+    if (current_user.present?)
       if current_user.admin_group?
         @products = @searcher.retrieve_products.order("name")
       elsif current_user.vip # only show hidden products to vip customers
