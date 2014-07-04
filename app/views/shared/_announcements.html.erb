@@ -11,7 +11,7 @@
 		<% @announcements.each do |announcement|%>
 	  	<tr class="announcement">
         <td class="date"><%= announcement.created_at.strftime("%d-%m-%Y") %></td>
-        <td class="info"><%= announcement.description %></td>
+        <td class="info"><%= announcement.description.html_safe %></td>
         <% if (current_user && current_user.admin_group?) %>
         <td align="center"><%= check_box_tag "check_box_#{announcement.id}", announcement.popup, announcement.popup, {:disabled => true} %></td>
         <td class="actions">
