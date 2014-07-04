@@ -6,7 +6,7 @@
   <div class="modal-body">
     <% @notices.each do |notice|%>
     <div>
-      <%= notice.description %>
+      <%= notice.description.html_safe %>
     </div>
     <% end %>
   </div>
