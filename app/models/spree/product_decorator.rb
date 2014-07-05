@@ -10,7 +10,7 @@ Spree::Product.class_eval do
   end
   
   def sole_out(start_date = 7.days.ago, end_date = Time.now)
-    has_variants? ? variants.sum(&:sole_out) : master.sole_out(start_date, end_date)
+    has_variants? ? variants.sum{|v| v.sole_out(start_date, end_date)} : master.sole_out(start_date, end_date)
   end
   
   def self.not_deleted
