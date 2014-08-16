@@ -10,6 +10,11 @@
     <%= f.text_field :username %>
     <%= error_message_on :user,:username %>
   <% end %>
+  <%= f.field_container :point do %>
+    <%= f.label :point, t(:point) %><br />
+    <%= f.text_field :point %>
+    <%= error_message_on :user,:point %>
+  <% end %>
 
   <%= f.field_container :password do %>
     <%= f.label :password, t(:password) %><br />
