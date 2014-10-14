@@ -1,14 +1,16 @@
 <% if current_user.present? && current_user.admin_group?%>
 <div class="row pull-right">
 <div class="span12">
-  <div class="alert alert-info">
+  <div class="alert alert-info user-comments">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <table border="0">
 	    <% @comments.each do |comment|%>
+      <% if comment.commentable.present?%>
   	  <tr>
 		    <td class="date" width="80px"><%= comment.created_at.strftime("%d-%m-%Y") %></td>
 		    <td class="info"><%= t(:user_comment_on, :username => comment.author) %> <%= link_to(comment.commentable.name, comment.commentable) %> <%= ": " + comment.comment %></td>
 	    </tr>
+      <% end %>
 	    <% end %>
     </table>
   </div>

@@ -31,9 +31,17 @@
 #announcements .info-panel td.info {
     color: red;
 }
+.user-comments {
+  height: 200px;
+  overflow: auto;
+}
 .info-panel tr {
 	border-bottom: none;
 }
-#headline {
-	margin-top: 50px;
+.bs-docs-sidenav > li > a {
+  display: block;
+  width: 190px \9;
+  margin: 0 0 -1px;
+  padding: 8px 14px;
 }
+

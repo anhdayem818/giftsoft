@@ -12,7 +12,7 @@
 
 
       <%= render :partial => 'spree/shared/header' %>
-      <%=# render :partial => 'spree/shared/promotion_products_slider', :locals => { :promotion_products => @promotion_products } %>
+      <%#= render :partial => 'spree/shared/promotion_products_slider', :locals => { :promotion_products => @promotion_products } %>
       <div id="content" class="row" data-hook>
         <div class="span12">
           <%= flash_messages %>
@@ -25,7 +25,6 @@
             </div>
           </div>
           <div class="row">
-
             <% if content_for? :sidebar %>
               <%= render :partial => 'spree/shared/sidebar' if content_for? :sidebar %>
               <div class="span9">

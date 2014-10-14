@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def get_notifications
     if current_user
-      @notifications = current_user.notifications.unread.order("created_at desc")
+      @notifications = current_user.notifications.unread.order("created_at desc").limit(50)
     end
   end
 end
