@@ -53,7 +53,7 @@
 <div id="images" data-hook></div>
 <br />
 <p data-hook="links">
-  <%= link_to icon('add') + ' ' + t(:new_image), new_admin_product_image_url(@product), :id => 'new_image_link' %>
+  <%= link_to icon('add') + ' ' + t(:new_image), new_admin_product_image_url(@product), :id => 'new_images_link' %>
 </p>
 
 <script id="images-template" type="text/html">
@@ -65,7 +65,7 @@
     <% end %>
     <p class="form-buttons" data-hook="buttons">
       <button name="button" type="submit" id="submit-images"><span> Cập nhật</span></button>
-      hoặc <a href="#" id="cancel_link">Hủy</a>
+      hoặc <a href="#" id="cancel_images">Hủy</a>
     </p>
   </div>
 </script>
@@ -73,21 +73,23 @@
 <script id="attachment-tempplate" type="text/html">
   <div class="attachment">
     <table>
-      <tr data-hook="variant">
-        <td><%= Spree::Variant.model_name.human %>:</td>
-        <td class="viewable_id"><%= select_tag :viewable_id, options_for_select(@variants), :name => "images[index_array][viewable_id]" %></td>
-      </tr>
-      <tr data-hook="image">
-        <td>Image:</td>
+      <tr>
         <td>
           <div class="image">
             <img src=""/>
           </div>
         </td>
-      </tr>
-      <tr data-hook="alt_text">
-        <td><%= t(:alt_text) %>:</td>
-        <td class="alt_text"><textarea name="images[index_array][alt]" ></textarea></td>
+        <td>
+          <div>
+            <%= Spree::Variant.model_name.human %>: <%= select_tag :viewable_id, options_for_select(@variants), :name => "images[index_array][viewable_id]" %>
+          </div>
+          <br/>
+          <div>
+            <div class="alt-text"><%= t(:alt_text) %>:</div>
+            <textarea name="images[index_array][alt]" ></textarea>
+          </div>
+
+        </td>
       </tr>
     </table>
   </div>
