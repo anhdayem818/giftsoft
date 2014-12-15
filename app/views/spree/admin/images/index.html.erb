@@ -55,3 +55,40 @@
 <p data-hook="links">
   <%= link_to icon('add') + ' ' + t(:new_image), new_admin_product_image_url(@product), :id => 'new_image_link' %>
 </p>
+
+<script id="images-template" type="text/html">
+  <div id="images-section">
+    <%= form_tag("/admin/products/#{@product.permalink}/images", {:multipart => true, :method => :post}) do %>
+      <%= file_field_tag 'files[]', multiple: true, :id => "admin-input-images" %>
+      <br/><br/>
+      <div class="content"></div>
+    <% end %>
+    <p class="form-buttons" data-hook="buttons">
+      <button name="button" type="submit" id="submit-images"><span> Cập nhật</span></button>
+      hoặc <a href="#" id="cancel_link">Hủy</a>
+    </p>
+  </div>
+</script>
+
+<script id="attachment-tempplate" type="text/html">
+  <div class="attachment">
+    <table>
+      <tr data-hook="variant">
+        <td><%= Spree::Variant.model_name.human %>:</td>
+        <td class="viewable_id"><%= select_tag :viewable_id, options_for_select(@variants), :name => "images[index_array][viewable_id]" %></td>
+      </tr>
+      <tr data-hook="image">
+        <td>Image:</td>
+        <td>
+          <div class="image">
+            <img src=""/>
+          </div>
+        </td>
+      </tr>
+      <tr data-hook="alt_text">
+        <td><%= t(:alt_text) %>:</td>
+        <td class="alt_text"><textarea name="images[index_array][alt]" ></textarea></td>
+      </tr>
+    </table>
+  </div>
+</script>

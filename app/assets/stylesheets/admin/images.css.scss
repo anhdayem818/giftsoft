@@ -1,0 +1,37 @@
+#images-section{
+  .attachment{
+    background-color: #ddd;
+    border-radius: 5px;
+    .image{
+      width: 100px;
+      img{
+        width: 100%;
+      }
+      .data{
+        display: none;
+      }
+    }
+    .filename{
+      input{
+        display: none;
+      }
+    }
+    textarea{
+      height: 30px;
+      width: 60%;
+    }
+    table{
+      tr{
+        td:first-child{
+          width: 14%;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+
+  .form-buttons{
+    display: none;
+  }
+}
