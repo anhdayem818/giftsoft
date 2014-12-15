@@ -5,10 +5,10 @@
   <% end %>
   <li id="product_<%= product.id %>" variant_id="<%= product.master.id%>" class="span2" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
     <div class="product-image">
-      <% if (current_user && current_user.admin_group?) %>
-        <%=  clone_product_btn(product).html_safe %>
-        <b><%= product.on_hand %></b>
-      <% end %>
+      <!--% if (current_user && current_user.admin_group?) %>-->
+        <!--%=  clone_product_btn(product).html_safe %>-->
+        <!--<b>%= product.on_hand %></b>-->
+      <!--% end %>-->
       <%= link_to small_image(product, :itemprop => "image", :class=>"img-rounded"), product, :itemprop => 'url' %>
       <span class="original-price"><%= number_to_currency product.original_price %></span>
       <span class="price selling" itemprop="price"><%= number_to_currency product.price %></span>
