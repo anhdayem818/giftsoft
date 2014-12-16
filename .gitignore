@@ -20,4 +20,5 @@
 /config/database.yml
 /.sass-cache/
 vendor/cache
+*.DS_Store
 /.idea

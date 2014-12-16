@@ -35,7 +35,7 @@ gem 'delayed_job_active_record'
 
 # Use unicorn as the app server
 gem 'unicorn', "~> 4.6.3"
-
+gem 'spree_static_content', github: 'spree/spree_static_content', branch: '1-2-stable'
 # Deploy with Capistrano
 # gem 'capistrano'
 

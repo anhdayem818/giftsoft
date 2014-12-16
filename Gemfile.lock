@@ -33,6 +33,14 @@ GIT
       rails-i18n
       spree_core
 
+GIT
+  remote: git://github.com/spree/spree_static_content.git
+  revision: 2d6cea2443611b25a466911830e5ad3028a521f8
+  branch: 1-2-stable
+  specs:
+    spree_static_content (1.2.0.beta)
+      spree_core (~> 1.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -285,6 +293,7 @@ DEPENDENCIES
   spree_gateway!
   spree_html_invoice!
   spree_i18n!
+  spree_static_content!
   sprockets
   uglifier (>= 1.0.3)
   unicorn (~> 4.6.3)

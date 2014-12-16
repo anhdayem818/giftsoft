@@ -1,0 +1,19 @@
+.chat-box {
+	display: block;
+	position: fixed;
+	top: 200px;
+	left: 400px;
+	padding-left: 10px;
+	background: gray;
+	opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+	#messages {
+		height: 160px;
+	}
+	form {
+		margin: 0 0 10px;
+	}
+	button {
+		width: 95px;
+	}
+}

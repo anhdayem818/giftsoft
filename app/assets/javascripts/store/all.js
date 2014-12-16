@@ -7,3 +7,4 @@
 
 //= require_directory .
 //= require royalslider/jquery.royalslider.min
+//= require socket.io/socket.io
