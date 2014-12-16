@@ -1,5 +1,13 @@
 .user-shared-files{
-  table{
-    width: 50%;
+  position: absolute;
+  right: 0px;
+  top: 85px;
+  width: 500px;
+  .list{
+    max-height: 200px;
+    overflow-y: auto;
+    div{
+      margin-bottom: 2px;
+    }
   }
 }
