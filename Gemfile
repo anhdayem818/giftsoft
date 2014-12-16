@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
-
+gem 'rails', '3.2.13'
+gem 'rake', '10.1.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -35,7 +35,7 @@ gem 'delayed_job_active_record'
 
 # Use unicorn as the app server
 gem 'unicorn', "~> 4.6.3"
-
+gem 'spree_static_content', github: 'spree/spree_static_content', branch: '1-2-stable'
 # Deploy with Capistrano
 # gem 'capistrano'
 
@@ -48,7 +48,7 @@ gem 'spree_gateway', :git => 'git://github.com/spree/spree_gateway.git', :branch
 #gem 'spree_print_invoice' , :git => 'git://github.com/spree/spree_print_invoice.git'
 
 
-gem 'rb-readline', '~> 0.4.2'
+#gem 'rb-readline', '~> 0.4.2'
 gem 'chunky_png'
 gem 'barby'
 
