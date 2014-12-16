@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
-
+gem 'rails', '3.2.13'
+gem 'rake', '10.1.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -48,7 +48,7 @@ gem 'spree_gateway', :git => 'git://github.com/spree/spree_gateway.git', :branch
 #gem 'spree_print_invoice' , :git => 'git://github.com/spree/spree_print_invoice.git'
 
 
-gem 'rb-readline', '~> 0.4.2'
+#gem 'rb-readline', '~> 0.4.2'
 gem 'chunky_png'
 gem 'barby'
 
