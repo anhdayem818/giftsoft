@@ -1,0 +1,7 @@
+<% if spree_current_user && spree_current_user.admin_group? %>
+  <li class="tab-with-icon">
+    <a class="icon_lin with-tip" href="/admin/share_files">
+      <span class="text"><%= t(:share_files) %></span>
+    </a>
+  </li>
+<% end %>

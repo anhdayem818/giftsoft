@@ -719,7 +719,7 @@ vn:
   normal_amount: "Normal Amount"
   not: không
   not_available: "N/A"
-  not_found: "%{resource} is not found"
+  not_found: "Không thấy %{resource}"
   not_shown: "Not Shown"
   note: Ghi chú
   notice_messages: 
@@ -1288,3 +1288,9 @@ vn:
   zones: Vùng
 
   you_must_login_to_comment: "Bạn phải đăng nhập để bình luận"
+
+  new_share_files: "Tạo mới file chia sẻ"
+  share_files: "Chia sẻ files"
+  listing_shared_files: "Danh sách các files chia sẻ"
+  new_shared_files: "Tạo mới file chia sẻ"
+  edit_shared_files: "Sửa đổi file chia sẻ"

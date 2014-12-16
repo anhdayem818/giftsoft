@@ -1,0 +1,37 @@
+<div class="toolbar" data-hook="toolbar">
+  <ul class="actions">
+    <li id="new_share_file_link">
+      <% if @share_files.any? %>
+        <%= button_link_to t(:new_share_files), new_object_url, { :remote => true, :icon => 'add', :id => 'admin_new_share_file' } %>
+      <% end %>
+    </li>
+  </ul>
+  <br class="clear" />
+</div>
+
+<h1><%= t(:listing_shared_files) %></h1>
+<% if @share_files.any? %>
+  <table class="index" id="list-shared-files">
+    <tr>
+      <th>File name</th>
+      <th></th>
+    </tr>
+    <% @share_files.each_with_index do |share_file, index| %>
+      <tr>
+        <td><%= share_file.attachment.file.filename %></td>
+        <td>
+          <%= link_to_edit share_file, :class => 'edit' %>
+          &nbsp;
+          <%= link_to_delete share_file %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%= paginate @share_files %>
+<% else %>
+  <div class="no-shared-files">
+    <%= "#{t(:not_found, :resource => "shared files")}, " %>
+    <%= link_to t(:add), spree.new_admin_share_file_path %>
+  </div>
+<% end %>
+

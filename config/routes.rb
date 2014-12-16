@@ -32,6 +32,17 @@ Giftshop::Application.routes.draw do
   namespace :spree do
     resources :line_items
   end
+
+  Spree::Core::Engine.routes.append do
+    resources :users do
+      collection do
+        get :download_shared_file
+      end
+    end
+    namespace :admin do
+      resources :share_files
+    end
+  end
   
   
   # The priority is based upon order of creation:
