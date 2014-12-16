@@ -1,0 +1,12 @@
+<%= form_for [:admin, @share_file], :html => { :multipart => true, :class => 'share-file-form' } do |f| %>
+  <fieldset>
+    <legend align="center"><%= @share_file.new_record? ? t(:new_shared_files) : t(:edit_shared_files) %></legend>
+    <%= f.file_field :attachment do %>
+      <%= f.label :attachment, Spree.t(:attachment) %>
+      <%= f.file_field :attachment, :class => 'fullwidth' %>
+    <% end %>
+    <div class="align-center">
+      <%= f.submit @share_file.new_record? ? t("actions.create") : t("actions.update")%>
+    </div>
+  </fieldset>
+<% end %>

@@ -1077,3 +1077,9 @@ en:
 
 
   you_must_login_to_comment: "You must login to comment"
+
+  new_share_file: "New share file"
+  share_files: "Share files"
+  listing_shared_files: "Listing shared files"
+  new_shared_files: "New shared file"
+  edit_shared_files: "Edit share file"

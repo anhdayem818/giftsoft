@@ -43,3 +43,21 @@
   <br />
 
 </div>
+
+<div class="user-shared-files">
+  <% if spree_current_user.present? && spree_current_user.vip && @share_files.any? %>
+    <h3><%= t(:listing_shared_files) %></h3>
+    <table>
+      <thead>
+        <th>Files</th>
+      </thead>
+      <tbody>
+        <% @share_files.each do |share_file| %>
+          <tr>
+            <td><a href="/users/download_shared_file?share_file_id=<%= share_file.id %>" class="download-shared-file" data-id="<%= share_file.id %>"><%= share_file.attachment.file.filename %></a></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

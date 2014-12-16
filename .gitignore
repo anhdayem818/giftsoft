@@ -17,6 +17,7 @@
 /public/assets/
 /public/spree/
 /public/spree.tar
+/public/uploads/
 /config/database.yml
 /.sass-cache/
 vendor/cache
