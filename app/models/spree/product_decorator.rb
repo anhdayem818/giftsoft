@@ -96,12 +96,12 @@ Spree::Product.class_eval do
   def startPost(productunit, categorylv2, categorylv3 = nil, gender = nil)
     images = []
     self.master.images.each do |image|
-      images.push("http://muamely.com#{image.attachment.url}")
+      images.push({"url" => "http://muamely.com#{image.attachment.url}", "alt" => image.alt})
     end
 
     self.variants.each do |variant|
       variant.images.each do |image|
-        images.push("http://muamely.com#{image.attachment.url}")
+        images.push({"url" => "http://muamely.com#{image.attachment.url}", "alt" => image.alt})
       end
     end
 
@@ -129,22 +129,22 @@ Spree::Product.class_eval do
             "productunit" => productunit,
             "categorylv1" => 3, # Phu kien
             "categorylv2" => categorylv2,
-            "product_desc" => ""
+            "product_desc" => "#{self.description.present? ? self.description : ''}"
         }
 
         params.merge!({"categorylv3" => categorylv3}) if categorylv3.present?
 
         image_index = 0
         can_post = false
-        images.each do |image_url|
-          content = open("http://thitruongsi.com/ajax/fetchImage?url=#{CGI.escape(image_url)}").read
+        images.each do |image|
+          content = open("http://thitruongsi.com/ajax/fetchImage?url=#{CGI.escape(image["url"])}").read
           response = JSON.parse content
           if response["code"] == 1
             can_post = true
             params.merge!({
                               "image[frompc][#{image_index}]" => 0,
                               "image[file][#{image_index}]" => response["file"],
-                              "image[description][#{image_index}]" => ""
+                              "image[description][#{image_index}]" => "#{image["alt"].present? ? image["alt"] : ''}"
                           })
             if image_index == 0
               params.merge!({"feature_image" => response["file"]})

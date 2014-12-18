@@ -51,7 +51,6 @@ namespace :product do
       start_time = 0
       if time_fragment_count > 0
         time_of_each_post = time_width / time_fragment_count
-        time_of_each_post = 10
         puts "post ngay"
         File.open("track_post_product.txt", "a") do |file|
           file.puts "================================================== Date: #{DateTime.now} =================================================="
