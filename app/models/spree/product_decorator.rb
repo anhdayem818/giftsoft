@@ -34,7 +34,7 @@ Spree::Product.class_eval do
   def self.post_product_to_thi_truong_si
     product = Spree::Product.joins({taxons: :parent}).where("parents_spree_taxons.name='Đồng hồ' and `spree_products`.posted=false").group("`spree_products`.id").readonly(false).first
     if product.present?
-      File.open("track_post_product.txt", "a") do |file|
+      File.open("log/track_post_product.log", "a") do |file|
         file.puts "******************** Product id: #{product.id} ********************"
       end
 
@@ -58,14 +58,14 @@ Spree::Product.class_eval do
       }
 
       taxon_names = product.taxons.collect(&:name)
-      File.open("track_post_product.txt", "a") do |file|
+      File.open("log/track_post_product.log", "a") do |file|
         file.puts "Taxon names: #{taxon_names}"
       end
 
       productunit = taxon_names.include?("Đồng hồ đôi/cặp") ?  productunits["cap"] : productunits["cai"]
 
       if taxon_names.include?("Đồng hồ nam")
-        File.open("track_post_product.txt", "a") do |file|
+        File.open("log/track_post_product.log", "a") do |file|
           file.puts "==== Dong ho nam"
         end
         categorylv2 = categorylv2s["male_accessory"]
@@ -74,7 +74,7 @@ Spree::Product.class_eval do
       end
 
       if taxon_names.include?("Đồng hồ nữ")
-        File.open("track_post_product.txt", "a") do |file|
+        File.open("log/track_post_product.log", "a") do |file|
           file.puts "==== Dong ho nu"
         end
         categorylv2 = categorylv2s["female_accessory"]
@@ -83,7 +83,7 @@ Spree::Product.class_eval do
       end
 
       if taxon_names.exclude?("Đồng hồ nam") && taxon_names.exclude?("Đồng hồ nữ")
-        File.open("track_post_product.txt", "a") do |file|
+        File.open("log/track_post_product.log", "a") do |file|
           file.puts "==== Dong ho khac"
         end
         categorylv2 = categorylv2s["other_accessory"]
@@ -153,7 +153,7 @@ Spree::Product.class_eval do
           end
         end
 
-        File.open("track_post_product.txt", "a") do |file|
+        File.open("log/track_post_product.log", "a") do |file|
           file.puts "Can post: #{can_post}"
           file.puts params
         end
@@ -164,19 +164,19 @@ Spree::Product.class_eval do
           if page_after_add_product.at(".alert-success").present?
             self.posted = true
             self.save
-            File.open("track_post_product.txt", "a") do |file|
+            File.open("log/track_post_product.log", "a") do |file|
               file.puts "Post success"
               file.puts self.inspect
             end
           else
-            File.open("track_post_product.txt", "a") do |file|
+            File.open("log/track_post_product.log", "a") do |file|
               file.puts "Post fail"
               file.puts page_after_add_product.at(".alert-warning").inner_html if page_after_add_product.at(".alert-warning").present?
               file.puts self.inspect
             end
           end
         else
-          File.open("track_post_product.txt", "a") do |file|
+          File.open("log/track_post_product.log", "a") do |file|
             file.puts "Error upload image"
           end
         end

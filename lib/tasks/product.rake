@@ -52,7 +52,7 @@ namespace :product do
       if time_fragment_count > 0
         time_of_each_post = time_width / time_fragment_count
         puts "post ngay"
-        File.open("track_post_product.txt", "a") do |file|
+        File.open("log/track_post_product.log", "a") do |file|
           file.puts "================================================== Date: #{DateTime.now} =================================================="
         end
         Spree::Product.post_product_to_thi_truong_si
@@ -64,7 +64,7 @@ namespace :product do
       elsif time_fragment_count == 0
         # Post only a product at 9:00
         puts "post ngay"
-        File.open("track_post_product.txt", "a") do |file|
+        File.open("log/track_post_product.log", "a") do |file|
           file.puts "================================================== Date: #{DateTime.now} =================================================="
         end
         Spree::Product.post_product_to_thi_truong_si
