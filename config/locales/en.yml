@@ -1084,3 +1084,6 @@ en:
   new_shared_files: "New shared file"
   edit_shared_files: "Edit share file"
   download_product_image: "Download product images"
+  post_to_thi_truong_si: "Post to Tri Truong Si"
+  post_to_thi_truong_si_description: "Number of posts per day"
+  posts_per_day: "Number of posts per day"

@@ -53,3 +53,5 @@ gem 'chunky_png'
 gem 'barby'
 
 gem 'carrierwave'
+gem 'mechanize'
+gem 'whenever'

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 namespace :product do
   task :merge_variants => :environment do 
     hong = Spree::OptionValue.find_by_name('hong')
@@ -38,6 +39,36 @@ namespace :product do
             
           end
         end
+      end
+    end
+  end
+
+  task :post_to_thi_truong_si => :environment do
+    setting = Spree::Setting.first
+    if setting.present?
+      time_width = 13*60*60 # From 9:00 to 22:00
+      time_fragment_count = setting.posts_per_day - 1
+      start_time = 0
+      if time_fragment_count > 0
+        time_of_each_post = time_width / time_fragment_count
+        time_of_each_post = 10
+        puts "post ngay"
+        File.open("track_post_product.txt", "a") do |file|
+          file.puts "================================================== Date: #{DateTime.now} =================================================="
+        end
+        Spree::Product.post_product_to_thi_truong_si
+        for i in 1..time_fragment_count do
+          start_time += time_of_each_post
+          puts "#{start_time} seconds from now"
+          Spree::Product.delay(run_at: start_time.seconds.from_now).post_product_to_thi_truong_si
+        end
+      elsif time_fragment_count == 0
+        # Post only a product at 9:00
+        puts "post ngay"
+        File.open("track_post_product.txt", "a") do |file|
+          file.puts "================================================== Date: #{DateTime.now} =================================================="
+        end
+        Spree::Product.post_product_to_thi_truong_si
       end
     end
   end

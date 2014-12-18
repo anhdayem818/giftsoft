@@ -41,6 +41,7 @@ Giftshop::Application.routes.draw do
     end
     namespace :admin do
       resources :share_files
+      resources :settings
     end
   end
   

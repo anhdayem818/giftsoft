@@ -1295,3 +1295,6 @@ vn:
   new_shared_files: "Tạo mới file chia sẻ"
   edit_shared_files: "Sửa đổi file chia sẻ"
   download_product_image: "Download hình sản phẩm"
+  post_to_thi_truong_si: "Post thị trường sỉ"
+  post_to_thi_truong_si_description: "Số lần post trong 1 ngày"
+  posts_per_day: "Số lần post trong 1 ngày"

@@ -1,0 +1,12 @@
+<%= form_for [:admin, @setting], :html => { :multipart => true, :class => 'setting-form' } do |f| %>
+  <fieldset>
+    <legend align="center">Edit</legend>
+    <%= f.text_field :posts_per_day do %>
+      <%= f.label :posts_per_day, Spree.t(:posts_per_day) %>
+      <%= f.text_field :posts_per_day, :class => 'fullwidth' %>
+    <% end %>
+    <div class="align-center">
+      <%= f.submit @setting.new_record? ? t("actions.create") : t("actions.update")%>
+    </div>
+  </fieldset>
+<% end %>
