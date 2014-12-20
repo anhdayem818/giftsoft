@@ -11,7 +11,6 @@
  *= require store/checkout
  *= require store/main
  *= require articles
- *= require royalslider/royalslider
  *= require royalslider/rs-default
  *= require_tree .
 */

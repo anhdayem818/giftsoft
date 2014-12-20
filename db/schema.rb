@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141211154425) do
+ActiveRecord::Schema.define(:version => 20141218045749) do
 
   create_table "announcements", :force => true do |t|
     t.string   "description", :limit => 500
@@ -96,6 +96,18 @@ ActiveRecord::Schema.define(:version => 20141211154425) do
   add_index "products", ["deleted_at"], :name => "index_spree_products_on_deleted_at"
   add_index "products", ["name"], :name => "index_spree_products_on_name"
   add_index "products", ["permalink"], :name => "index_spree_products_on_permalink"
+
+  create_table "settings", :force => true do |t|
+    t.integer  "posts_per_day", :default => 2
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "share_files", :force => true do |t|
+    t.string   "attachment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "spree_activators", :force => true do |t|
     t.string   "description"
@@ -420,6 +432,7 @@ ActiveRecord::Schema.define(:version => 20141211154425) do
     t.string   "short_desc"
     t.boolean  "is_clone",             :default => false
     t.boolean  "public",               :default => true
+    t.boolean  "posted",               :default => false
   end
 
   add_index "spree_products", ["available_on"], :name => "index_spree_products_on_available_on"

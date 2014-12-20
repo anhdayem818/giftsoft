@@ -19,6 +19,23 @@ module Spree
         can :manage, Variant
         can :index, Image
         can :manage, Image
+
+        can :manage, User
+        can :index, User
+        can :admin, User
+
+        can :manage, ShareFile
+        can :index, ShareFile
+        can :admin, ShareFile
+
+        can :manage, Promotion
+        can :index, Promotion
+        can :admin, Promotion
+
+        can :manage, Page
+        can :index, Page
+        can :admin, Page
+        
       end
       if user.has_spree_role? "admin"
         can :manage, Instruction
