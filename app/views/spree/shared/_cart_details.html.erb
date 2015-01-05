@@ -39,7 +39,7 @@
       <% if current_order.present? %>
         <% current_order.line_items.each do |item| %>
           <tr name="<%= item.variant.product.name %>" variant_id=<%= item.variant.id %>>
-            <td class="image"><%= image_tag item.product.images[0].present? ? item.product.images[0].attachment.url(:mini) : '' %></td>
+            <td class="image"><%= image_tag item.product.images[0].present? ? item.product.images[0].attachment.url(:mini) : "default-mini.png" %></td>
             <td class="name"><%= item.variant.product.name %></td>
             <td class="count"><%= number_to_currency item.price %></td>
             <td class="count"><%= item.quantity %></td>
