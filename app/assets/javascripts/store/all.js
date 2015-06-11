@@ -5,5 +5,8 @@
 // the compiled file.
 //
 
+//= require store/jquery.min
+//= require store/jquery-ui.min
+//= require store/bootstrap.min
 //= require_directory .
 //= require socket.io/socket.io
