@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/dancinglightning/spree-html-invoice.git
-  revision: 1bead35ba06ccbecbf57b7b9819b361aeb4b2818
-  specs:
-    spree_html_invoice (1.1)
-      spree_core (>= 1.0.0)
-
-GIT
   remote: git://github.com/spree/spree_auth_devise
   revision: c72c5430ba734deae1069d5fdc23f93c893a7a5f
   branch: 1-2-stable
@@ -507,7 +500,6 @@ DEPENDENCIES
   spree (= 1.2.4)
   spree_auth_devise!
   spree_gateway!
-  spree_html_invoice!
   spree_i18n!
   spree_static_content!
   sprockets

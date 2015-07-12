@@ -46,11 +46,11 @@ gem 'capistrano3-delayed-job', '~> 1.0'
 
 # To use debugger
 # gem 'debugger'
-gem 'spree_html_invoice' , :git => 'git://github.com/dancinglightning/spree-html-invoice.git'
+#gem 'spree_html_invoice' , :git => 'git://github.com/dancinglightning/spree-html-invoice.git'
 gem 'spree', '1.2.4'
 gem 'spree_auth_devise', :git => 'git://github.com/spree/spree_auth_devise', :branch => "1-2-stable"
 gem 'spree_gateway', :git => 'git://github.com/spree/spree_gateway.git', :branch => "1-1-stable" # make sure to include after spree
-#gem 'spree_print_invoice' , :git => 'git://github.com/spree/spree_print_invoice.git'
+#gem 'spree_print_invoice' , github: 'spree-contrib/spree_print_invoice', branch: '1-1-stable'
 
 
 #gem 'rb-readline', '~> 0.4.2'
