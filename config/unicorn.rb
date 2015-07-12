@@ -10,7 +10,7 @@
 
 # Use at least one worker per core if you're on a dedicated server,
 # more will usually help for _short_ waits on databases/caches.
-worker_processes 3
+worker_processes 2
 
 #env = ENV["RAILS_ENV"] || "development"
 ENV["RAILS_ENV"] = "production"
@@ -22,25 +22,25 @@ ENV["RAILS_ENV"] = "production"
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
-project_name = "giftshop"
-working_directory "/var/www/#{project_name}/" # available in 0.94.0+
+project_name = "muamely"
+working_directory "/home/rails/#{project_name}/current" # available in 0.94.0+
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
-listen "/var/www/#{project_name}/tmp/sockets/unicorn.sock", :backlog => 64
+listen "#{working_directory}/tmp/sockets/unicorn.sock", :backlog => 64
 #listen 8081, :tcp_nopush => true
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30
 
 # feel free to point this anywhere accessible on the filesystem
-pid "/var/www/#{project_name}/tmp/pids/unicorn.pid"
+pid "#{working_directory}/tmp/pids/unicorn.pid"
 
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-stderr_path "/var/www/#{project_name}/log/unicorn.stderr.log"
-stdout_path "/var/www/#{project_name}/log/unicorn.stdout.log"
+stderr_path "#{working_directory}/log/unicorn.stderr.log"
+stdout_path "#{working_directory}/log/unicorn.stdout.log"
 
 # combine Ruby 2.0.0dev or REE with "preload_app true" for memory savings
 # http://rubyenterpriseedition.com/faq.html#adapt_apps_for_cow

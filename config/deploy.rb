@@ -92,7 +92,7 @@ namespace :deploy do
   task :symlinks do
     on roles(:web, :rake, :delay_job) do
       execute "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-      execute "ln -nfs #{shared_path}/config/unicorn.rb #{release_path}/config/unicorn.rb"
+      #execute "ln -nfs #{shared_path}/config/unicorn.rb #{release_path}/config/unicorn.rb"
       execute "ln -nfs #{shared_path}/public/spree #{release_path}/public/spree"
       execute "ln -nfs #{shared_path}/public/ckeditor_assets #{release_path}/public/ckeditor_assets"
       #execute "ln -nfs #{shared_path}/config/config.yml #{release_path}/config/config.yml"
