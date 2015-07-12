@@ -37,7 +37,12 @@ gem 'delayed_job_active_record'
 gem 'unicorn', "~> 4.6.3"
 gem 'spree_static_content', github: 'spree/spree_static_content', branch: '1-2-stable'
 # Deploy with Capistrano
-# gem 'capistrano'
+# Use Capistrano for deployment
+gem 'net-scp', '~> 1.1.2'
+gem 'capistrano',  '~> 3.1'
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-rvm'
+gem 'capistrano3-delayed-job', '~> 1.0'
 
 # To use debugger
 # gem 'debugger'
