@@ -109,8 +109,8 @@ Spree::Product.class_eval do
       agent = Mechanize.new
 
       # Fill information to log in
-      login_page = agent.get("http://thitruongsi.com/user/login/")
-      login_form = login_page.form_with(:action => "http://thitruongsi.com/user/login?redirecturl=")
+      login_page = agent.get("https://thitruongsi.com/user/login/")
+      login_form = login_page.form_with(:action => "https://thitruongsi.com/user/login?redirecturl=")
       login_form.email = "shopmuamely@gmail.com"
       login_form.password = "muamely123"
       login_button = login_form.button_with(:value => "Đăng nhập")
