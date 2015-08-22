@@ -137,7 +137,7 @@ Spree::Product.class_eval do
         image_index = 0
         can_post = false
         images.each do |image|
-          content = open("http://thitruongsi.com/ajax/fetchImage?url=#{CGI.escape(image["url"])}").read
+          content = open("https://thitruongsi.com/ajax/fetchImage?url=#{CGI.escape(image["url"])}").read
           response = JSON.parse content
           if response["code"] == 1
             can_post = true
@@ -159,7 +159,7 @@ Spree::Product.class_eval do
         end
 
         if can_post
-          page_after_add_product = agent.post('http://thitruongsi.com/shop/doaddproduct/', params)
+          page_after_add_product = agent.post('https://thitruongsi.com/shop/doaddproduct/', params)
 
           if page_after_add_product.at(".alert-success").present?
             self.posted = true
