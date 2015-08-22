@@ -71,17 +71,17 @@ Spree::Product.class_eval do
         categorylv2 = categorylv2s["male_accessory"]
         categorylv3 = categorylv3s["male_watch"]
         product.startPost(productunit, categorylv2, categorylv3, "nam")
-      end
-
-      if taxon_names.include?("Đồng hồ nữ")
+      elsif taxon_names.include?("Đồng hồ nữ")
         File.open("log/track_post_product.log", "a") do |file|
           file.puts "==== Dong ho nu"
         end
         categorylv2 = categorylv2s["female_accessory"]
         categorylv3 = categorylv3s["female_watch"]
         product.startPost(productunit, categorylv2, categorylv3, "nữ")
+      
       end
 
+      
       if taxon_names.exclude?("Đồng hồ nam") && taxon_names.exclude?("Đồng hồ nữ")
         File.open("log/track_post_product.log", "a") do |file|
           file.puts "==== Dong ho khac"
@@ -123,13 +123,14 @@ Spree::Product.class_eval do
       if user_panel.at("#addproductlink").present?
         product_name = "#{self.name} - #{self.sku}"
         product_name += " (#{gender})" if gender.present?
+        desc = description.present? ? description.gsub("../../..", "http://muamely.com") : ""
         params = {
             "productname" => product_name,
             "price" => self.price,
             "productunit" => productunit,
             "categorylv1" => 3, # Phu kien
             "categorylv2" => categorylv2,
-            "product_desc" => "#{self.description.present? ? self.description : ''}"
+            "product_desc" => desc
         }
 
         params.merge!({"categorylv3" => categorylv3}) if categorylv3.present?
