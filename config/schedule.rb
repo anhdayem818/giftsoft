@@ -14,7 +14,7 @@ set :output, {:error => 'error.log', :standard => 'cron.log'}
 #   rake "some:great:rake:task"
 # end
 #
-every 1.day, :at => '9:00 am' do
+every 1.day, :at => '8:00 am' do
   rake "product:post_to_thi_truong_si"
 end
 
