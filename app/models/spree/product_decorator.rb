@@ -183,5 +183,7 @@ Spree::Product.class_eval do
         end
       end
     end
+    self.posted = true
+    self.save
   end
 end
