@@ -32,7 +32,7 @@ Spree::Product.class_eval do
   end
 
   def self.post_product_to_thi_truong_si
-    product = Spree::Product.joins({taxons: :parent}).where("parents_spree_taxons.name='Đồng hồ' and `spree_products`.posted=false").group("`spree_products`.id").readonly(false).first
+    product = Spree::Product.on_hand.joins({taxons: :parent}).where("parents_spree_taxons.name='Đồng hồ' and `spree_products`.posted=false").group("`spree_products`.id").readonly(false).first
     if product.present?
       File.open("log/track_post_product.log", "a") do |file|
         file.puts "******************** Product id: #{product.id} ********************"
